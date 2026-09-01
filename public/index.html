@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform App Builder Quiz Simulator</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- HOME / SETUP SCREEN -->
+  <section id="screen-home" class="screen active">
+    <header class="app-header">
+      <h1>Salesforce Platform App Builder</h1>
+      <p class="subtitle">Certification Quiz Simulator &middot; 150-question bank</p>
+    </header>
+
+    <div class="card">
+      <label class="field-label" for="username">Your name (for saved history)</label>
+      <input type="text" id="username" placeholder="e.g. Alessandro" />
+    </div>
+
+    <div class="mode-cards">
+      <div class="mode-card" data-mode="study">
+        <h2>Study Mode</h2>
+        <p>Choose how many questions to practice. Get instant feedback and explanations after each question.</p>
+        <div class="count-picker">
+          <label>Number of questions:</label>
+          <div class="count-buttons" id="study-count-buttons">
+            <button class="count-btn" data-count="10">10</button>
+            <button class="count-btn" data-count="20">20</button>
+            <button class="count-btn" data-count="40">40</button>
+            <button class="count-btn" data-count="60">60</button>
+            <button class="count-btn" data-count="150">All (150)</button>
+          </div>
+          <div class="custom-count">
+            <label>or custom: </label>
+            <input type="number" id="study-custom-count" min="1" max="150" placeholder="e.g. 25">
+          </div>
+        </div>
+        <button class="btn-primary" id="start-study">Start Study Session</button>
+      </div>
+
+      <div class="mode-card" data-mode="exam">
+        <h2>Exam Mode</h2>
+        <p>Simulates the real exam: 60 questions, weighted exactly like the real exam blueprint, feedback shown only at the end.</p>
+        <div class="exam-info">
+          <ul>
+            <li>Salesforce Fundamentals: 18%</li>
+            <li>Data Modeling and Management: 20%</li>
+            <li>Business Logic &amp; Process Automation: 32%</li>
+            <li>User Interface: 17%</li>
+            <li>App Deployment: 13%</li>
+          </ul>
+        </div>
+        <button class="btn-primary" id="start-exam">Start Exam Simulation (60Q)</button>
+      </div>
+    </div>
+
+    <div class="card history-preview">
+      <h2>Your Session History</h2>
+      <div id="history-list">Loading history...</div>
+    </div>
+  </section>
+
+  <!-- QUIZ SCREEN -->
+  <section id="screen-quiz" class="screen">
+    <div class="quiz-topbar">
+      <div class="progress-info">
+        <span id="quiz-mode-label"></span>
+        <span id="quiz-progress"></span>
+      </div>
+      <button class="btn-secondary" id="quit-quiz">Quit</button>
+    </div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+
+    <div class="card question-card">
+      <div class="domain-tag" id="question-domain"></div>
+      <h2 id="question-text"></h2>
+      <div id="options-list" class="options-list"></div>
+
+      <div id="feedback-box" class="feedback-box hidden">
+        <div id="feedback-title"></div>
+        <div id="feedback-explanation"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn-primary" id="submit-answer">Submit Answer</button>
+        <button class="btn-primary hidden" id="next-question">Next Question &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SCREEN -->
+  <section id="screen-results" class="screen">
+    <header class="app-header">
+      <h1>Session Results</h1>
+    </header>
+
+    <div class="card results-summary">
+      <div class="score-circle" id="score-circle">
+        <span id="score-pct">0%</span>
+      </div>
+      <div class="results-detail">
+        <p id="results-text"></p>
+        <p id="results-pass"></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Score by Domain</h2>
+      <div id="domain-breakdown"></div>
+    </div>
+
+    <div class="card">
+      <h2>Question Review</h2>
+      <div id="question-review"></div>
+    </div>
+
+    <div class="actions-row">
+      <button class="btn-primary" id="back-home">Back to Home</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
