@@ -1,0 +1,16 @@
+{
+  "name": "appbuilder-quiz-sim",
+  "version": "1.0.0",
+  "description": "Local/Render quiz simulator for the Salesforce Platform App Builder certification",
+  "main": "server.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}

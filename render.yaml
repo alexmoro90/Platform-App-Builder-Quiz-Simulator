@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: appbuilder-quiz-sim
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.20.4
+      - key: DB_PATH
+        value: /var/data/scores.db
+    disk:
+      name: quiz-data
+      mountPath: /var/data
+      sizeGB: 1
