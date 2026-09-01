@@ -1,0 +1,2102 @@
+[
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Declarative vs Programmatic",
+    "question": "A business analyst wants to send an email alert automatically whenever a Case's status changes to 'Closed', with no complex logic required. What is the MOST appropriate solution?",
+    "options": [
+      "Write an Apex trigger",
+      "Use a Flow with an Email Alert action",
+      "Ask a developer to build a Lightning component",
+      "Use an Outbound Message with a Web Service"
+    ],
+    "correct": 1,
+    "explanation": "Simple record-triggered automation such as sending an email on a field change is a classic declarative use case, best solved with Flow Builder and an Email Alert — no code is required.",
+    "id": 1
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Declarative vs Programmatic",
+    "question": "Which scenario is generally BEST suited for a programmatic (Apex) solution rather than a declarative one?",
+    "options": [
+      "Automatically setting a default value in a field",
+      "Complex, high-volume batch logic with intricate conditional branching across multiple objects",
+      "Displaying/hiding a field based on record type",
+      "Rolling up a count of child records"
+    ],
+    "correct": 1,
+    "explanation": "Declarative tools (Flow, validation rules, roll-up summaries) handle most business needs, but complex bulk processing with intricate logic that exceeds declarative limits is better handled in Apex.",
+    "id": 2
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Declarative vs Programmatic",
+    "question": "An App Builder should recommend a declarative-first approach primarily because:",
+    "options": [
+      "Declarative tools are always faster at runtime than Apex",
+      "Declarative tools are easier to maintain, require no code deployment, and are accessible to admins",
+      "Apex cannot be used in Lightning Experience",
+      "Declarative tools bypass all governor limits"
+    ],
+    "correct": 1,
+    "explanation": "Salesforce's guidance is 'clicks before code' — declarative solutions are easier to maintain, don't require a release process, and empower admins, so they should be tried first.",
+    "id": 3
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "AgentExchange",
+    "question": "A company wants to extend their org with a pre-built AI agent template built by a partner without writing custom code. Where would they look?",
+    "options": [
+      "AppExchange only",
+      "Trailhead",
+      "AgentExchange",
+      "Salesforce Ideas"
+    ],
+    "correct": 2,
+    "explanation": "AgentExchange is the marketplace specifically for discovering and installing Agentforce agents, topics, actions, and related AI extensions built by Salesforce and partners.",
+    "id": 4
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "AgentExchange",
+    "question": "Which of the following is a common use case for AgentExchange?",
+    "options": [
+      "Purchasing hardware for data centers",
+      "Installing a pre-built Agentforce agent or action to extend automation with AI capabilities",
+      "Managing sandbox refresh schedules",
+      "Creating custom report types"
+    ],
+    "correct": 1,
+    "explanation": "AgentExchange is used to find and install ready-made Agentforce agents, topics, and actions that extend an org's AI-driven automation capabilities.",
+    "id": 5
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "AgentExchange",
+    "question": "A customer wants to quickly evaluate a partner-built Agentforce service agent designed for order management before building one from scratch. What should they do?",
+    "options": [
+      "Build it manually in Flow Builder",
+      "Browse and install a template from AgentExchange",
+      "Submit an idea on the IdeaExchange",
+      "Open a support case"
+    ],
+    "correct": 1,
+    "explanation": "AgentExchange hosts pre-built, installable Agentforce agent templates from Salesforce and partners, letting customers evaluate and deploy solutions quickly.",
+    "id": 6
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Object/Record/Field Access",
+    "question": "Which security feature controls whether a user can see a particular field on an object, regardless of record ownership?",
+    "options": [
+      "Sharing Rules",
+      "Field-Level Security (Field Permissions)",
+      "Organization-Wide Defaults",
+      "Role Hierarchy"
+    ],
+    "correct": 1,
+    "explanation": "Field-Level Security (set via profiles or permission sets) controls visibility/editability of specific fields, independent of record-level sharing.",
+    "id": 7
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Object/Record/Field Access",
+    "question": "Which setting determines the baseline, most restrictive level of record access for an object across the org?",
+    "options": [
+      "Profile",
+      "Organization-Wide Defaults (OWD)",
+      "Permission Set",
+      "Sharing Rule"
+    ],
+    "correct": 1,
+    "explanation": "Organization-Wide Defaults set the baseline access level (Private, Public Read Only, Public Read/Write) before any sharing rules or hierarchies open up further access.",
+    "id": 8
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Object/Record/Field Access",
+    "question": "A user needs temporary, additional access to create Opportunities without changing their profile. What is the BEST tool?",
+    "options": [
+      "Change the user's profile permanently",
+      "Assign a Permission Set granting the Create permission on Opportunity",
+      "Modify Organization-Wide Defaults",
+      "Create a new Role"
+    ],
+    "correct": 1,
+    "explanation": "Permission Sets grant additional, granular permissions to specific users without altering their profile, making them ideal for temporary or role-specific extensions.",
+    "id": 9
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Object/Record/Field Access",
+    "question": "Which feature restricts access to individual records based on values within the record itself, evaluated at run time?",
+    "options": [
+      "Restriction Rules",
+      "Field-Level Security",
+      "Page Layouts",
+      "Compact Layouts"
+    ],
+    "correct": 0,
+    "explanation": "Restriction Rules limit the set of records a user can see based on record criteria, layered on top of existing sharing settings, without widening access.",
+    "id": 10
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Sharing Solutions",
+    "question": "An Account owner should have full access to their own Accounts, but managers should automatically see all records owned by their subordinates. Which feature provides this?",
+    "options": [
+      "Manual Sharing",
+      "Role Hierarchy",
+      "Sharing Rules based on criteria",
+      "Permission Sets"
+    ],
+    "correct": 1,
+    "explanation": "The Role Hierarchy automatically grants users above a record owner in the hierarchy the same or greater access, which fits a manager-sees-subordinates model.",
+    "id": 11
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Sharing Solutions",
+    "question": "OWD for Opportunity is set to Private. Sales reps on the 'East Team' need read/write access to Opportunities owned by the 'West Team', and vice versa, even though they are in unrelated roles. What is the best solution?",
+    "options": [
+      "Change OWD to Public Read/Write",
+      "Create a role hierarchy connecting the two teams",
+      "Create Sharing Rules based on Role/Public Group to share records between the two teams",
+      "Use Manual Sharing on each record individually"
+    ],
+    "correct": 2,
+    "explanation": "When two groups need reciprocal access that the role hierarchy doesn't naturally provide, criteria- or owner-based Sharing Rules extending access between public groups/roles are the scalable solution.",
+    "id": 12
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Sharing Solutions",
+    "question": "Which sharing mechanism allows a record owner to grant access to a single specific user on a single record, ad hoc?",
+    "options": [
+      "Sharing Rules",
+      "Manual Sharing",
+      "Role Hierarchy",
+      "Territory Management"
+    ],
+    "correct": 1,
+    "explanation": "Manual Sharing lets a record owner (or someone above them) share one specific record with one or more users/groups on a case-by-case basis.",
+    "id": 13
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Sharing Solutions",
+    "question": "A company wants Opportunity access to follow a geographic and product-based structure that doesn't map cleanly to the role hierarchy. What should be considered?",
+    "options": [
+      "Public Groups only",
+      "Territory Management",
+      "Field-Level Security",
+      "Compact Layouts"
+    ],
+    "correct": 1,
+    "explanation": "Territory Management (Enterprise Territory Management) is designed for complex, multi-dimensional access needs like geography and product lines that don't fit a simple role hierarchy.",
+    "id": 14
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Sharing Solutions",
+    "question": "Which statement about Sharing Rules is TRUE?",
+    "options": [
+      "They can only widen access, never restrict it below OWD",
+      "They can be used to restrict access below the org-wide default",
+      "They apply only to the Account object",
+      "They replace the need for a role hierarchy entirely"
+    ],
+    "correct": 0,
+    "explanation": "Sharing Rules are additive — they can only open up (widen) access beyond what Organization-Wide Defaults allow; they can never restrict access further.",
+    "id": 15
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Reports/Dashboards",
+    "question": "Which feature must be created BEFORE you can build a custom report joining data from a custom object and its related child records if no standard report type exists?",
+    "options": [
+      "A custom Report Type",
+      "A Dashboard Filter",
+      "A Custom Report Chart",
+      "A List View"
+    ],
+    "correct": 0,
+    "explanation": "A Custom Report Type defines which objects and fields (including related object fields) are available when building reports, and must exist first if a standard type doesn't cover the need.",
+    "id": 16
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Reports/Dashboards",
+    "question": "What allows a single dashboard to display different data for the logged-in user viewing it?",
+    "options": [
+      "Dynamic Dashboards (Run As logged-in user)",
+      "Report Types",
+      "Joined Reports",
+      "Bucket Fields"
+    ],
+    "correct": 0,
+    "explanation": "Dynamic Dashboards run using the viewing user's own security settings, so each viewer sees only the data they have access to.",
+    "id": 17
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Reports/Dashboards",
+    "question": "A user wants to group report data into custom ranges (e.g., 'Small', 'Medium', 'Large' deal sizes) without creating new fields. What feature should they use?",
+    "options": [
+      "Bucket Fields",
+      "Cross Filters",
+      "Report Type",
+      "Conditional Highlighting"
+    ],
+    "correct": 0,
+    "explanation": "Bucket fields let users group and categorize report data into custom ranges/buckets directly within the report, without modifying the underlying data model.",
+    "id": 18
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Reports/Dashboards",
+    "question": "Which report format allows combining data from two different, but related, report types side by side in the same report?",
+    "options": [
+      "Matrix Report",
+      "Summary Report",
+      "Joined Report",
+      "Tabular Report"
+    ],
+    "correct": 2,
+    "explanation": "Joined Reports let you combine multiple report blocks — potentially from different report types — into a single report for side-by-side comparison.",
+    "id": 19
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Reports/Dashboards",
+    "question": "What is the primary purpose of a Cross Filter in reporting?",
+    "options": [
+      "To filter records that DO or DO NOT have related records of another object",
+      "To combine two reports into one",
+      "To schedule report refresh",
+      "To restrict field visibility"
+    ],
+    "correct": 0,
+    "explanation": "Cross Filters let you filter a report based on the presence or absence of related records, e.g., 'Accounts WITHOUT Opportunities'.",
+    "id": 20
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Declarative vs Programmatic",
+    "question": "A requirement calls for real-time integration with an external inventory system with custom retry/error-handling logic beyond what a Flow HTTP callout easily supports. This most likely requires:",
+    "options": [
+      "A Validation Rule",
+      "A programmatic solution (Apex/external service with custom logic)",
+      "A Roll-Up Summary field",
+      "A Page Layout change"
+    ],
+    "correct": 1,
+    "explanation": "Highly custom integration logic with advanced error handling typically exceeds declarative capability and calls for a programmatic approach.",
+    "id": 21
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Object/Record/Field Access",
+    "question": "Which of the following can be restricted using both Profiles AND Permission Sets?",
+    "options": [
+      "Object permissions (CRUD) and field-level security",
+      "Organization-Wide Defaults",
+      "Role hierarchy structure",
+      "Sharing Rules criteria"
+    ],
+    "correct": 0,
+    "explanation": "Both Profiles and Permission Sets can grant/restrict object-level (CRUD) and field-level security; Permission Sets only add, never remove, permissions.",
+    "id": 22
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Sharing Solutions",
+    "question": "A 'Super User' group needs full access to ALL records of a custom object, overriding all other sharing settings. What is the most direct declarative approach?",
+    "options": [
+      "Set OWD to Public Read/Write for everyone",
+      "Grant 'View All' and 'Modify All' object permissions via a Permission Set assigned to that group",
+      "Create a role above the CEO",
+      "Use a Restriction Rule"
+    ],
+    "correct": 1,
+    "explanation": "'View All' and 'Modify All' object permissions grant access to every record of that object, bypassing sharing rules entirely — ideal for a super-user group.",
+    "id": 23
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "AgentExchange",
+    "question": "True or False: Solutions on AgentExchange require custom Apex development before they can be used in an org.",
+    "options": [
+      "True — Apex is always required",
+      "False — many can be installed and configured declaratively",
+      "True — only for flows",
+      "False — but they cannot be customized at all"
+    ],
+    "correct": 1,
+    "explanation": "Many AgentExchange listings are designed to be installed and configured declaratively, though some may still require additional customization depending on complexity.",
+    "id": 24
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Reports/Dashboards",
+    "question": "Which permission is required for a user to schedule a dashboard refresh and have it emailed automatically?",
+    "options": [
+      "'Run Reports' and access to schedule dashboards along with view access to the dashboard's underlying data",
+      "Modify All Data",
+      "View Setup and Configuration",
+      "Manage Users"
+    ],
+    "correct": 0,
+    "explanation": "Scheduling dashboard refreshes requires the running user to have report-running rights and appropriate access to the dashboard and its source data.",
+    "id": 25
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Object/Record/Field Access",
+    "question": "Which of the following BEST restricts a specific user from ever seeing the 'Social Security Number' custom field, even if they have 'View All' on the object?",
+    "options": [
+      "Field-Level Security set to hidden for their profile/permission set",
+      "Organization-Wide Default",
+      "A Validation Rule",
+      "A Sharing Rule"
+    ],
+    "correct": 0,
+    "explanation": "Field-Level Security is independent of object/record access — even 'View All' won't expose a field that FLS hides from the user's profile or permission sets.",
+    "id": 26
+  },
+  {
+    "domain": "Salesforce Fundamentals",
+    "subtopic": "Sharing Solutions",
+    "question": "Which combination correctly orders sharing access from MOST restrictive baseline to access-widening mechanisms?",
+    "options": [
+      "Sharing Rules → OWD → Role Hierarchy",
+      "OWD → Role Hierarchy/Sharing Rules/Manual Sharing (all widen access)",
+      "Permission Sets → OWD",
+      "Profiles → Sharing Rules → OWD"
+    ],
+    "correct": 1,
+    "explanation": "OWD sets the most restrictive baseline; role hierarchy, sharing rules, and manual sharing can only add (widen) access on top of that baseline.",
+    "id": 27
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "A company tracks Invoices, each belonging to exactly one Account, and each Invoice has multiple Line Items. What relationship best models Invoice-to-Line-Item?",
+    "options": [
+      "Many-to-Many",
+      "Master-Detail (Invoice as master, Line Item as detail)",
+      "Lookup with no cascade",
+      "Hierarchical"
+    ],
+    "correct": 1,
+    "explanation": "A Master-Detail relationship is ideal when child records (Line Items) should be deleted with the parent (Invoice) and inherit sharing/security from the master.",
+    "id": 28
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "Two custom objects, Student and Course, need a many-to-many relationship where each combination can carry additional data like 'Grade'. What should be created?",
+    "options": [
+      "A single Lookup field on Student",
+      "A junction object with Master-Detail relationships to both Student and Course",
+      "A Hierarchical field",
+      "A formula field"
+    ],
+    "correct": 1,
+    "explanation": "A junction object with two Master-Detail relationships is the standard way to implement many-to-many relationships while also storing additional data about the association.",
+    "id": 29
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "Which field type is used to create a self-referencing relationship, such as an Employee reporting to a Manager on the same object, visible only on the User object as standard?",
+    "options": [
+      "Lookup relationship",
+      "Hierarchical relationship",
+      "Master-Detail relationship",
+      "External Lookup relationship"
+    ],
+    "correct": 1,
+    "explanation": "The Hierarchical relationship type is a special lookup type available only on the User object, used for org-chart-style manager relationships.",
+    "id": 30
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "When designing a data model, what is a key consideration for choosing Master-Detail over Lookup?",
+    "options": [
+      "Master-Detail supports up to 40 relationships per object",
+      "Master-Detail cascades deletion and enforces the detail record's security from the master, but limits flexibility (e.g., detail owner is not independently settable)",
+      "Lookup relationships always cascade delete",
+      "Master-Detail fields can be changed to Lookup with no data impact ever"
+    ],
+    "correct": 1,
+    "explanation": "Master-Detail relationships tie the detail's sharing and deletion behavior to the master, offering tight control but less flexibility than Lookup relationships.",
+    "id": 31
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "An object can have at most how many Master-Detail relationships (as a parent's detail)?",
+    "options": [
+      "1",
+      "2",
+      "25",
+      "Unlimited"
+    ],
+    "correct": 1,
+    "explanation": "A single object can only be the detail side of up to 2 Master-Detail relationships.",
+    "id": 32
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Relationship Types & Implications",
+    "question": "Which relationship type allows a child record to exist without a parent record (i.e., the relationship field can be blank)?",
+    "options": [
+      "Master-Detail",
+      "Lookup",
+      "Both equally support this",
+      "Neither"
+    ],
+    "correct": 1,
+    "explanation": "A Lookup relationship field is typically optional (can be blank), whereas Master-Detail requires a parent and does not allow the detail to exist without one.",
+    "id": 33
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Relationship Types & Implications",
+    "question": "How does a Master-Detail relationship affect roll-up summary field availability?",
+    "options": [
+      "Roll-up summary fields require a Master-Detail relationship on the parent side",
+      "Roll-up summary fields work equally well on Lookup relationships",
+      "Roll-up summaries are only for formula fields",
+      "Roll-up summaries require external objects"
+    ],
+    "correct": 0,
+    "explanation": "Roll-up Summary fields can only be created on the master side of a Master-Detail relationship (with limited exceptions like indirect lookup rollups for external objects).",
+    "id": 34
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Relationship Types & Implications",
+    "question": "What happens to detail records when a Master record in a Master-Detail relationship is deleted?",
+    "options": [
+      "They become orphaned but remain",
+      "They are also deleted (cascading delete), and can be recovered together from the Recycle Bin",
+      "Nothing changes on detail records",
+      "They are automatically reassigned to a default parent"
+    ],
+    "correct": 1,
+    "explanation": "Master-Detail relationships cascade delete: deleting the master also deletes its detail records, and restoring from the Recycle Bin restores both together.",
+    "id": 35
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Relationship Types & Implications",
+    "question": "How does converting a Lookup relationship to a Master-Detail relationship typically impact existing reports and record access?",
+    "options": [
+      "No impact whatsoever",
+      "Detail record ownership/sharing changes to inherit from the master, which can change who can view/edit records and affects related lists/rollups",
+      "Only field labels change",
+      "Reports must be deleted and rebuilt"
+    ],
+    "correct": 1,
+    "explanation": "Changing Lookup to Master-Detail changes sharing behavior (detail inherits master's sharing) and record ownership visibility, which can significantly affect access and reporting.",
+    "id": 36
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Relationship Types & Implications",
+    "question": "In the UI, how does a Lookup relationship typically differ from Master-Detail in terms of related list rendering?",
+    "options": [
+      "They render identically with no differences",
+      "Master-Detail related lists imply tighter coupling (detail cannot exist independently); Lookup relationships are more loosely coupled and optional to display",
+      "Lookup relationships cannot appear in related lists",
+      "Master-Detail relationships cannot appear in related lists"
+    ],
+    "correct": 1,
+    "explanation": "While both can show related lists, master-detail implies tighter coupling (detail cannot exist independently), whereas lookup relationships are more loosely coupled.",
+    "id": 37
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "A field currently storing whole numbers needs to eventually store decimal values like 12.5. What should be considered before changing its type?",
+    "options": [
+      "Changing Number (0 decimal places) to Number (with decimals) is generally safe and preserves data",
+      "This always causes complete data loss",
+      "You cannot ever change a Number field's decimal places",
+      "You must delete and recreate the object"
+    ],
+    "correct": 0,
+    "explanation": "Increasing decimal places on a Number field is a low-risk change; Salesforce allows it without data loss, unlike more drastic type conversions (e.g., Text to Number).",
+    "id": 38
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "Which conversion is generally NOT directly supported without data loss risk or workaround?",
+    "options": [
+      "Checkbox to Picklist",
+      "Text to Text Area",
+      "Number to Text",
+      "Picklist to Multi-Select Picklist"
+    ],
+    "correct": 0,
+    "explanation": "Converting a Checkbox (boolean) directly to a Picklist isn't a standard supported conversion path; it generally requires a workaround such as a new field and data migration/formula logic.",
+    "id": 39
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "What must an admin consider before changing a Picklist field to a Multi-Select Picklist?",
+    "options": [
+      "Nothing, it's fully backward compatible with zero side effects",
+      "Existing formulas, validation rules, and reports referencing the field with single-value logic (e.g., ISPICKVAL) may need to be updated since values now become a list",
+      "Multi-select picklists cannot have more than 5 values",
+      "This conversion is only allowed on custom objects"
+    ],
+    "correct": 1,
+    "explanation": "Multi-select picklists store multiple values differently (semicolon-separated), which can break formulas like ISPICKVAL and requires review of dependent automation and reports.",
+    "id": 40
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "Why might an admin choose an Auto-Number field instead of a Text field for an identifier?",
+    "options": [
+      "Auto-Number values are automatically calculated and sequential, guaranteeing uniqueness for record naming without manual entry",
+      "Auto-Number fields can be edited freely by users",
+      "Auto-Number supports roll-up summaries directly",
+      "Auto-Number fields can be used in Master-Detail relationships"
+    ],
+    "correct": 0,
+    "explanation": "Auto-Number fields automatically generate unique, sequential, system-formatted identifiers — useful for record names/IDs without relying on manual, error-prone entry.",
+    "id": 41
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "A field needs to store values up to 500 characters of plain text with no formatting. What is the appropriate field type?",
+    "options": [
+      "Text Area (Long)",
+      "Text (max 255 chars — too small)",
+      "Rich Text Area",
+      "Encrypted Text always"
+    ],
+    "correct": 0,
+    "explanation": "Standard Text fields max out at 255 characters; for larger plain text needs, a (Long) Text Area type is appropriate.",
+    "id": 42
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "Which field type should be used to store sensitive information like a national ID number, with masking in the UI?",
+    "options": [
+      "Encrypted Text field",
+      "Formula field",
+      "Roll-Up Summary field",
+      "Currency field"
+    ],
+    "correct": 0,
+    "explanation": "Encrypted (Text) fields mask sensitive data in the UI and encrypt it at rest, appropriate for identifiers like SSNs.",
+    "id": 43
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Import/Export",
+    "question": "Which tool is best for a one-time import of 500,000 Account records with complex field mappings and automation?",
+    "options": [
+      "Data Import Wizard",
+      "Data Loader",
+      "Manual data entry",
+      "Report Export"
+    ],
+    "correct": 1,
+    "explanation": "Data Loader handles much larger volumes (up to 5 million records) and offers more advanced mapping/automation options than the Data Import Wizard, which is capped around 50,000 records with simpler UI-driven mapping.",
+    "id": 44
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Import/Export",
+    "question": "What is a key limitation of the Data Import Wizard compared to Data Loader?",
+    "options": [
+      "It cannot be run without code",
+      "It supports fewer objects and lower record volume limits, and lacks a command-line/scheduled/automatable interface",
+      "It cannot import Accounts or Contacts",
+      "It requires a managed package"
+    ],
+    "correct": 1,
+    "explanation": "The Data Import Wizard is UI-based, supports a limited set of standard/custom objects, and caps around 50,000 records at a time, with no batch/scheduled automation, unlike Data Loader.",
+    "id": 45
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Import/Export",
+    "question": "A company wants to keep Salesforce data in sync in real time (bi-directionally) with an external SQL database WITHOUT copying data into Salesforce storage. What feature should they evaluate?",
+    "options": [
+      "Data Import Wizard",
+      "External Objects via Salesforce Connect",
+      "Standard Object with scheduled batch import",
+      "Data Loader with a nightly job"
+    ],
+    "correct": 1,
+    "explanation": "Salesforce Connect exposes External Objects that query external data sources in real time, avoiding the need to duplicate/store the data within Salesforce.",
+    "id": 46
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Import/Export",
+    "question": "When exporting data for backup purposes, which native tool provides a scheduled export of your org's data as CSV files?",
+    "options": [
+      "Data Export Service (Data Export in Setup)",
+      "Data Loader Insert",
+      "Report Builder",
+      "Change Sets"
+    ],
+    "correct": 0,
+    "explanation": "Setup's Data Export service allows scheduling weekly (or monthly, depending on edition) exports of org data to downloadable CSV/zip files.",
+    "id": 47
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Import/Export",
+    "question": "What is required before Data Loader can insert records with Master-Detail relationships to a parent object?",
+    "options": [
+      "Nothing special is required",
+      "The parent record's ID must be mapped/resolved (e.g., via External ID) since the detail record cannot be created without a parent reference",
+      "Master-Detail fields cannot be populated via Data Loader",
+      "You must first delete existing detail records"
+    ],
+    "correct": 1,
+    "explanation": "Since Master-Detail requires a parent on creation, Data Loader import files must include a way to resolve the parent — often via an External ID field for matching — so each detail row links to the correct master.",
+    "id": 48
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Import/Export",
+    "question": "What is the benefit of using an External ID field when importing related data via Data Loader?",
+    "options": [
+      "It allows matching/upserting records based on a value from the external system instead of the Salesforce record ID",
+      "It makes fields required",
+      "It automatically encrypts the data",
+      "It bypasses all validation rules"
+    ],
+    "correct": 0,
+    "explanation": "External ID fields (often indexed) let Data Loader match and upsert related records using a familiar external system's key, rather than needing internal Salesforce IDs.",
+    "id": 49
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "When should an Admin consider using an External Object over a custom object for data that lives in a legacy system?",
+    "options": [
+      "When the data must always be duplicated in Salesforce storage",
+      "When real-time access to the external system's live data is needed without the storage costs/duplication of importing it into Salesforce",
+      "When there is no need for any UI integration",
+      "Only when using Data Loader"
+    ],
+    "correct": 1,
+    "explanation": "External Objects (via Salesforce Connect) are appropriate when live, real-time access to external data is required, avoiding storage costs and data duplication associated with importing into custom objects.",
+    "id": 50
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Relationship Types & Implications",
+    "question": "A Lookup relationship field is deleted. What happens to the related records?",
+    "options": [
+      "They are all deleted",
+      "The child records remain; only the relationship (and field data referencing it) is affected/removed",
+      "The parent is deleted",
+      "Nothing can be deleted once a lookup relationship exists"
+    ],
+    "correct": 1,
+    "explanation": "Deleting a Lookup relationship field does not delete the child records themselves — the records remain, only the specific relationship field/data is affected.",
+    "id": 51
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "Which field type automatically calculates its value based on other fields and cannot be directly edited by users?",
+    "options": [
+      "Roll-Up Summary and Formula fields",
+      "Currency field",
+      "Picklist field",
+      "Text field"
+    ],
+    "correct": 0,
+    "explanation": "Both Roll-Up Summary fields and Formula fields are read-only, system-calculated fields based on other data — users cannot manually edit their values.",
+    "id": 52
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "A recruiting app needs to track multiple Interviews per Job Application, where each Interview should be deleted automatically if the Job Application is deleted, and should inherit its sharing. What relationship type is appropriate?",
+    "options": [
+      "Lookup",
+      "Master-Detail (Job Application as master)",
+      "Many-to-Many junction object",
+      "Hierarchical"
+    ],
+    "correct": 1,
+    "explanation": "Cascading delete and inherited sharing are hallmark behaviors of a Master-Detail relationship, making it the right choice here (Job Application as master, Interview as detail).",
+    "id": 53
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "Which statement about Many-to-Many relationships using a junction object is TRUE?",
+    "options": [
+      "The junction object must use Lookup relationships only",
+      "The junction object typically uses two Master-Detail relationships to connect both parent objects and can hold additional fields",
+      "Many-to-Many relationships cannot store additional fields",
+      "Junction objects are only for standard objects"
+    ],
+    "correct": 1,
+    "explanation": "A junction object commonly uses two Master-Detail relationships to connect two objects in a many-to-many fashion, and it can hold additional fields describing the association.",
+    "id": 54
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Import/Export",
+    "question": "What is a consideration when importing data that will trigger Validation Rules and Flow automation?",
+    "options": [
+      "Automation never runs during import",
+      "Validation rules and automation can slow down large imports or cause failures if data doesn't meet criteria",
+      "Only Apex triggers run during import, nothing else",
+      "Data Import Wizard disables all validation rules automatically"
+    ],
+    "correct": 1,
+    "explanation": "Bulk imports interact with validation rules, flows and triggers just like manual entry, which can cause performance issues or import failures if not planned for.",
+    "id": 55
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Field Data Types",
+    "question": "Why might changing a Picklist field to a Text field cause data quality issues?",
+    "options": [
+      "It won't — Text fields are always safer",
+      "It removes the constraint of a controlled, standardized value list, allowing inconsistent/free-form entries and potentially breaking dependent picklists, reports, and automation",
+      "Text fields cannot store the same data length",
+      "This conversion is technically impossible"
+    ],
+    "correct": 1,
+    "explanation": "Removing the controlled vocabulary of a picklist in favor of free text allows inconsistent data entry, and can break dependent picklists, validation rules, or reports relying on exact known values.",
+    "id": 56
+  },
+  {
+    "domain": "Data Modeling and Management",
+    "subtopic": "Data Model Design",
+    "question": "Which factor most favors Master-Detail over Lookup for reporting purposes?",
+    "options": [
+      "Master-Detail enables roll-up summary fields and is automatically available in standard report type wizards; Lookup relationships require custom report types and don't support native roll-ups",
+      "Lookup relationships always report faster",
+      "Master-Detail relationships cannot appear in reports",
+      "There is no reporting difference"
+    ],
+    "correct": 0,
+    "explanation": "Master-Detail relationships natively support roll-up summaries and are automatically available in standard report type wizards, while Lookup relationships need custom report types to join data and don't support native roll-ups.",
+    "id": 57
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "Which function would you use in a formula field to display 'High' if Amount > 10000, 'Medium' if Amount > 5000, else 'Low'?",
+    "options": [
+      "A simple SUM()",
+      "Nested IF() statements or the CASE() function",
+      "VLOOKUP()",
+      "ISCHANGED()"
+    ],
+    "correct": 1,
+    "explanation": "Nested IF() statements or the CASE() function can implement multi-branch conditional logic in a formula field.",
+    "id": 58
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "A formula field needs to concatenate a Text field with a Number field into a single string. What must be done to the Number field?",
+    "options": [
+      "Nothing, formulas auto-convert all types",
+      "Wrap it with TEXT() to convert it to a string before concatenation",
+      "Use a Roll-Up Summary instead",
+      "Convert it to a Currency field first"
+    ],
+    "correct": 1,
+    "explanation": "Formula fields require explicit type conversion — the TEXT() function converts numeric/date values to text so they can be concatenated with strings using the & operator.",
+    "id": 59
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "Which statement about formula fields is TRUE?",
+    "options": [
+      "Formula fields can reference fields on related objects across relationships but cannot be edited by users, and don't consume record storage",
+      "Formula fields can always be edited manually by end users",
+      "Formula fields can store an editable running total",
+      "Formula fields count against object storage the same as text fields"
+    ],
+    "correct": 0,
+    "explanation": "Formula fields are read-only/calculated in real time (not stored), can traverse relationships to related objects, but can't be directly edited by users, and don't consume record storage.",
+    "id": 60
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "In which context is a change-detection function like ISCHANGED() typically valid?",
+    "options": [
+      "In any standard formula field",
+      "Within validation logic tied to a record update context (e.g., certain Flow/validation contexts that compare old and new values) — not in a plain formula field",
+      "Only with Roll-Up Summary fields",
+      "It replaces ISBLANK() entirely"
+    ],
+    "correct": 1,
+    "explanation": "ISCHANGED() (and similar change-detection logic) compares a field's old vs. new value, and is valid mainly in contexts tied to record updates — not usable as-is in standard formula fields outside that context.",
+    "id": 61
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "A formula field references a field from a related object via a Lookup relationship using dot notation. What is required?",
+    "options": [
+      "Nothing special; any relationship works the same",
+      "The relationship must exist and be accessible; cross-object formulas can traverse up to 10 relationships away",
+      "Cross-object formulas are impossible with lookups",
+      "Only Master-Detail relationships allow cross-object formulas"
+    ],
+    "correct": 1,
+    "explanation": "Cross-object formulas can reference fields on related records through both Lookup and Master-Detail relationships, up to 10 relationships deep.",
+    "id": 62
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "Which function returns TRUE if a field has no value?",
+    "options": [
+      "ISCHANGED()",
+      "ISBLANK()",
+      "ISNULL() only for text",
+      "NULLVALUE()"
+    ],
+    "correct": 1,
+    "explanation": "ISBLANK() checks whether a field is empty and works appropriately for both text and non-text fields, generally recommended over ISNULL() for text fields.",
+    "id": 63
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Roll-Up Summary Fields",
+    "question": "On what type of relationship can a Roll-Up Summary field be created?",
+    "options": [
+      "Only Lookup relationships",
+      "Master-Detail relationships (with the summary field on the master object)",
+      "Any relationship type equally",
+      "Many-to-Many without a junction"
+    ],
+    "correct": 1,
+    "explanation": "Roll-up summary fields require a Master-Detail relationship; the summary field lives on the master (parent) object and aggregates values from detail (child) records.",
+    "id": 64
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Roll-Up Summary Fields",
+    "question": "Which aggregate function is NOT available for Roll-Up Summary fields?",
+    "options": [
+      "SUM",
+      "COUNT",
+      "AVERAGE",
+      "MAX"
+    ],
+    "correct": 2,
+    "explanation": "Roll-up summary fields support COUNT, SUM, MIN, and MAX — AVERAGE is not a native roll-up summary aggregate option.",
+    "id": 65
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Roll-Up Summary Fields",
+    "question": "A business needs to roll up a SUM of an Opportunity Amount across related child records where the parent relationship is a Lookup (not Master-Detail). What is a common workaround?",
+    "options": [
+      "It's impossible to achieve any equivalent result",
+      "Use a Flow or Apex trigger to calculate and store the sum in a regular field, or convert the relationship to Master-Detail if feasible",
+      "Just create a roll-up summary field anyway; it works fine on lookups",
+      "Use a Validation Rule"
+    ],
+    "correct": 1,
+    "explanation": "Since native roll-up summaries require Master-Detail, when only a Lookup is available, admins typically use declarative automation (Flow) or Apex to calculate and store an equivalent aggregate value.",
+    "id": 66
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Roll-Up Summary Fields",
+    "question": "Roll-Up Summary fields can filter which child records to include in the aggregation using:",
+    "options": [
+      "Only global filters set at the org level",
+      "Filter criteria configured directly on the roll-up summary field definition",
+      "A separate validation rule",
+      "Field-level security settings"
+    ],
+    "correct": 1,
+    "explanation": "When defining a roll-up summary field, you can add filter criteria so only child records meeting specific conditions are included in the aggregation.",
+    "id": 67
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Roll-Up Summary Fields",
+    "question": "What happens to a Roll-Up Summary field's value when a qualifying child record is deleted?",
+    "options": [
+      "Nothing updates until manually recalculated",
+      "It automatically recalculates to reflect the deletion",
+      "The roll-up field is deleted too",
+      "The parent record is deleted"
+    ],
+    "correct": 1,
+    "explanation": "Roll-up summary fields recalculate automatically whenever a relevant detail record is created, updated, or deleted.",
+    "id": 68
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Validation Rules",
+    "question": "A validation rule should prevent saving an Opportunity with a Close Date in the past for NEW records only, but allow editing old existing records with past close dates. Which formula pattern is appropriate?",
+    "options": [
+      "CloseDate < TODAY()",
+      "AND(ISNEW(), CloseDate < TODAY())",
+      "ISCHANGED(CloseDate)",
+      "NOT(ISBLANK(CloseDate))"
+    ],
+    "correct": 1,
+    "explanation": "Wrapping the condition with ISNEW() ensures the rule only fires on record creation, so existing records with already-past close dates aren't blocked on edit.",
+    "id": 69
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Validation Rules",
+    "question": "Which best describes how Validation Rules interact with Roll-Up Summary and Formula fields?",
+    "options": [
+      "Validation rules cannot reference formula or roll-up summary fields",
+      "Validation rules CAN reference formula fields and roll-up summary field values in their logic",
+      "Validation rules only work on picklist fields",
+      "Validation rules override roll-up summary calculations"
+    ],
+    "correct": 1,
+    "explanation": "Validation rule formulas can reference other fields on the record, including formula fields and roll-up summary fields, as part of their evaluation logic.",
+    "id": 70
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Validation Rules",
+    "question": "A Validation Rule's error condition formula evaluates to TRUE. What happens?",
+    "options": [
+      "The record saves normally",
+      "The record is prevented from saving, and the specified error message is displayed",
+      "The record is saved but flagged for review",
+      "A Flow is automatically triggered to fix the record"
+    ],
+    "correct": 1,
+    "explanation": "When a validation rule's formula evaluates to TRUE, Salesforce blocks the save and displays the configured error message to the user.",
+    "id": 71
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Validation Rules",
+    "question": "Which function combination is commonly used in a validation rule to require a field be populated only when another field has a specific value?",
+    "options": [
+      "AND(ISPICKVAL(Type,\"Partner\"), ISBLANK(Partner_Contact__c))",
+      "SUM()",
+      "COUNT()",
+      "ROUND()"
+    ],
+    "correct": 0,
+    "explanation": "Combining ISPICKVAL() to check a picklist value with ISBLANK() to check for a missing related field, joined by AND(), is a classic conditional-required-field validation pattern.",
+    "id": 72
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Validation Rules",
+    "question": "A validation rule error message can be placed:",
+    "options": [
+      "Only at the top of the page",
+      "At the top of the page OR next to a specific field",
+      "Only in an email to the admin",
+      "Only in the debug log"
+    ],
+    "correct": 1,
+    "explanation": "Validation rule error messages can be configured to display either at the top of the page or attached to a specific field for clearer context.",
+    "id": 73
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Builder",
+    "question": "Which Flow type runs automatically in the background when a record is created or updated, without user interaction?",
+    "options": [
+      "Screen Flow",
+      "Record-Triggered Flow",
+      "Scheduled Flow only",
+      "Autolaunched Flow triggered strictly by a button"
+    ],
+    "correct": 1,
+    "explanation": "Record-Triggered Flows automatically execute when a record is created, updated, or deleted, without requiring any user interface interaction.",
+    "id": 74
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Builder",
+    "question": "Which Flow type is designed to collect input from a user through a guided, multi-step interface?",
+    "options": [
+      "Screen Flow",
+      "Scheduled-Triggered Flow",
+      "Record-Triggered Flow (before-save)",
+      "Platform Event–Triggered Flow"
+    ],
+    "correct": 0,
+    "explanation": "Screen Flows present a series of screens to gather user input interactively, and can be launched from Lightning pages, buttons, or Experience sites.",
+    "id": 75
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Builder",
+    "question": "A record-triggered Flow needs to update a field on the same record BEFORE it is saved to the database, without triggering additional DML. Which option should be used?",
+    "options": [
+      "An After-Save record-triggered flow",
+      "A Before-Save record-triggered Flow with a fast field update",
+      "A Screen Flow",
+      "A Scheduled Flow"
+    ],
+    "correct": 1,
+    "explanation": "Before-Save (fast field update) record-triggered flows update fields on the triggering record directly in memory before it's committed, avoiding an extra DML/save operation — more efficient than an after-save update.",
+    "id": 76
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Builder",
+    "question": "Which Flow element allows branching logic based on record field values?",
+    "options": [
+      "Decision element",
+      "Assignment element",
+      "Get Records element",
+      "Subflow element"
+    ],
+    "correct": 0,
+    "explanation": "The Decision element in Flow Builder evaluates conditions and directs flow execution down different paths based on outcomes.",
+    "id": 77
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Builder",
+    "question": "What is the purpose of a Subflow element in Flow Builder?",
+    "options": [
+      "To call and execute another, separate flow from within the current flow, promoting reuse",
+      "To pause the flow indefinitely",
+      "To delete records only",
+      "To schedule a flow for later"
+    ],
+    "correct": 0,
+    "explanation": "A Subflow calls a separate, reusable flow, allowing common logic to be built once and invoked from multiple parent flows.",
+    "id": 78
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Builder",
+    "question": "In Flow Builder, which element is used to retrieve records from Salesforce matching specific criteria?",
+    "options": [
+      "Get Records",
+      "Create Records",
+      "Loop",
+      "Assignment"
+    ],
+    "correct": 0,
+    "explanation": "The Get Records element queries Salesforce for records matching specified filter criteria, similar to a SOQL query.",
+    "id": 79
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Builder",
+    "question": "A Flow needs to process each item within a collection variable one at a time (e.g., each Opportunity in a list). Which element is required?",
+    "options": [
+      "Loop",
+      "Decision",
+      "Assignment",
+      "Get Records"
+    ],
+    "correct": 0,
+    "explanation": "The Loop element iterates over each item in a collection, allowing repeated logic (e.g., assignments) to be applied to each item.",
+    "id": 80
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Approval Processes",
+    "question": "Which capability is unique to Approval Processes compared to a simple record-triggered flow?",
+    "options": [
+      "Multi-step, sequential approval routing with defined approvers, and record locking during the approval process",
+      "Sending a single email notification",
+      "Updating a single field automatically",
+      "Creating a report"
+    ],
+    "correct": 0,
+    "explanation": "Approval Processes provide structured, potentially multi-step approval routing to specific approvers, along with automatic record locking to prevent edits while pending approval.",
+    "id": 81
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Approval Processes",
+    "question": "When a record is submitted for approval, what commonly happens to that record by default?",
+    "options": [
+      "It becomes publicly visible to all users",
+      "It is automatically locked from further edits until the approval process completes or is recalled",
+      "It is deleted",
+      "It is duplicated"
+    ],
+    "correct": 1,
+    "explanation": "Approval Processes typically lock the record (via 'Locked' status) so it can't be edited while pending approval, unless recalled or specific edit permissions are granted.",
+    "id": 82
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Approval Processes",
+    "question": "Which action can an Approval Process's final approval/rejection step trigger?",
+    "options": [
+      "Field updates, email alerts, and outbound messages",
+      "Only sending an email",
+      "Nothing — approvals cannot trigger further actions",
+      "Only deleting the record"
+    ],
+    "correct": 0,
+    "explanation": "Final approval or rejection actions in an Approval Process can trigger field updates, email alerts, and outbound messages.",
+    "id": 83
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Approval Processes",
+    "question": "What determines who the next approver is in a multi-step approval process with dynamic approval routing?",
+    "options": [
+      "It's always the org's Admin",
+      "Approver fields, related user lookups, or manager-based routing configured within each approval step",
+      "A random selection",
+      "The record owner is always the sole approver"
+    ],
+    "correct": 1,
+    "explanation": "Dynamic approval routing can use specific approver fields, related user lookups (e.g., manager of submitter), or queues to determine the next approver at each step.",
+    "id": 84
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Types & Use Cases",
+    "question": "A process needs to run every night at midnight to check for Opportunities that haven't been updated in 30 days and send a reminder. Which Flow type fits best?",
+    "options": [
+      "Screen Flow",
+      "Scheduled-Triggered Flow",
+      "Platform Event-Triggered Flow",
+      "Autolaunched Flow triggered by a button only"
+    ],
+    "correct": 1,
+    "explanation": "Scheduled-Triggered Flows run automatically at a specified time and frequency, ideal for batch checks like identifying stale Opportunities nightly.",
+    "id": 85
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Types & Use Cases",
+    "question": "Which flow type should be used to build a guided, multi-screen data collection experience embedded in a Lightning page for internal users?",
+    "options": [
+      "Screen Flow",
+      "Record-Triggered Flow",
+      "Scheduled Flow",
+      "Platform Event Flow"
+    ],
+    "correct": 0,
+    "explanation": "Screen Flows are purpose-built for interactive, multi-step user experiences and can be embedded on Lightning record/app/home pages.",
+    "id": 86
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Types & Use Cases",
+    "question": "An integration needs to react in near real time to a custom Platform Event published from an external system. Which Flow type applies?",
+    "options": [
+      "Platform Event-Triggered Flow",
+      "Scheduled-Triggered Flow",
+      "Screen Flow",
+      "Before-Save Record-Triggered Flow"
+    ],
+    "correct": 0,
+    "explanation": "Platform Event-Triggered Flows are autolaunched flows that respond to platform events, enabling near-real-time reactions to external or internal event messages.",
+    "id": 87
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Types & Use Cases",
+    "question": "When should a Before-Save (fast field update) record-triggered flow be chosen over an After-Save flow?",
+    "options": [
+      "When you need to update fields on the record itself and want better performance by avoiding a second save operation",
+      "When you need to create related records on a different object",
+      "When you need to send an email alert",
+      "When you need to call another flow via subflow always"
+    ],
+    "correct": 0,
+    "explanation": "Before-Save flows are optimized purely for updating fields on the triggering record itself, running faster because they avoid an additional database commit — but they can't create/update other records or send emails directly.",
+    "id": 88
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Maintenance & Troubleshooting",
+    "question": "What is the purpose of Flow versioning?",
+    "options": [
+      "It's automatic and cannot be controlled",
+      "It lets you activate a specific version while keeping prior versions inactive but available for reference/rollback",
+      "It merges multiple flows into one",
+      "It deletes old flows automatically"
+    ],
+    "correct": 1,
+    "explanation": "Flow Builder maintains multiple versions; only one version can be active at a time, and older versions remain available for review or reactivation if needed.",
+    "id": 89
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Maintenance & Troubleshooting",
+    "question": "Which tool helps visualize and debug the exact path a Flow took during a specific run, including variable values at each step?",
+    "options": [
+      "Flow Debug feature (Run and Debug in Flow Builder)",
+      "Data Loader",
+      "Report Builder",
+      "Object Manager"
+    ],
+    "correct": 0,
+    "explanation": "Flow Builder's Debug feature lets you run a flow and step through its execution path, inspecting variable values at each element to identify issues.",
+    "id": 90
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Agentforce for Automation",
+    "question": "What is a primary use case for using Agentforce to automate a business process?",
+    "options": [
+      "Replacing all page layouts",
+      "Enabling an AI agent to autonomously handle tasks like answering customer questions or triaging cases using configured topics and actions",
+      "Creating validation rules",
+      "Managing sandbox refreshes"
+    ],
+    "correct": 1,
+    "explanation": "Agentforce agents use configured topics and actions to autonomously perform tasks — such as answering questions or triaging cases — extending automation beyond simple declarative rules.",
+    "id": 91
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Agentforce for Automation",
+    "question": "In Agentforce, what defines the specific tasks or capabilities an agent can perform (e.g., 'look up order status')?",
+    "options": [
+      "Actions (grouped under Topics)",
+      "Sharing Rules",
+      "Roll-Up Summary fields",
+      "Validation Rules"
+    ],
+    "correct": 0,
+    "explanation": "Agentforce Actions define discrete capabilities an agent can execute, organized under Topics that scope the agent's area of expertise.",
+    "id": 92
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Agentforce for Automation",
+    "question": "How can a Flow be leveraged within an Agentforce implementation?",
+    "options": [
+      "Flows cannot be used with Agentforce",
+      "An autolaunched Flow can be exposed as an Agent Action, letting the agent invoke existing automation",
+      "Only Screen Flows can be used",
+      "Agentforce replaces the need for Flows entirely"
+    ],
+    "correct": 1,
+    "explanation": "Autolaunched Flows can be surfaced as custom Actions for an Agentforce agent, letting the agent trigger existing declarative automation as part of fulfilling a request.",
+    "id": 93
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "Which function correctly rounds a Number field to 2 decimal places within a formula?",
+    "options": [
+      "ROUND(field, 2)",
+      "TRUNCATE(field)",
+      "MOD(field,2)",
+      "FLOOR(field)"
+    ],
+    "correct": 0,
+    "explanation": "ROUND(number, decimalPlaces) rounds a numeric value to the specified number of decimal places within a formula.",
+    "id": 94
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Formula Fields",
+    "question": "A formula field must return a percentage of Amount relative to a Target field, formatted as text with a '%' sign. What approach works?",
+    "options": [
+      "TEXT(ROUND((Amount__c / Target__c) * 100, 1)) & \"%\"",
+      "Amount__c / Target__c",
+      "PERCENT(Amount__c, Target__c)",
+      "ROUND(Amount__c, Target__c)"
+    ],
+    "correct": 0,
+    "explanation": "You must calculate the ratio, round it, convert the number to text with TEXT(), then concatenate the '%' symbol, since formulas need explicit type handling to mix numbers and text.",
+    "id": 95
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Roll-Up Summary Fields",
+    "question": "A roll-up summary field counting related Contacts should exclude Contacts marked 'Inactive'. How can this be achieved?",
+    "options": [
+      "It's not possible; all related records are always counted",
+      "Add filter criteria to the roll-up summary definition (e.g., Status != Inactive)",
+      "Create a separate report instead",
+      "Use a Validation Rule on the Contact"
+    ],
+    "correct": 1,
+    "explanation": "Roll-up summary field definitions support filter criteria, allowing you to exclude records like 'Inactive' Contacts from the aggregation.",
+    "id": 96
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Validation Rules",
+    "question": "Which scenario is a validation rule NOT capable of handling on its own?",
+    "options": [
+      "Preventing save when a required custom field is blank under certain conditions",
+      "Sending an automated email notification when the rule is triggered",
+      "Enforcing a specific date range on a field",
+      "Displaying a custom error message"
+    ],
+    "correct": 1,
+    "explanation": "Validation rules can only block saves with an error message — they cannot send emails or perform other actions; that requires Flow or other automation.",
+    "id": 97
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Approval Processes",
+    "question": "Can an Approval Process be initiated automatically without a user manually clicking 'Submit for Approval'?",
+    "options": [
+      "No, it always requires manual submission",
+      "Yes, via a Flow that calls the 'Submit for Approval' action automatically based on criteria",
+      "Only via Apex, never declaratively",
+      "Only on weekends"
+    ],
+    "correct": 1,
+    "explanation": "Approval Processes can be triggered via Flow's 'Submit for Approval' action, enabling fully automated submission based on business criteria.",
+    "id": 98
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Maintenance & Troubleshooting",
+    "question": "What does 'Flow Trigger Explorer' help an admin do?",
+    "options": [
+      "View and manage the order of execution for multiple record-triggered flows on the same object and event",
+      "Export flow data to CSV",
+      "Design page layouts",
+      "Create permission sets"
+    ],
+    "correct": 0,
+    "explanation": "Flow Trigger Explorer provides visibility into all record-triggered flows on an object and lets admins set/reorder their execution to manage order of operations.",
+    "id": 99
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "Which tool allows an admin to build a custom Lightning page layout by dragging and dropping components without code?",
+    "options": [
+      "Lightning App Builder",
+      "Apex Class Editor",
+      "Data Loader",
+      "Schema Builder"
+    ],
+    "correct": 0,
+    "explanation": "Lightning App Builder is the declarative, drag-and-drop tool for building and customizing Lightning pages with standard and custom components.",
+    "id": 100
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "What is the purpose of a Compact Layout in Salesforce?",
+    "options": [
+      "To define which fields display in the highlights panel and on related record cards/mobile summaries",
+      "To control CRUD permissions",
+      "To define validation logic",
+      "To set sharing rules"
+    ],
+    "correct": 0,
+    "explanation": "Compact Layouts control the concise set of fields shown in the record highlights panel, related record previews, and mobile card views — separate from the full Page Layout.",
+    "id": 101
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "Which feature lets an admin show/hide entire sections of a page based on the user's Profile?",
+    "options": [
+      "Assigning different Page Layouts per profile, or Dynamic Forms with visibility filters",
+      "Field-Level Security only",
+      "Sharing Rules",
+      "Compact Layouts"
+    ],
+    "correct": 0,
+    "explanation": "Both assigning different Page Layouts per profile and using Dynamic Forms with component visibility rules allow layout content to vary based on profile or other criteria.",
+    "id": 102
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "What is a key benefit of Dynamic Forms over traditional Page Layouts?",
+    "options": [
+      "Dynamic Forms let you place individual fields and sections on the Lightning page itself with conditional visibility rules per field/section",
+      "Dynamic Forms work only on Classic",
+      "Dynamic Forms remove the need for Field-Level Security",
+      "Dynamic Forms cannot be used with Lightning App Builder"
+    ],
+    "correct": 0,
+    "explanation": "Dynamic Forms decompose the page layout into individual field and section components placed directly on the Lightning record page, each with its own conditional visibility logic.",
+    "id": 103
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "Which feature allows conditionally showing/hiding an entire Lightning component on a record page based on field values?",
+    "options": [
+      "Component Visibility Rules (filters) in Lightning App Builder",
+      "Page Layout assignment rules",
+      "Sharing Rules",
+      "Compact Layouts"
+    ],
+    "correct": 0,
+    "explanation": "Lightning App Builder's Component Visibility (filter) settings let admins declaratively show or hide a component based on record field values, device type, or user profile/permission.",
+    "id": 104
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Buttons, Links, and Actions",
+    "question": "Which type of action lets a user create a new record that is automatically related to the current record, launched from a related list or page?",
+    "options": [
+      "A Custom Link",
+      "A New Record (object-specific) Quick Action",
+      "A Custom Report Type",
+      "A Global Value Set"
+    ],
+    "correct": 1,
+    "explanation": "Object-specific Quick Actions of type 'Create a Record' let users quickly create a related record directly from the parent record's page, pre-populating relationship fields.",
+    "id": 105
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Buttons, Links, and Actions",
+    "question": "What differentiates a Global Action from an Object-Specific Action?",
+    "options": [
+      "Global Actions aren't tied to a specific record's context and can be placed on the global Lightning Experience action bar/utility items, while object-specific actions relate directly to a given record",
+      "There is no difference",
+      "Global Actions can only send emails",
+      "Object-specific Actions cannot create records"
+    ],
+    "correct": 0,
+    "explanation": "Global Actions operate independently of a specific record (e.g., 'Log a Call' available anywhere), while Object-Specific Actions are tied to a record's context, such as an Account or Case.",
+    "id": 106
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Buttons, Links, and Actions",
+    "question": "Which action type would be used to open a URL with merged field values from the current record when clicked, without any Apex?",
+    "options": [
+      "A Custom Button/Link with a URL formula referencing merge fields",
+      "A Flow Screen Action only",
+      "A Roll-Up Summary field",
+      "A List View"
+    ],
+    "correct": 0,
+    "explanation": "Custom Buttons/Links can be defined with a URL content source that uses formula/merge field syntax to dynamically build a link — no code required.",
+    "id": 107
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Buttons, Links, and Actions",
+    "question": "A requirement calls for a custom action that runs a multi-step guided process (screens) when clicked from a record's action bar. What should be used?",
+    "options": [
+      "A Screen Flow exposed as a Quick Action / Lightning Action",
+      "A Custom Link",
+      "A List View Button only",
+      "A Compact Layout"
+    ],
+    "correct": 0,
+    "explanation": "A Screen Flow can be exposed as an action on a record's Lightning action bar, providing a guided multi-step UI when the user clicks it.",
+    "id": 108
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Lightning Components (Declarative)",
+    "question": "Which declarative tool allows an admin to add a pre-built or custom Lightning Web Component to a record page without writing code?",
+    "options": [
+      "Lightning App Builder (drag-and-drop onto the page canvas)",
+      "Apex Developer Console",
+      "Workflow Rules",
+      "Data Loader"
+    ],
+    "correct": 0,
+    "explanation": "Lightning App Builder lets admins declaratively drag Lightning Components (standard or custom, exposed via metadata) onto record, app, home, or Experience Cloud pages.",
+    "id": 109
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Lightning Components (Declarative)",
+    "question": "For a custom Lightning Web Component to be available for admins to add via Lightning App Builder, what must the developer configure?",
+    "options": [
+      "Nothing extra is needed",
+      "The component's meta.xml configuration file must expose it for the appropriate targets (e.g., lightning__RecordPage, lightning__AppPage)",
+      "It must be written in Aura only",
+      "It must be a Visualforce page"
+    ],
+    "correct": 1,
+    "explanation": "The component's associated .js-meta.xml configuration file declares which targets (record page, app page, home page, etc.) the component supports, making it selectable in Lightning App Builder.",
+    "id": 110
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Lightning Components (Declarative)",
+    "question": "What declarative feature allows passing a record's field value into a custom Lightning component as a configurable property, without code changes?",
+    "options": [
+      "Design attributes (@api properties exposed and configured in the App Builder property panel)",
+      "Field-Level Security",
+      "Roll-Up Summary",
+      "Sharing Rules"
+    ],
+    "correct": 0,
+    "explanation": "Public/@api properties, defined with design attributes in the meta.xml, appear in the Lightning App Builder property panel, letting admins map record fields or static values without altering code.",
+    "id": 111
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Programmatic UI Customizations",
+    "question": "Which technology would a developer use to build a fully custom, reusable, performant UI component embeddable in Lightning pages, Flow screens, or Experience Cloud?",
+    "options": [
+      "Lightning Web Components (LWC)",
+      "Workflow Rules",
+      "Roll-Up Summary Fields",
+      "Validation Rules"
+    ],
+    "correct": 0,
+    "explanation": "Lightning Web Components (LWC) are the modern programmatic framework Salesforce recommends for building custom, high-performance UI components usable across Lightning Experience, Flow, and Experience Cloud.",
+    "id": 112
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Programmatic UI Customizations",
+    "question": "When is a Visualforce page still a relevant programmatic UI option today?",
+    "options": [
+      "Never — it has been completely removed",
+      "For legacy support or certain print-friendly formats (e.g., PDF generation), or existing implementations not yet migrated to LWC",
+      "Only in Salesforce Classic and nowhere else",
+      "For all new mobile-first UI development"
+    ],
+    "correct": 1,
+    "explanation": "While LWC is the modern standard, Visualforce remains relevant for specific legacy needs like rendering PDFs or supporting existing implementations.",
+    "id": 113
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Programmatic UI Customizations",
+    "question": "What must a developer expose in a Lightning Web Component to let an Admin configure it declaratively for different objects/fields?",
+    "options": [
+      "@api decorated public properties, configured via the component's design file (js-meta.xml)",
+      "Apex trigger context variables",
+      "Only private properties",
+      "SOQL WHERE clauses directly in the App Builder"
+    ],
+    "correct": 0,
+    "explanation": "Public properties decorated with @api, combined with configuration in the meta.xml design file, let admins customize a component's behavior per placement without code.",
+    "id": 114
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Mobile & Actions/Layouts",
+    "question": "A requirement calls for optimizing which actions appear (and in what order) specifically on the Salesforce mobile app for the Case object. Where is this configured?",
+    "options": [
+      "Unrelated mobile-only settings",
+      "The Salesforce Mobile and Lightning Experience Actions section within the Case Page Layout",
+      "Profiles",
+      "Permission Sets"
+    ],
+    "correct": 1,
+    "explanation": "Actions displayed on both Lightning Experience and the Salesforce mobile app are largely configured together in a Page Layout's Actions section.",
+    "id": 115
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Mobile & Actions/Layouts",
+    "question": "Which feature lets admins control the priority/order of fields specifically for compact, glanceable mobile views?",
+    "options": [
+      "Compact Layouts",
+      "Sharing Rules",
+      "Roll-Up Summary Fields",
+      "Validation Rules"
+    ],
+    "correct": 0,
+    "explanation": "Compact Layouts define the streamlined set and order of fields shown in the highlights panel and mobile card/summary views, optimized for quick, glanceable information.",
+    "id": 116
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Mobile & Actions/Layouts",
+    "question": "A global Quick Action for logging a call needs to be easily accessible from anywhere in the Salesforce mobile app. What should be configured?",
+    "options": [
+      "Add the Global Quick Action to the mobile app's navigation/action bar via the Lightning app's navigation menu settings",
+      "Create a new Profile",
+      "Modify a Validation Rule",
+      "Add a Roll-Up Summary field"
+    ],
+    "correct": 0,
+    "explanation": "Global Quick Actions can be surfaced prominently in the Salesforce mobile app by configuring the mobile navigation menu / action bar settings for the relevant Lightning app.",
+    "id": 117
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "Which feature is used to standardize a consistent set of picklist values shared across MULTIPLE picklist fields, potentially on different objects?",
+    "options": [
+      "Global Value Set",
+      "Compact Layout",
+      "Dynamic Forms",
+      "Roll-Up Summary Field"
+    ],
+    "correct": 0,
+    "explanation": "A Global Value Set defines a reusable list of picklist values that can be shared across multiple picklist fields on different objects, ensuring consistency.",
+    "id": 118
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "What is a Lightning Record Page, and how does it relate to Page Layouts?",
+    "options": [
+      "It replaces Page Layouts entirely for all functions",
+      "It's the overall Lightning Experience page composed of components, which can include the standard Details component driven by the assigned Page Layout, or use Dynamic Forms fields directly",
+      "It is only used in Salesforce Classic",
+      "It only controls sharing settings"
+    ],
+    "correct": 1,
+    "explanation": "A Lightning Record Page is built in Lightning App Builder and can include a 'Details' component reflecting the traditional Page Layout, or use Dynamic Forms to place individual fields directly — the two work together.",
+    "id": 119
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Buttons, Links, and Actions",
+    "question": "A Quick Action needs to update several fields on the current record automatically when clicked, with NO user input screen. What action type fits best?",
+    "options": [
+      "An Update a Record action (Quick Action) with predefined field values",
+      "A List View Button",
+      "A Custom Report Type",
+      "A Compact Layout"
+    ],
+    "correct": 0,
+    "explanation": "An 'Update a Record' Quick Action can be configured with predefined field values so clicking it updates the record automatically, without requiring a user input screen.",
+    "id": 120
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Lightning Components (Declarative)",
+    "question": "Which approach allows a consistent arrangement of components to be reused and kept in sync across multiple similar pages?",
+    "options": [
+      "Cloning a base Lightning page as a template, or building reusable custom components",
+      "Field-Level Security",
+      "Sharing Rules",
+      "Roll-Up Summary Fields"
+    ],
+    "correct": 0,
+    "explanation": "Certain patterns, such as creating a base 'template' Lightning page or reusable custom components, allow consistent component arrangements to be reused across multiple pages.",
+    "id": 121
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Mobile & Actions/Layouts",
+    "question": "Which consideration is important when designing Page Layouts/Actions specifically to optimize the Salesforce mobile experience?",
+    "options": [
+      "Mobile users don't need any actions since they can't perform edits",
+      "Prioritize the most frequently used actions/fields near the top since mobile screens show less at once, trimming rarely used items",
+      "Desktop and mobile layouts must always be identical",
+      "Mobile layouts cannot include Quick Actions"
+    ],
+    "correct": 1,
+    "explanation": "Because mobile screens have limited real estate, best practice is to prioritize the most-used fields and actions near the top and trim less relevant items to streamline the mobile experience.",
+    "id": 122
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "UI Customization Options",
+    "question": "Which capability lets admins tailor a Lightning App's navigation menu items specifically for different apps (e.g., Sales app vs. Service app)?",
+    "options": [
+      "App Manager's Navigation Items configuration per Lightning App",
+      "Field-Level Security",
+      "Sharing Rules",
+      "Roll-Up Summary Fields"
+    ],
+    "correct": 0,
+    "explanation": "Within App Manager, each Lightning App has its own Navigation Items configuration, letting admins tailor which tabs/objects appear for that specific app's users.",
+    "id": 123
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Programmatic UI Customizations",
+    "question": "When embedding a custom Lightning Web Component inside a Flow Screen, what must the component support?",
+    "options": [
+      "It must implement the lightning__FlowScreen target and expose input/output attributes appropriately in its meta.xml",
+      "It must be a Visualforce page",
+      "It must use only Apex Batch classes",
+      "It cannot expose any properties"
+    ],
+    "correct": 0,
+    "explanation": "To be usable inside a Screen Flow, an LWC must declare the lightning__FlowScreen target in its configuration file and expose the necessary input/output attributes.",
+    "id": 124
+  },
+  {
+    "domain": "User Interface",
+    "subtopic": "Buttons, Links, and Actions",
+    "question": "A 'Send Reminder' custom button on Opportunity needs to run server-side logic beyond simple field updates or navigation. What's the recommended modern approach?",
+    "options": [
+      "A JavaScript button in Classic only",
+      "A Quick Action/Flow that calls an invocable Apex action for server-side logic, since JavaScript buttons are a legacy Classic feature",
+      "A Compact Layout",
+      "A Global Value Set"
+    ],
+    "correct": 1,
+    "explanation": "JavaScript buttons are a legacy Classic feature not well supported in Lightning Experience; the modern approach uses Quick Actions/Flow (with invocable Apex if needed) for server-side logic.",
+    "id": 125
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "App Lifecycle & Sandboxes",
+    "question": "Which sandbox type includes a full copy of production data and metadata, typically used for final pre-production testing/UAT?",
+    "options": [
+      "Developer Sandbox",
+      "Developer Pro Sandbox",
+      "Partial Copy Sandbox",
+      "Full Sandbox"
+    ],
+    "correct": 3,
+    "explanation": "A Full Sandbox is a complete copy of production (data and metadata), best suited for performance testing, load testing, and full staging/UAT before go-live.",
+    "id": 126
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "App Lifecycle & Sandboxes",
+    "question": "A team of developers needs isolated environments for individual feature development with modest storage, refreshed frequently. Which sandbox type is most appropriate?",
+    "options": [
+      "Full Sandbox",
+      "Developer or Developer Pro Sandbox",
+      "Partial Copy Sandbox",
+      "Production org itself"
+    ],
+    "correct": 1,
+    "explanation": "Developer and Developer Pro sandboxes are designed for individual/small-team development work, offering frequent refresh cycles with modest storage, unlike Full or Partial Copy sandboxes.",
+    "id": 127
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "App Lifecycle & Sandboxes",
+    "question": "Which sandbox type is best for QA/testing with a representative SAMPLE of production data (defined via a sandbox template)?",
+    "options": [
+      "Partial Copy Sandbox",
+      "Developer Sandbox",
+      "Full Sandbox",
+      "Trial org"
+    ],
+    "correct": 0,
+    "explanation": "A Partial Copy Sandbox includes a sample of production data (selected via a sandbox template) along with all metadata, balancing Developer sandboxes and a Full Sandbox.",
+    "id": 128
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "App Lifecycle & Sandboxes",
+    "question": "What is a key difference in refresh intervals between sandbox types?",
+    "options": [
+      "All sandbox types refresh at the same interval",
+      "Developer sandboxes can refresh as often as every 1 day; Developer Pro and Partial Copy every 5 days; Full Sandboxes every 29 days",
+      "Full Sandboxes refresh every day",
+      "Sandboxes cannot be refreshed once created"
+    ],
+    "correct": 1,
+    "explanation": "Refresh intervals vary: Developer sandboxes refresh as often as every 1 day, Developer Pro and Partial Copy every 5 days, and Full Sandboxes every 29 days.",
+    "id": 129
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "App Lifecycle & Sandboxes",
+    "question": "For a large project needing individual development, integration/QA testing, UAT, and production, what is a common recommended sandbox structure?",
+    "options": [
+      "A single Developer Sandbox for everything",
+      "A pipeline: Developer sandboxes (individual dev) → Partial Copy/Full Sandbox (QA/Integration) → Full Sandbox (UAT/staging) → Production",
+      "Building directly in Production",
+      "Only Scratch Orgs for all phases"
+    ],
+    "correct": 1,
+    "explanation": "A robust lifecycle pipeline typically uses Developer sandboxes for individual work, then promotes to shared QA/Integration and UAT/staging environments before finally deploying to Production.",
+    "id": 130
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Change Sets",
+    "question": "Which statement about Change Sets is TRUE?",
+    "options": [
+      "Change Sets can be deployed between any two orgs, connected or not",
+      "Change Sets can only be deployed between orgs that have an established deployment connection",
+      "Change Sets require a third-party tool to function",
+      "Change Sets can move data records, not just metadata"
+    ],
+    "correct": 1,
+    "explanation": "Change Sets only work between orgs with a defined deployment connection, typically production and its sandboxes (or sandbox to sandbox) — not between unrelated/unconnected orgs.",
+    "id": 131
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Change Sets",
+    "question": "A Change Set deployment fails due to a missing dependency (e.g., a custom field referenced by a Flow wasn't included). What should be done?",
+    "options": [
+      "Nothing can be done — recreate everything manually in production",
+      "Use 'View/Add Dependencies' to identify and add all missing dependent components, then redeploy",
+      "Delete the Flow entirely",
+      "Switch to a completely different org"
+    ],
+    "correct": 1,
+    "explanation": "Change Sets require all dependent components to be included; 'View/Add Dependencies' helps identify what's missing so it can be added before a successful redeploy.",
+    "id": 132
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Change Sets",
+    "question": "What is a notable limitation of Change Sets regarding data?",
+    "options": [
+      "They move both metadata and data records",
+      "They only move metadata/configuration, never actual data records",
+      "They only move data, never metadata",
+      "They can move Apex code but not Flows"
+    ],
+    "correct": 1,
+    "explanation": "Change Sets are strictly for metadata/configuration migration — they never move actual data records, which must be handled via Data Loader or other import/export tools.",
+    "id": 133
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Change Sets",
+    "question": "Before deploying a Change Set to production, what should generally happen first?",
+    "options": [
+      "Deploy directly to production with no testing",
+      "Validate/test the deployment in a sandbox first (including relevant Apex tests) to catch errors before affecting production",
+      "Delete all existing metadata in production",
+      "Disable all validation rules in production"
+    ],
+    "correct": 1,
+    "explanation": "Best practice is to validate and test changes in a sandbox first, since production deployments with Apex require sufficient code coverage, before deploying to production.",
+    "id": 134
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Change Sets",
+    "question": "A component was created directly in Production instead of a sandbox. What issue does this create for Change Set-based deployments?",
+    "options": [
+      "No issue, change sets support bi-directional sync automatically",
+      "It creates configuration drift, causing potential deployment conflicts or omissions in subsequent change sets unless reconciled or the sandbox is refreshed",
+      "It will automatically merge back into the sandbox",
+      "Change sets will delete the field automatically"
+    ],
+    "correct": 1,
+    "explanation": "Making changes directly in Production outside the standard flow leads to configuration drift, which can cause deployment conflicts unless reconciled manually or via a refresh.",
+    "id": 135
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Packages",
+    "question": "What is a defining characteristic of a Managed Package compared to an Unmanaged Package?",
+    "options": [
+      "Managed packages cannot be upgraded once installed",
+      "Managed packages protect intellectual property (components typically locked) and support versioned upgrades; unmanaged package components become fully open/editable once installed",
+      "Unmanaged packages support automatic upgrades",
+      "There is no meaningful difference"
+    ],
+    "correct": 1,
+    "explanation": "Managed packages are used by ISVs to protect IP and support seamless version upgrades, while Unmanaged packages deliver open, fully editable components with no vendor-controlled upgrade path.",
+    "id": 136
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Packages",
+    "question": "Which package type is most appropriate for distributing a one-time set of open-source, fully customizable templates that customers are expected to modify freely?",
+    "options": [
+      "Managed Package",
+      "Unmanaged Package",
+      "Second-Generation Managed Package (2GP) only",
+      "Change Set"
+    ],
+    "correct": 1,
+    "explanation": "Unmanaged Packages are ideal when recipients should be able to freely view and modify components — there's no locking or ongoing vendor-controlled upgrade path.",
+    "id": 137
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Packages",
+    "question": "What is a consideration when uninstalling a Managed Package from an org?",
+    "options": [
+      "Uninstalling has zero impact on any customizations",
+      "Uninstalling removes all package components, which can break dependent customizations built on top of it, requiring careful dependency review first",
+      "Managed packages cannot ever be uninstalled",
+      "Uninstalling a package automatically migrates its data elsewhere"
+    ],
+    "correct": 1,
+    "explanation": "Uninstalling a managed package removes its components entirely, so dependent automation, reports, or fields relying on those components can break.",
+    "id": 138
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Packages",
+    "question": "Why might an ISV choose a Second-Generation Managed Package (2GP) over the older first-generation model?",
+    "options": [
+      "2GP requires a namespace-less approach only, unlike 1GP",
+      "2GP supports more modern, source-driven, version-control-friendly development with more flexible (managed and unlocked) packaging options",
+      "2GP eliminates the need for any package versioning",
+      "2GP cannot be distributed via AppExchange"
+    ],
+    "correct": 1,
+    "explanation": "Second-generation packaging (2GP) supports a modern, source-driven, CI/CD-friendly development workflow and offers more flexible packaging options compared to the original 1GP model.",
+    "id": 139
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Deployment Planning",
+    "question": "A large project involves multiple teams working on different features simultaneously, needing coordinated, trackable merges and automated testing. What deployment approach is recommended?",
+    "options": [
+      "Manual change sets with no version control",
+      "A structured DevOps/CI-CD pipeline using Salesforce DX, version control, and automated deployment tools with a defined branching strategy",
+      "Everyone edits production directly",
+      "A single Developer sandbox shared by all teams with no branching strategy"
+    ],
+    "correct": 1,
+    "explanation": "For complex, multi-team projects, a DevOps pipeline leveraging Salesforce DX, version control, and CI/CD automation with a clear branching/release strategy is the recommended, scalable approach.",
+    "id": 140
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Deployment Planning",
+    "question": "What is an important consideration when planning a deployment that includes both Apex code changes and dependent Flow/metadata changes?",
+    "options": [
+      "Deployment order and dependencies must be planned correctly, and sufficient Apex test coverage (75%+) must be met for the deployment to succeed in production",
+      "Order of components never matters",
+      "Apex code coverage requirements only apply to sandboxes, not production",
+      "Flows and Apex cannot be deployed together"
+    ],
+    "correct": 0,
+    "explanation": "Deployments must respect dependency order, and Apex deployments to Production require at least 75% test coverage overall with all tests passing.",
+    "id": 141
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Deployment Planning",
+    "question": "When should a company consider using Unlocked Packages as part of its deployment plan?",
+    "options": [
+      "Never — they are identical to managed packages",
+      "When they want modular, source-tracked, version-controlled internal application development without IP-protection restrictions, ideal for organizing internal apps into logical modules",
+      "Only for distributing to external customers via AppExchange with locked code",
+      "Only when no version control is used"
+    ],
+    "correct": 1,
+    "explanation": "Unlocked Packages support modular, source-driven internal development with full visibility/editability of components, making them well-suited for organizing internal, modular application architecture.",
+    "id": 142
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Deployment Planning",
+    "question": "A deployment plan must account for a Validation Rule that will block existing data from being saved once activated in Production (due to legacy records not meeting new criteria). What should be included?",
+    "options": [
+      "Nothing extra; validation rules never affect old records",
+      "A data cleansing/remediation step and/or a grandfathering condition to avoid unexpectedly blocking users from editing legacy records",
+      "Immediate deletion of all legacy records",
+      "Disabling all sharing rules"
+    ],
+    "correct": 1,
+    "explanation": "A solid deployment plan anticipates how new validation rules interact with existing data, often requiring a cleanup pass or a rule condition to avoid disrupting users editing legacy records.",
+    "id": 143
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "Deployment Planning",
+    "question": "Why is a version-controlled, source-driven approach (Salesforce DX) recommended over relying only on manual Change Sets for ongoing, larger-scale development?",
+    "options": [
+      "Change sets scale better for hundreds of components with full history tracking",
+      "Source-driven development provides history/versioning, easier rollback, and CI/CD integration that manual Change Sets, which lack native version control, don't provide at scale",
+      "Salesforce DX cannot deploy Apex code",
+      "Change sets are required for all managed package development"
+    ],
+    "correct": 1,
+    "explanation": "Salesforce DX's source-driven model integrates with version control for history tracking, rollback capability, and CI/CD automation — advantages manual Change Sets don't provide at scale.",
+    "id": 144
+  },
+  {
+    "domain": "App Deployment",
+    "subtopic": "App Lifecycle & Sandboxes",
+    "question": "Which sandbox consideration is important when planning a UAT phase for a solution touching sensitive production-like data volumes?",
+    "options": [
+      "Use a Developer sandbox since data volume never matters",
+      "Use a Full Sandbox (or a well-designed Partial Copy) so testers experience realistic data volumes and configurations close to production",
+      "Test directly in Production only",
+      "Skip sandbox testing and go straight to Change Sets"
+    ],
+    "correct": 1,
+    "explanation": "UAT benefits from an environment that closely mirrors production data and configuration — a Full Sandbox (or well-designed Partial Copy) ensures testers encounter realistic scenarios before go-live.",
+    "id": 145
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Maintenance & Troubleshooting (Summer '26)",
+    "question": "As of the Summer '26 release, which capability is now included in Flow Orchestration at no additional cost, changing how admins should approach multi-step process design?",
+    "options": [
+      "Flow Orchestration remains a paid, usage-based add-on with no changes",
+      "Flow Orchestration is now standard with no usage-based entitlements, making it freely available for multi-step process design",
+      "Flow Orchestration was retired and replaced entirely by Screen Flows",
+      "Flow Orchestration now requires a separate Data Cloud license"
+    ],
+    "correct": 1,
+    "explanation": "In the Summer '26 release, Flow Orchestration became standard with no usage-based entitlements (previously paid), which changes cost/design considerations for building multi-step, cross-user orchestrated processes.",
+    "id": 146
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Agentforce for Automation (Summer '26)",
+    "question": "Starting with Summer '26, how can an admin create a new Agentforce agent while working in Flow Builder?",
+    "options": [
+      "By switching entirely to Agentforce Builder first; Flow Builder cannot reference agents",
+      "By selecting an Agent action directly from within Flow Builder, creating the agent without switching tools",
+      "By writing a custom Apex trigger to instantiate the agent",
+      "This capability does not exist and requires a developer"
+    ],
+    "correct": 1,
+    "explanation": "Summer '26 lets admins create agents directly from Flow Builder by selecting an Agent action, streamlining the workflow so they don't need to tool-switch to Agentforce Builder to get started.",
+    "id": 147
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Maintenance & Troubleshooting (Summer '26)",
+    "question": "A Summer '26 org has two active versions of the same Flow, and an admin wants to understand exactly what changed between them, including transform mapping changes. Which new tool should they use?",
+    "options": [
+      "The Flow version-comparison tool",
+      "Data Loader diff export",
+      "A Validation Rule referencing ISCHANGED()",
+      "Schema Builder"
+    ],
+    "correct": 0,
+    "explanation": "Summer '26 introduced a version-comparison tool for Flows, letting admins see exactly what changed between two versions, including changes to transform element mappings — a significant troubleshooting/maintenance aid.",
+    "id": 148
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Maintenance & Troubleshooting (Summer '26)",
+    "question": "Since Summer '26, what new debugging capability is available for Screen Flows after they have already finished running?",
+    "options": [
+      "None — execution details are only visible while the flow is actively running",
+      "Screen Flows now show the Execution Path even after execution has completed, aiding post-run troubleshooting",
+      "Screen Flows automatically delete their run history after completion",
+      "Screen Flows can only be debugged by raising a support case"
+    ],
+    "correct": 1,
+    "explanation": "As of Summer '26, Screen Flows retain and display their Execution Path even after the flow has finished running, making it easier to troubleshoot after the fact rather than only during a live run.",
+    "id": 149
+  },
+  {
+    "domain": "Business Logic and Process Automation",
+    "subtopic": "Flow Maintenance & Troubleshooting (Summer '26)",
+    "question": "An admin is stuck on a confusing Flow error in Setup during Summer '26. Which built-in feature can help interpret the error without leaving the Flow error screen?",
+    "options": [
+      "Ask Agentforce, which can help interpret and troubleshoot Flow errors directly in Setup",
+      "A mandatory support case with Salesforce",
+      "Exporting the flow as a managed package to inspect it externally",
+      "Field-Level Security audit trail"
+    ],
+    "correct": 0,
+    "explanation": "Summer '26 added 'Ask Agentforce' assistance for interpreting Flow errors directly within Setup, giving admins AI-assisted help with troubleshooting without needing to leave the error screen or escalate immediately.",
+    "id": 150
+  }
+]
