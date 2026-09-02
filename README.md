@@ -3,9 +3,11 @@
 A local/Render-deployable exam simulator for the **Salesforce Certified Platform App Builder** credential.
 
 - Pure HTML/CSS/JS front-end
-- Node.js + Express backend (keeps correct answers server-side so they can't be inspected in devtools)
+- Node.js + Express backend (correct answers stay server-side, not exposed in devtools)
 - SQLite for score/session history persistence
-- 150-question bank, weighted to match the official exam blueprint:
+- 150-question bank, all written as realistic exam-style SCENARIOS (not simple definitions), with
+  deliberate "common trap" distractors — options that sound plausible but violate a subtle platform
+  rule, exactly like the real certification exam. Weighted to match the official exam blueprint:
   - Salesforce Fundamentals: 18% (27 questions)
   - Data Modeling and Management: 20% (30 questions)
   - Business Logic and Process Automation: 32% (47 questions)
@@ -13,7 +15,8 @@ A local/Render-deployable exam simulator for the **Salesforce Certified Platform
   - App Deployment: 13% (20 questions)
 - **Study Mode**: pick 10/20/40/60/150 or a custom number of questions, with instant feedback + explanation after each question.
 - **Exam Mode**: 60 questions randomly drawn (feedback shown only at the end, like the real exam).
-- Every question includes an explanation of why the correct answer is correct.
+- Every question includes an explanation of why the correct answer is correct AND why the trap
+  distractor is wrong.
 
 ## Run locally
 
@@ -25,37 +28,29 @@ npm install
 npm start
 ```
 
-Then open http://localhost:3000 in your browser.
-
-Scores are saved in `data/scores.db` (SQLite file), created automatically on first run.
+Then open http://localhost:3000 in your browser. Scores are saved in `data/scores.db` (SQLite), created automatically on first run.
 
 ## Deploy to Render
 
-This repo includes a ready-to-use `render.yaml` (Render "Blueprint") so Render can auto-configure everything.
+This repo includes a ready-to-use `render.yaml` (Render "Blueprint").
 
 ### Option A — One-click Blueprint deploy
 1. Push this project to a GitHub/GitLab repo.
-2. In the Render dashboard, click **New > Blueprint**, and point it at your repo.
-3. Render reads `render.yaml` automatically and provisions:
-   - A **Web Service** (Node, free plan) running `npm install` then `npm start`.
-   - A **1GB Persistent Disk** mounted at `/var/data`, so your SQLite score history survives deploys and restarts (Render's default filesystem is ephemeral, just like Heroku's).
-4. Click **Apply** — Render builds and deploys automatically. Future `git push` updates redeploy automatically too.
+2. In the Render dashboard: **New > Blueprint**, point it at your repo.
+3. Render reads `render.yaml` and provisions a Node Web Service (free plan) plus a **1GB Persistent Disk** mounted at `/var/data`, so SQLite score history survives deploys/restarts (Render's default filesystem is ephemeral).
+4. Click **Apply**. Future `git push` updates redeploy automatically.
 
 ### Option B — Manual Web Service setup
-1. In the Render dashboard: **New > Web Service**, connect your repo.
-2. Settings:
-   - **Environment**: Node
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-3. Add a **Persistent Disk** (Settings > Disks): mount path `/var/data`, size 1GB.
-4. Add an environment variable: `DB_PATH` = `/var/data/scores.db`
-   (Without this, the SQLite file falls back to the app's own `data/` folder, which is wiped on every deploy/restart on Render's free tier — fine for quick testing, but you'll lose history.)
+1. **New > Web Service**, connect your repo.
+2. Build Command: `npm install` / Start Command: `npm start` / Environment: Node.
+3. Add a Persistent Disk (Settings > Disks): mount path `/var/data`, size 1GB.
+4. Add env var `DB_PATH` = `/var/data/scores.db` (otherwise scores reset on every deploy/restart).
 
-Render automatically sets `PORT` for you — the app already reads `process.env.PORT`, so no changes are needed there.
+Render sets `PORT` automatically — the app already reads `process.env.PORT`.
 
 ## Expanding the question bank
 
-All questions live in `data/questions.json`. Each question has:
+All questions live in `data/questions.json`:
 ```json
 {
   "id": 1,
@@ -71,11 +66,12 @@ Add more items following this structure — the app automatically picks them up.
 
 ## About the source material
 
-Questions were written to comprehensively cover the exam objectives from Salesforce's official
-Platform App Builder exam guide, matched at the same percentage weighting as the real exam, and updated
-with Summer '26 release changes relevant to the credential (e.g. Flow Orchestration now included at no
-extra cost, creating Agentforce agents from Flow Builder, the Flow version-comparison tool, post-run
-Execution Path on Screen Flows, and "Ask Agentforce" error troubleshooting in Setup).
+Questions cover the exam objectives from Salesforce's official Platform App Builder exam guide, matched
+at the same percentage weighting as the real exam, written in scenario/use-case format with common-trap
+distractors to mirror the real exam's style, and updated with Summer '26 release changes relevant to the
+credential (e.g. Flow Orchestration now included at no extra cost, creating Agentforce agents from Flow
+Builder, the Flow version-comparison tool, post-run Execution Path on Screen Flows, and "Ask Agentforce"
+error troubleshooting in Setup).
 
 I could not log into your Trailhead account to pull the trailmix content directly (never share Trailhead
 credentials with an AI assistant or any third party) — this bank is built from the same official
