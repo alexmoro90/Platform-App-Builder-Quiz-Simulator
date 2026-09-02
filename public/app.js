@@ -20,7 +20,13 @@ function showScreen(id) {
 }
 
 function getUsername() {
-  return ($('#username').value || 'guest').trim() || 'guest';
+  const typed = $('#username').value.trim();
+  if (typed) {
+    localStorage.setItem('appbuilder_quiz_username', typed);
+    return typed;
+  }
+  const saved = localStorage.getItem('appbuilder_quiz_username');
+  return saved || 'guest';
 }
 
 let selectedStudyCount = 20;
@@ -36,6 +42,13 @@ $all('.count-btn').forEach(btn => {
 document.addEventListener('DOMContentLoaded', () => {
   const defaultBtn = document.querySelector('.count-btn[data-count="20"]');
   if (defaultBtn) defaultBtn.classList.add('selected');
+
+  // Restore the last-used name so session history isn't "lost" on refresh
+  // (history is actually still saved server-side, it's just looked up by name).
+  const savedName = localStorage.getItem('appbuilder_quiz_username');
+  if (savedName) {
+    $('#username').value = savedName;
+  }
   loadHistory();
 });
 
@@ -139,7 +152,8 @@ $('#next-question').addEventListener('click', () => {
 
 function answerCurrentQuestion() {
   const q = state.questions[state.currentIndex];
-  state.answers.push({ id: q.id, selected: state.currentSelected });
+  const selectedText = q.options[state.currentSelected];
+  state.answers.push({ id: q.id, selectedText });
   state.answered = true;
 
   $('#submit-answer').classList.add('hidden');
@@ -148,31 +162,30 @@ function answerCurrentQuestion() {
   $all('.option-item').forEach(el => el.classList.add('disabled'));
 
   if (state.mode === 'study') {
-    fetchSingleFeedback(q.id, state.currentSelected);
+    fetchSingleFeedback(q.id, selectedText);
   }
 }
 
-async function fetchSingleFeedback(id, selected) {
+async function fetchSingleFeedback(id, selectedText) {
   try {
     const res = await fetch('/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: '__preview__', mode: 'preview', answers: [{ id, selected }], startedAt: new Date().toISOString() })
+      body: JSON.stringify({ username: '__preview__', mode: 'preview', answers: [{ id, selectedText }], startedAt: new Date().toISOString() })
     });
     const data = await res.json();
     const r = data.results[0];
-    highlightAnswer(r.correct, r.selected, r.isCorrect);
+    highlightAnswerByText(r.correctText, r.selectedText, r.isCorrect);
     showFeedback(r.isCorrect, r.explanation);
   } catch (err) {
     console.error(err);
   }
 }
 
-function highlightAnswer(correctIdx, selectedIdx, isCorrect) {
+function highlightAnswerByText(correctText, selectedText, isCorrect) {
   $all('.option-item').forEach(el => {
-    const idx = parseInt(el.dataset.idx, 10);
-    if (idx === correctIdx) el.classList.add('correct-answer');
-    if (idx === selectedIdx && !isCorrect) el.classList.add('wrong-answer');
+    if (el.textContent === correctText) el.classList.add('correct-answer');
+    if (el.textContent === selectedText && !isCorrect) el.classList.add('wrong-answer');
   });
 }
 
@@ -237,10 +250,10 @@ function renderResults(data) {
     item.className = 'review-item';
     item.innerHTML = `
       <div class="review-q">${i + 1}. ${r.question}</div>
-      <div>Your answer: ${r.options[r.selected] ?? '(no answer)'} —
+      <div>Your answer: ${r.selectedText ?? '(no answer)'} —
         <span class="${r.isCorrect ? 'review-tag-correct' : 'review-tag-incorrect'}">${r.isCorrect ? 'Correct' : 'Incorrect'}</span>
       </div>
-      ${!r.isCorrect ? `<div>Correct answer: ${r.options[r.correct]}</div>` : ''}
+      ${!r.isCorrect ? `<div>Correct answer: ${r.correctText}</div>` : ''}
       <div class="review-explanation">${r.explanation}</div>
     `;
     reviewDiv.appendChild(item);
@@ -269,4 +282,8 @@ async function loadHistory() {
   }
 }
 
+$('#username').addEventListener('input', () => {
+  const typed = $('#username').value.trim();
+  if (typed) localStorage.setItem('appbuilder_quiz_username', typed);
+});
 $('#username').addEventListener('change', loadHistory);
