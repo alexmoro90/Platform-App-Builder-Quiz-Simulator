@@ -47,7 +47,7 @@
     "question": "A partner has published an Agentforce agent template on AgentExchange for warranty claim triage. The admin installs it and finds it references a custom object that doesn't exist in their org. What is the MOST accurate statement?",
     "options": [
       "This means the AgentExchange listing is broken and should be reported as non-functional",
-      "AgentExchange templates often expect certain supporting metadata (objects, fields",
+      "AgentExchange templates often need setup or configuration before use",
       "AgentExchange only distributes agents that require zero configuration by definition",
       "This confirms the agent must have been built exclusively for Data Cloud orgs"
     ],
@@ -89,7 +89,7 @@
     "question": "OWD for a custom object 'Vendor Contract' is Private. A Permission Set grants 'View All' on Vendor Contract to the Finance team. A Sharing Rule ALSO shares all Vendor Contract records owned by the 'Legal' role with 'Read Only' to Finance. What access does a Finance user actually have?",
     "options": [
       "Read Only, because the Sharing Rule is more specific and overrides the Permission Set",
-      "Full view access to all Vendor Contract records (View All from the Permission Set is broader and is not restricted by an unrelated",
+      "Full view access, since 'View All' is the broadest access granted",
       "No access, because Private OWD blocks the Permission Set from applying",
       "Edit access, because Sharing Rules always grant the highest level found among all rules"
     ],
@@ -313,7 +313,7 @@
     "question": "An admin wants to let an Agentforce agent installed from AgentExchange trigger an existing, tested Screen Flow when a customer requests a refund. What is required for this integration to work?",
     "options": [
       "Nothing — all flows are automatically available as agent actions with no configuration",
-      "The Flow must typically be exposed/configured as an Action available to the agent (e.g.",
+      "The Flow must be exposed as an Action with the right permissions",
       "The Flow must be rebuilt entirely inside Agentforce Builder and cannot be reused from Flow Builder",
       "Screen Flows can never be invoked by an Agentforce agent, only autolaunched flows can"
     ],
@@ -523,7 +523,7 @@
     "question": "A Text field storing free-form 'Customer ID' values from a legacy system needs to become an External ID for use in Data Loader upserts. The admin simply checks the 'External ID' checkbox on the existing field. Is anything else needed?",
     "options": [
       "No, checking the box is sufficient for everything, including guaranteeing uniqueness",
-      "The admin should also strongly consider marking it as 'Unique' (case-sensitive or insensitive",
+      "Also mark the field as 'Unique' to actually enforce no duplicates",
       "External ID fields must always be Auto-Number, so this field type is invalid",
       "This will automatically deduplicate any existing duplicate values already in the field"
     ],
@@ -733,7 +733,7 @@
     "question": "A Date field 'Contract_Start__c' needs to become a Date/Time field to also capture the exact signing time going forward. What happens to existing records' data during this conversion?",
     "options": [
       "All existing values are permanently lost and fields reset to blank",
-      "Existing Date values are preserved and a default time component (typically midnight",
+      "Existing Date values are preserved with a default time added",
       "The field must be deleted and manually recreated with no data carryover",
       "This conversion is not permitted under any circumstances"
     ],
@@ -943,7 +943,7 @@
     "question": "A validation rule on Opportunity is: AND(ISPICKVAL(StageName, \"Closed Won\"), ISBLANK(Contract_Number__c)). The business wants this to ALSO allow existing Closed Won Opportunities (created before this rule existed) to be edited for unrelated fields without being forced to backfill Contract_Number__c. What change is needed?",
     "options": [
       "Nothing — the rule already behaves this way by default",
-      "Add a condition that scopes the rule to only fire on the FIRST transition into Closed Won (e.g.",
+      "Scope the rule to only fire on the first transition into Closed Won",
       "Delete the validation rule entirely since it can never work as intended",
       "Add NOT(ISNEW()) to the rule, which will fix the issue"
     ],
@@ -985,7 +985,7 @@
     "question": "A Flow performs an update to a Contact record's Email field as part of an automated data cleanup process. A validation rule on Contact requires a properly formatted email whenever Email is changed by an end user, but the Flow's cleanup logic sometimes intentionally sets a placeholder value that wouldn't pass that format check. What is the BEST approach?",
     "options": [
       "Deactivate the validation rule permanently so the Flow can run",
-      "Have the Flow bypass validation via a specific 'bypass' mechanism (e.g.",
+      "Build a deliberate bypass condition into the validation logic itself",
       "Convert the validation rule into a Roll-Up Summary field",
       "Grant the Flow's running user 'Modify All Data' so validation rules no longer apply"
     ],
@@ -1083,7 +1083,7 @@
     "question": "An Approval Process's Final Rejection Action is configured to send an Email Alert and change Status to 'Rejected.' The business also wants an automatic Task created for the original submitter to revise and resubmit. The admin says Final Rejection Actions can only include Email Alerts and Field Updates, so a Task can't be created this way. Is this accurate?",
     "options": [
       "Accurate — Approval Process actions are strictly limited to Email Alerts and Field Updates only",
-      "Not fully accurate — Approval Process actions can include Task creation (along with Field",
+      "Not fully accurate — Task creation is a standard supported action type",
       "Accurate, but only because Task creation requires Apex regardless of approval processes",
       "Not accurate, but only because Outbound Messages can create Tasks indirectly"
     ],
@@ -1419,7 +1419,7 @@
     "question": "The business wants a roll-up summary field on Account that counts related Opportunities, but explicitly EXCLUDES Opportunities in a specific Record Type ('Internal Test'), while including all other record types. Is this achievable using roll-up summary filter criteria?",
     "options": [
       "No, roll-up summary filter criteria cannot reference Record Type at all",
-      "Yes — roll-up summary field filter criteria can reference the Record Type field (e.g.",
+      "Yes — filter criteria can reference the Record Type field directly",
       "No, this requires a Flow-based rollup instead since Record Type is a protected system field",
       "Yes, but only if the Record Type field is first converted to a custom picklist field"
     ],
@@ -1447,7 +1447,7 @@
     "question": "A Screen Flow embedded on a Case record page needs to pre-populate a field with the current record's Case Number without the user typing it. What must be configured for this to work correctly?",
     "options": [
       "Nothing; all Screen Flows automatically have full access to every field of the host record with no setup",
-      "The Flow needs a Record Id input variable available (automatically passed when embedded on a record page",
+      "The Flow needs a Record Id variable and a Get Records step to fetch it",
       "This requires a custom Lightning Web Component wrapper around the Screen Flow",
       "Case Number specifically cannot be referenced inside any Flow since it's an auto-number field"
     ],
@@ -1475,7 +1475,7 @@
     "question": "A company has two Page Layouts for Case ('Standard Case Layout' and 'Escalated Case Layout') assigned by profile. They migrate to Dynamic Forms, converting the Lightning Record Page to use individual field components instead of the layout-driven Details component. What happens to the original two Page Layouts?",
     "options": [
       "They are automatically deleted once Dynamic Forms is enabled",
-      "The Page Layouts still exist and continue to control certain layout-dependent elements (like Related Lists placement in Classic",
+      "The Page Layouts still exist and continue to control other elements",
       "They become read-only historical records with no functional purpose whatsoever",
       "They automatically merge into a single unified layout"
     ],
@@ -1643,7 +1643,7 @@
     "question": "A Compact Layout for Opportunity lists 6 fields, prioritized for the mobile Highlights Panel. The business wants a 7th critical field (a roll-up summary) always visible on mobile without pushing off an existing field. What is the correct approach and its real constraint?",
     "options": [
       "Simply add the 7th field; Compact Layouts have no field count limit",
-      "Compact Layouts DO have a maximum field count (a defined limit, historically up to 10 fields",
+      "Compact Layouts do have a maximum field count, higher than 6",
       "Roll-up summary fields cannot be included in Compact Layouts under any circumstances",
       "This requires deleting one of the existing 6 fields first since Compact Layouts are hard-capped at exactly 6 fields"
     ],
@@ -1909,7 +1909,7 @@
     "question": "A change set deployment to Production requires 75% overall Apex code coverage. The org currently sits at 78% overall coverage, but the specific Apex class being modified in this change set has only 40% coverage on its own. Will the deployment succeed?",
     "options": [
       "No, every individual class must independently have at least 75% coverage or the deployment is blocked entirely",
-      "Potentially yes — Salesforce's coverage requirement for deployment is generally evaluated as an ORG-WIDE aggregate (at least 75% overall",
+      "Potentially yes — coverage is evaluated as an org-wide aggregate",
       "Yes, because code coverage requirements only apply to brand-new classes, not modified existing ones",
       "No, because change sets always require 100% code coverage regardless of the org-wide percentage"
     ],
@@ -1965,7 +1965,7 @@
     "question": "A deployment plan includes a new Validation Rule requiring 'Industry' to be populated on Account going forward, deploying directly to Production with no other steps. Immediately after deployment, thousands of existing Account records without an Industry value become impossible for any user to edit (even unrelated fields) without first fixing Industry. What planning step was missed?",
     "options": [
       "Nothing was missed; this is expected and desirable behavior with no real downside",
-      "The deployment plan should have included a pre-deployment data remediation step (bulk-populating Industry on legacy records) and/or scoped the validation rule to exclude legacy records (e.g.",
+      "Include a data remediation step or scope the rule to exclude legacy records",
       "Validation rules never affect existing records regardless of configuration, so this scenario couldn't actually happen",
       "The fix is to immediately roll back Salesforce to a previous release version"
     ],
@@ -1979,7 +1979,7 @@
     "question": "A release includes changes across Apex, Flow, and Custom Metadata Types, developed by three separate teams over 6 weeks using individual Developer Sandboxes with no shared version control. Integration testing reveals the Flow deployed by Team B overwrote unrelated changes Team A had made to the same Flow, because both teams edited copies independently without merging. What underlying process gap caused this?",
     "options": [
       "Flow inherently cannot be worked on by more than one developer ever, so this was unavoidable",
-      "The lack of a shared, version-controlled source of truth (e.g.",
+      "The lack of a shared, version-controlled source of truth",
       "This is a Salesforce platform limitation with no available fix, tooling, or workaround",
       "Change Sets would have automatically merged the two teams' conflicting changes correctly"
     ],
@@ -2021,7 +2021,7 @@
     "question": "A company built a Managed Package version and wants to release it to AppExchange, but their Apex classes only have 60% test coverage overall, concentrated heavily in a few classes while others have 0%. What blocks them from uploading a releasable (non-beta) package version?",
     "options": [
       "Nothing blocks them; test coverage is only a recommendation, never enforced for package uploads",
-      "Salesforce enforces a minimum test coverage requirement (75% overall",
+      "Salesforce enforces a minimum test coverage requirement for release",
       "This can be bypassed entirely by marking the package 'Unlocked' instead of 'Managed'",
       "This only applies to Second-Generation (2GP) packages, not First-Generation (1GP) packages"
     ],
@@ -2077,7 +2077,7 @@
     "question": "An admin wants to deploy a single custom field from a Sandbox to Production using a Change Set, but that field is referenced by a validation rule, a Flow, AND a Report Type already active in the target Production org (created independently there, not via change set). Will including just the new field (with no other components) in the Outbound Change Set succeed?",
     "options": [
       "No, this will always fail because the field is referenced by so many existing components in Production",
-      "This can succeed — components ALREADY existing in the target org (validation rule, Flow",
+      "This can succeed, since existing components don't need re-including",
       "This requires including the validation rule, Flow, and Report Type in the change set as well, since they all reference the field",
       "This can only work if the field is deployed as part of a Managed Package instead"
     ],
