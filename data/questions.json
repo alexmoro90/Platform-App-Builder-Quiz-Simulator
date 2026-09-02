@@ -5,7 +5,7 @@
     "question": "Universal Containers wants Case Status to automatically change to 'Escalated' whenever a Case sits in 'New' for more than 4 business hours, and a manager should get a mobile notification. The admin proposes a Workflow Rule with a time-dependent action. What should you point out?",
     "options": [
       "Workflow Rules are the correct tool and nothing needs to change",
-      "This is achievable declaratively, but Salesforce recommends building it in Flow Builder (Scheduled Paths) instead, since Workflow Rules are a legacy tool being phased out in favor of Flow",
+      "Use Flow Builder (Scheduled Paths) instead of legacy Workflow Rules",
       "This requires Apex because Workflow Rules cannot evaluate time",
       "This requires a Process Builder process, since Flow cannot send mobile notifications"
     ],
@@ -19,7 +19,7 @@
     "question": "A callout to an external shipping API must run synchronously while a user is still on the record page, with custom logic to retry on a specific HTTP error code before showing a friendly message. Which statement is correct?",
     "options": [
       "A Flow's HTTP Callout action alone can handle all retry logic without any Apex",
-      "This scenario's custom retry/error-branching logic exceeds what's practical declaratively, so an Apex-based invocable action (called from Flow or a Lightning component) is the appropriate approach",
+      "This scenario's custom retry/error-branching logic exceeds what's practical declaratively",
       "This must be built entirely with Visualforce and cannot use Flow at all",
       "Outbound Messages are the correct synchronous solution here"
     ],
@@ -33,7 +33,7 @@
     "question": "An admin built a validation rule, a roll-up summary, and 3 record-triggered flows on Opportunity, and performance has degraded. A colleague says the fix must be to 'convert everything to Apex' since declarative tools don't scale. Is this correct?",
     "options": [
       "Yes, declarative automation always performs worse than Apex at any volume",
-      "No — the real issue is likely too many uncoordinated automations firing on the same object/event; consolidating flow logic and reviewing order of execution is the appropriate declarative-first fix before jumping to Apex",
+      "No — the real issue is likely too many uncoordinated automations firing on the same object/event",
       "Yes, but only because roll-up summary fields are deprecated",
       "No, because Apex cannot run on Opportunity at all"
     ],
@@ -47,7 +47,7 @@
     "question": "A partner has published an Agentforce agent template on AgentExchange for warranty claim triage. The admin installs it and finds it references a custom object that doesn't exist in their org. What is the MOST accurate statement?",
     "options": [
       "This means the AgentExchange listing is broken and should be reported as non-functional",
-      "AgentExchange templates often expect certain supporting metadata (objects, fields, permissions) to be created or mapped during setup — the admin should follow the listing's setup/configuration steps rather than assume it's ready to run untouched",
+      "AgentExchange templates often expect certain supporting metadata (objects, fields",
       "AgentExchange only distributes agents that require zero configuration by definition",
       "This confirms the agent must have been built exclusively for Data Cloud orgs"
     ],
@@ -61,7 +61,7 @@
     "question": "Which statement about the relationship between AgentExchange and AppExchange is MOST accurate?",
     "options": [
       "They are the exact same marketplace with different names",
-      "AgentExchange is a distinct, purpose-built marketplace for Agentforce agents, topics, and actions, whereas AppExchange is the broader marketplace for apps, components, and consulting listings — some Agentforce assets can appear referenced in both, but they serve different discovery purposes",
+      "AgentExchange is a distinct, purpose-built marketplace for Agentforce agents, topics",
       "AgentExchange only allows free listings, while AppExchange only allows paid listings",
       "AgentExchange replaced AppExchange entirely in the Summer '26 release"
     ],
@@ -75,7 +75,7 @@
     "question": "True or False: because an agent template comes from AgentExchange, it automatically respects the installing org's existing sharing rules and field-level security without any additional review.",
     "options": [
       "True — Agentforce always operates strictly within the running user's existing permissions with no configuration needed",
-      "Partially true with a trap: while Agentforce actions generally do respect the running user's access by default, admins should still review and test permission behavior after installation, since agent configuration (e.g., a specified run-as context) can affect what data is actually visible or actioned",
+      "Partially true with a trap: while Agentforce actions generally do respect the running user's access by default",
       "False — Agentforce completely bypasses all sharing model enforcement by design",
       "False — Agentforce requires 'Modify All Data' for every user before it can function"
     ],
@@ -89,7 +89,7 @@
     "question": "OWD for a custom object 'Vendor Contract' is Private. A Permission Set grants 'View All' on Vendor Contract to the Finance team. A Sharing Rule ALSO shares all Vendor Contract records owned by the 'Legal' role with 'Read Only' to Finance. What access does a Finance user actually have?",
     "options": [
       "Read Only, because the Sharing Rule is more specific and overrides the Permission Set",
-      "Full view access to all Vendor Contract records (View All from the Permission Set is broader and is not restricted by an unrelated, narrower Sharing Rule)",
+      "Full view access to all Vendor Contract records (View All from the Permission Set is broader and is not restricted by an unrelated",
       "No access, because Private OWD blocks the Permission Set from applying",
       "Edit access, because Sharing Rules always grant the highest level found among all rules"
     ],
@@ -103,7 +103,7 @@
     "question": "A profile has Field-Level Security set to 'Read-Only' on the Discount_Percent__c field, but the field is also included as an editable field on a Quick Action layout the user can access. Can the user edit the field via the Quick Action?",
     "options": [
       "Yes, because Quick Action layouts always override Field-Level Security",
-      "No — Field-Level Security is enforced everywhere, including Quick Actions, Flows, and APIs, regardless of what a layout displays as editable",
+      "No — Field-Level Security is enforced everywhere, including Quick Actions, Flows, and APIs",
       "Yes, but only in Lightning Experience, not Classic",
       "No, but only because Quick Actions cannot contain custom fields at all"
     ],
@@ -117,7 +117,7 @@
     "question": "A support rep profile has 'Read' but not 'Edit' on the Case object. The rep is added to a Public Group referenced by a Sharing Rule granting 'Read/Write' access to Cases owned by the support queue. Can the rep now edit those Cases?",
     "options": [
       "Yes, the Sharing Rule's Read/Write grants edit access to those specific records",
-      "No — object-level permissions from the Profile/Permission Set act as a ceiling; without 'Edit' at the object level, record-level sharing (however generous) cannot grant edit rights",
+      "No — object-level permissions from the Profile/Permission Set act as a ceiling",
       "Yes, but only if the rep is also the record owner",
       "No, because Public Groups cannot be referenced in Sharing Rules for Cases"
     ],
@@ -131,7 +131,7 @@
     "question": "Which combination of features would correctly prevent a Sales rep from ever seeing Opportunities in the 'Legal Review' record type, even though their profile grants 'View All' on Opportunity?",
     "options": [
       "Field-Level Security on the Record Type field",
-      "A Restriction Rule scoped to exclude that record type, since Restriction Rules can limit visibility even when object permissions like 'View All' would otherwise expose the records",
+      "A Restriction Rule scoped to exclude that record type",
       "A Sharing Rule with a 'Private' setting",
       "Removing the Opportunity tab from their Lightning App"
     ],
@@ -145,7 +145,7 @@
     "question": "A company's Role Hierarchy has Regional Manager above Sales Rep. OWD for Opportunity is Private. The admin wants Sales Reps to see each other's Opportunities within the SAME region, but Regional Managers should NOT automatically see reps' Opportunities (managers only need visibility into their own deals). What is the correct approach?",
     "options": [
       "Do nothing — the Role Hierarchy already grants this by default",
-      "Use Sharing Rules based on a Public Group (per region) rather than relying on Role Hierarchy, and consider disabling 'Grant Access Using Hierarchies' implications where relevant, since Role Hierarchy would otherwise also expose reps' data to managers above them",
+      "Use Sharing Rules based on a Public Group (per region) rather than relying on Role Hierarchy",
       "Set OWD to Public Read/Write for Opportunity",
       "Use Manual Sharing for every Opportunity individually"
     ],
@@ -159,7 +159,7 @@
     "question": "A Sharing Rule is created to share all Accounts owned by the 'West' Public Group with 'Read Only' access to the 'East' Public Group. Later, OWD for Account is changed from Public Read Only to Private. What happens to the Sharing Rule?",
     "options": [
       "It is automatically deleted because it's now redundant",
-      "It continues to function and becomes more meaningful, since Sharing Rules are designed specifically to open up access beyond a Private (or more restrictive) OWD baseline",
+      "It continues to function and becomes more meaningful",
       "It becomes an error and blocks the OWD change",
       "It automatically upgrades to Read/Write to compensate for the stricter OWD"
     ],
@@ -173,7 +173,7 @@
     "question": "Universal Containers needs Opportunity access to align with a matrix of sales regions AND product lines simultaneously, where a rep might need access based on either dimension. Role Hierarchy reflects only the management chain. What is the BEST long-term solution?",
     "options": [
       "Duplicate the Role Hierarchy to reflect regions and products separately",
-      "Implement Enterprise Territory Management, which is purpose-built for multi-dimensional access models like region + product line, without distorting the management-based Role Hierarchy",
+      "Implement Enterprise Territory Management",
       "Create hundreds of individual Sharing Rules, one per rep",
       "Set OWD to Public Read/Write to avoid the complexity"
     ],
@@ -187,7 +187,7 @@
     "question": "A record owner manually shares a confidential Opportunity with a colleague using Manual Sharing, granting Read Only access. The Opportunity owner is later deactivated. What happens to that manual share?",
     "options": [
       "It is automatically removed since manual shares depend on an active owner",
-      "It persists as configured until explicitly removed or until automated cleanup processes (like transferring/deactivating related sharing) are run — deactivating a user does not automatically strip manually granted shares on their records",
+      "It persists until explicitly removed or cleaned up manually",
       "It automatically upgrades to Read/Write",
       "It transfers automatically to the deactivated user's manager"
     ],
@@ -201,7 +201,7 @@
     "question": "A user builds a report using the standard 'Opportunities with Products' report type but can't find a custom field from a related custom object 'Contract Terms' that has a Lookup (not Master-Detail) relationship to Opportunity. What is the issue?",
     "options": [
       "The field must be hidden via Field-Level Security",
-      "Standard report types don't automatically include fields from objects related via Lookup relationships that weren't part of the original report type definition — a Custom Report Type is needed to surface that Lookup-related data",
+      "Standard report types don't automatically include fields from objects related via Lookup relationships",
       "The user lacks 'Run Reports' permission",
       "Reports cannot show data from any custom object"
     ],
@@ -215,7 +215,7 @@
     "question": "A dashboard is set to run 'As Specified User' where that user is a System Administrator. Six months later, several users complain the dashboard suddenly shows far less data than before. What is the MOST likely cause?",
     "options": [
       "The dashboard type automatically degrades over time",
-      "The Administrator's own record access changed (e.g., role change, deactivated account, or reduced permissions) — since a static 'Run As' user's own access directly determines what a static dashboard shows everyone, unlike Dynamic Dashboards",
+      "The Administrator's own record access changed (e.g., role change, deactivated account, or reduced permissions)",
       "Dashboards always lose data after 90 days by default",
       "Reports feeding the dashboard were archived automatically"
     ],
@@ -243,7 +243,7 @@
     "question": "Why might Bucket Fields be the WRONG choice when a sales manager wants Opportunity Amount ranges to be reusable across many different reports and dashboards org-wide, with consistent boundaries?",
     "options": [
       "Bucket fields cannot categorize numeric data",
-      "Bucket Fields are defined per-report and are not centrally reusable/shared automatically across other reports — a formula field or picklist with defined ranges would be more consistent for org-wide reuse",
+      "Bucket Fields are defined per-report and are not centrally reusable/shared automatically across other reports",
       "Bucket fields require Apex to configure",
       "Bucket fields can only be used in dashboards, not reports"
     ],
@@ -257,7 +257,7 @@
     "question": "A Joined Report combines an 'Opportunities' block and a 'Cases' block, both filtered to the same Account. A user asks why the totals in each block don't visually align in a single combined chart. What is the correct explanation?",
     "options": [
       "Joined Reports always share one unified chart and this indicates a bug",
-      "Each block in a Joined Report is essentially an independent report grouped together for side-by-side comparison; charts and totals are generally block-specific unless explicitly configured to combine across blocks",
+      "Each block in a Joined Report is essentially an independent report grouped together for side-by-side comparison",
       "Joined Reports cannot use different object types in different blocks",
       "Cases can never appear in a Joined Report"
     ],
@@ -271,7 +271,7 @@
     "question": "A Permission Set Group bundles three Permission Sets, one of which explicitly denies 'Delete' on Contact via a muting permission set included in the group. A user's Profile separately grants 'Delete' on Contact. What is the user's resulting ability to delete Contacts?",
     "options": [
       "They can delete Contacts, because Profile permissions always override Permission Set Groups",
-      "They cannot delete Contacts, because a muting permission set inside a Permission Set Group can explicitly revoke a permission that would otherwise be granted by the Profile or other Permission Sets within that group's scope",
+      "They cannot delete Contacts, since the muting permission set revokes that right",
       "It depends on which was assigned first",
       "Muting permission sets only affect field-level security, never object permissions"
     ],
@@ -285,7 +285,7 @@
     "question": "Which statement correctly describes how 'Grant Access Using Hierarchies' interacts with a criteria-based Sharing Rule on a custom object?",
     "options": [
       "It has no effect on custom objects and only applies to standard objects like Account",
-      "When enabled (the default and required setting for custom objects with Sharing Rules), users above the record owner in the role hierarchy automatically also receive the access granted by that Sharing Rule; some custom object configurations allow disabling this, which is a subtlety often missed",
+      "When enabled (the default and required setting for custom objects with Sharing Rules)",
       "It always grants access downward to subordinates, never upward to managers",
       "It can be selectively disabled per Sharing Rule but never at the object level"
     ],
@@ -299,7 +299,7 @@
     "question": "A nonprofit wants a workflow where a Screen Flow guides volunteers through logging donations, then an approval step is needed only if the donation exceeds $10,000, with dynamic routing to whichever regional director owns the related Account. Which approach is correct?",
     "options": [
       "This entire scenario cannot be done declaratively and requires a custom Apex approval engine",
-      "This is achievable fully declaratively: a Screen Flow for data capture, combined with an Approval Process (or Flow-triggered approval submission) using dynamic approver routing based on the related Account's owner",
+      "This is achievable fully declaratively: a Screen Flow for data capture",
       "Only Process Builder (not Flow) supports triggering approval processes",
       "Approval Processes cannot use dynamic, record-based routing and always require a hardcoded approver"
     ],
@@ -313,7 +313,7 @@
     "question": "An admin wants to let an Agentforce agent installed from AgentExchange trigger an existing, tested Screen Flow when a customer requests a refund. What is required for this integration to work?",
     "options": [
       "Nothing — all flows are automatically available as agent actions with no configuration",
-      "The Flow must typically be exposed/configured as an Action available to the agent (e.g., via an autolaunched flow wrapped as an action), and appropriate permissions must allow the agent's running context to execute it",
+      "The Flow must typically be exposed/configured as an Action available to the agent (e.g.",
       "The Flow must be rebuilt entirely inside Agentforce Builder and cannot be reused from Flow Builder",
       "Screen Flows can never be invoked by an Agentforce agent, only autolaunched flows can"
     ],
@@ -327,7 +327,7 @@
     "question": "A custom object has OWD set to 'Controlled by Parent.' What determines a user's access to child records of this object?",
     "options": [
       "The child object's own independent OWD setting, ignoring the parent entirely",
-      "The user's access to the PARENT record entirely determines access to the child record — this setting is typical for detail objects in a Master-Detail relationship and cannot be independently loosened via child-level sharing rules",
+      "The user's access to the PARENT record entirely determines access to the child record",
       "Whichever is more permissive between parent and child OWD",
       "This setting is only valid for Lookup relationships, never Master-Detail"
     ],
@@ -341,7 +341,7 @@
     "question": "A regional VP needs a dashboard where EACH viewer sees only their own team's numbers, without the admin building a separate dashboard per region. The dashboard must also respect each viewer's individual record-level sharing. What is the correct setup?",
     "options": [
       "A single static dashboard run as the VP, since the VP can see everything anyway",
-      "A Dynamic Dashboard set to run as the logged-in user, so each viewer's own sharing and role automatically scope what they see, with no per-region duplication needed",
+      "A Dynamic Dashboard set to run as the logged-in user",
       "Multiple Joined Reports, one per region, run manually by the VP",
       "A dashboard filter manually re-applied by each viewer every time they log in"
     ],
@@ -355,7 +355,7 @@
     "question": "A company wants Contacts to inherit the same sharing as their parent Account automatically, with no separate Contact-level sharing rules to maintain. Which native behavior/setting supports this most directly?",
     "options": [
       "Manually replicate every Account sharing rule onto Contact as well",
-      "Set the Contact OWD to 'Controlled by Parent,' so Contact access follows Account access automatically without duplicate rule maintenance",
+      "Set the Contact OWD to 'Controlled by Parent'",
       "Set Contact OWD to Public Read/Write to simplify things",
       "Use a Permission Set Group mirroring the Account's role hierarchy"
     ],
@@ -369,7 +369,7 @@
     "question": "An integration user's Profile has 'View All Data' system permission. Does this permission allow the integration user to see fields hidden from their profile via Field-Level Security?",
     "options": [
       "Yes, 'View All Data' overrides Field-Level Security since it's a system-wide permission",
-      "No — 'View All Data' (and 'Modify All Data') grant access to ALL records regardless of sharing, but they do NOT bypass Field-Level Security, which is a separate, independent restriction",
+      "No — 'View All Data' (and 'Modify All Data') grant access to ALL records regardless of sharing",
       "Yes, but only for custom fields, not standard fields",
       "No, because 'View All Data' only applies to reports, not direct record access"
     ],
@@ -383,7 +383,7 @@
     "question": "Universal Containers tracks Purchase Orders, each with multiple Line Items. Line Items must be automatically deleted if the Purchase Order is deleted, and Line Item record access should always mirror the parent Purchase Order — no independent sharing needed. The admin proposes a Lookup relationship with a workflow rule to delete children when the parent is deleted. What is the issue?",
     "options": [
       "There is no issue; this fully satisfies the requirement",
-      "This unnecessarily reinvents cascading delete and inherited sharing behavior that a Master-Detail relationship provides natively — Master-Detail is the correct, simpler choice here",
+      "Master-Detail already provides cascading delete and inherited sharing natively",
       "Lookup relationships cannot have related lists, so this would fail entirely",
       "Workflow Rules cannot delete records under any circumstance"
     ],
@@ -397,7 +397,7 @@
     "question": "A recruiting object 'Interview' has a Master-Detail relationship to 'Job Application' as its only relationship. The business now also wants each Interview to independently roll up to 'Interviewer' (a Contact), with its own sharing rules distinct from the Job Application. What is the correct approach?",
     "options": [
       "Change the existing Master-Detail to point to Interviewer instead",
-      "Add a SECOND relationship field to Contact as a Lookup (since Interview already has one Master-Detail to Job Application, and an object can have at most 2 Master-Detail relationships, but here a Lookup is actually more appropriate since independent sharing is needed)",
+      "Add a second relationship as a Lookup to Interviewer instead of Master-Detail",
       "This is impossible since an object can only have one relationship of any kind",
       "Convert Job Application's relationship to Interview into a Lookup so both relationships can be Master-Detail"
     ],
@@ -411,7 +411,7 @@
     "question": "A many-to-many relationship between 'Student' and 'Course' is implemented with a junction object 'Enrollment' using two Master-Detail relationships. The business now wants Enrollment records to be independently ownable and sharable, unrelated to either Student's or Course's sharing. What must change?",
     "options": [
       "Nothing — Master-Detail junction objects can already be independently owned and shared",
-      "At least one of the Master-Detail relationships would need to become a Lookup, since a Master-Detail child's sharing/ownership is always controlled by its master(s), not independently settable — but this breaks native roll-up summary support from that side",
+      "At least one of the Master-Detail relationships would need to become a Lookup",
       "Add a third Master-Detail relationship to a dummy object to enable independent ownership",
       "Change Enrollment's OWD to Public Read/Write to simulate independence"
     ],
@@ -439,7 +439,7 @@
     "question": "A company's data model has 'Warranty Claim' as a Master-Detail child of 'Product,' which is itself a Master-Detail child of 'Manufacturer.' The business wants a roll-up summary field on Manufacturer that sums Warranty Claim amounts directly, skipping the intermediate Product object. What must be true for this to work?",
     "options": [
       "It works automatically since roll-up summaries traverse any number of Master-Detail levels by default",
-      "Roll-up summary fields only aggregate DIRECT children one level down; to roll up from Warranty Claim (grandchild) to Manufacturer (grandparent), you need an intermediate roll-up on Product first (summing Warranty Claims), then a second roll-up on Manufacturer summing that Product-level field",
+      "Roll-up summary fields only aggregate DIRECT children one level down",
       "This requires converting all three objects into a single object",
       "This is only possible using Data Cloud, not standard roll-up summaries"
     ],
@@ -453,7 +453,7 @@
     "question": "A Lookup relationship field 'Preferred_Vendor__c' on Purchase Order is changed to Required (not null) at the field level. Does this make the relationship behave like Master-Detail?",
     "options": [
       "Yes, a Required Lookup is functionally identical to Master-Detail in every respect",
-      "No — making a Lookup field required only prevents blank values; it still does NOT cascade delete, does NOT control sharing inheritance, and does NOT support roll-up summary fields the way Master-Detail does",
+      "No — making a Lookup field required only prevents blank values",
       "Yes, but only for reporting purposes",
       "No, but only because Required fields cannot be Lookups at all"
     ],
@@ -467,7 +467,7 @@
     "question": "An admin converts a Lookup relationship 'Account__c' on custom object 'Service Ticket' to Master-Detail so roll-up summaries can be used. What must be true of EVERY existing Service Ticket record before this conversion succeeds?",
     "options": [
       "Nothing — Salesforce auto-populates a default Account for blank records",
-      "Every existing Service Ticket record must already have a non-blank value in the Account__c field, since Master-Detail does not allow the detail to exist without a parent — records with a blank lookup will block the conversion until fixed",
+      "Every existing Service Ticket record must already have a non-blank value in the Account__c field",
       "Only records created in the last 90 days need a value",
       "The conversion works regardless, and blank records are simply hidden from reports afterward"
     ],
@@ -481,7 +481,7 @@
     "question": "Which statement about deleting a Master record when 'Field-level security' hides the Master-Detail relationship field from a user's profile is correct?",
     "options": [
       "The user cannot delete the master record at all since they can't see the relationship field",
-      "Hiding the relationship field via FLS does not prevent cascading delete behavior if the user otherwise has delete permission on the master object — cascading delete is a structural behavior of Master-Detail, independent of whether the relationship field itself is visible",
+      "Hiding the relationship field via FLS does not prevent cascading delete behavior if the user otherwise has delete permission on the master object",
       "FLS on a Master-Detail field always blocks deletion of both master and detail",
       "Cascading delete only applies if the relationship field is visible on the page layout"
     ],
@@ -495,7 +495,7 @@
     "question": "A Number field with 2 decimal places storing prices needs to become a Currency field, since the business now operates in multiple currencies with multi-currency enabled. What should the admin expect?",
     "options": [
       "A simple field type change with zero side effects",
-      "A more involved process — multi-currency-related fields interact with the org's enabled currencies (CurrencyIsoCode), and converting a plain Number to Currency doesn't retroactively apply proper currency conversion or historical exchange rates; existing values are typically treated as being in the org's default currency",
+      "Multi-currency requires careful handling, not a simple type change",
       "This conversion is impossible and requires deleting and recreating the field",
       "Currency fields cannot have decimal places, so data will be truncated"
     ],
@@ -509,7 +509,7 @@
     "question": "A picklist field 'Region' has record-type-specific picklist value sets (different available values per Record Type). The admin converts it to a Multi-Select Picklist to allow multiple regions per record. What commonly gets overlooked?",
     "options": [
       "Multi-Select Picklists cannot be used in Record Types at all, so nothing needs review",
-      "Record-type-specific picklist value availability still applies, but any dependent picklist, formula (like ISPICKVAL), or validation rule logic built assuming a SINGLE value will likely break, since multi-select values are stored as a single semicolon-delimited string",
+      "Record-type-specific picklist value availability still applies, but any dependent picklist",
       "Multi-select conversion automatically rewrites all dependent formulas",
       "This conversion has no impact on Record Types or formulas whatsoever"
     ],
@@ -523,7 +523,7 @@
     "question": "A Text field storing free-form 'Customer ID' values from a legacy system needs to become an External ID for use in Data Loader upserts. The admin simply checks the 'External ID' checkbox on the existing field. Is anything else needed?",
     "options": [
       "No, checking the box is sufficient for everything, including guaranteeing uniqueness",
-      "The admin should also strongly consider marking it as 'Unique' (case-sensitive or insensitive, depending on the source system) and 'Required' if appropriate — 'External ID' alone enables it as an upsert key and adds indexing, but does not itself enforce uniqueness unless the Unique attribute is also set",
+      "The admin should also strongly consider marking it as 'Unique' (case-sensitive or insensitive",
       "External ID fields must always be Auto-Number, so this field type is invalid",
       "This will automatically deduplicate any existing duplicate values already in the field"
     ],
@@ -537,7 +537,7 @@
     "question": "Which scenario correctly identifies a case where changing a field's data type would cause SILENT data truncation rather than an outright blocked conversion?",
     "options": [
       "Converting a Checkbox to a Picklist",
-      "Reducing a Text(255) field to Text(50) when existing values exceed 50 characters — Salesforce allows shortening a Text field's length and will truncate existing values beyond the new limit without necessarily blocking the change outright in all paths",
+      "Reducing a Text(255) field to Text(50) when existing values exceed 50 characters",
       "Converting a Currency field to a Percent field",
       "Converting a Lookup to a Master-Detail relationship"
     ],
@@ -551,7 +551,7 @@
     "question": "A checkbox field 'Is_VIP__c' needs to be replaced with a Picklist ('VIP Tier: Gold/Silver/None') to support more granular tiering, while preserving historical TRUE/FALSE data as a starting point. What is the recommended migration approach?",
     "options": [
       "Simply change the Checkbox field's type directly to Picklist in Setup",
-      "Create a NEW Picklist field, then use a one-time data migration (Flow, Data Loader, or formula-assisted mapping) to populate it based on the old Checkbox values (e.g., TRUE maps to 'Gold', FALSE maps to 'None'), since Checkbox-to-Picklist is not a direct supported type conversion",
+      "Create a new Picklist field and migrate the data with Flow or Data Loader",
       "Rename the Checkbox field and Salesforce will auto-convert its type",
       "Use Field-Level Security to add picklist values to the Checkbox field"
     ],
@@ -565,7 +565,7 @@
     "question": "An admin needs to migrate 200,000 legacy Contact records into Salesforce, matching against existing Contacts by an external system ID to avoid duplicates, and some records reference Accounts that must be created if they don't already exist. Which tool and approach is correct?",
     "options": [
       "The Data Import Wizard, since it supports Contacts and any volume of records",
-      "Data Loader using Upsert (with an External ID field for matching) — the Data Import Wizard caps out around 50,000 records and has more limited relationship-handling and automation options for a scenario this size and complexity",
+      "Data Loader using Upsert (with an External ID field for matching)",
       "A single CSV import via the standard 'Import Contacts' button in Setup",
       "Manual entry, since automation cannot handle conditional Account creation"
     ],
@@ -579,7 +579,7 @@
     "question": "A nightly integration needs Salesforce Opportunity data to always reflect the LATEST state of a legacy on-premise ERP system in real time, without storing a duplicate copy inside Salesforce or consuming Salesforce data storage. Which solution fits, and what is the key limitation to flag?",
     "options": [
       "A nightly Data Loader batch job, which is the standard way to avoid storage use",
-      "Salesforce Connect using External Objects — this avoids storage and duplication, but many capabilities Salesforce admins take for granted on standard/custom objects (like native roll-up summaries, full Master-Detail relationships, or certain automation triggers) are limited or unavailable on external objects",
+      "Salesforce Connect using External Objects",
       "A Scheduled Flow that fully re-imports all data every night",
       "Big Objects, since they're designed specifically for real-time external system mirroring"
     ],
@@ -593,7 +593,7 @@
     "question": "During a Data Loader import of Opportunities with Master-Detail relationships to a custom parent object, several rows fail with a relationship resolution error even though the External ID values look correct in the CSV. What is a common overlooked cause?",
     "options": [
       "Master-Detail relationships can never be populated via Data Loader under any circumstances",
-      "The External ID field on the parent object might not actually be marked as 'External ID' (or 'Unique'), or the values might have case-sensitivity mismatches — Data Loader requires an indexed, properly configured External ID field to reliably resolve relationship references during import",
+      "The External ID field on the parent object might not actually be marked as 'External ID' (or 'Unique')",
       "The CSV file format is always the cause of such errors",
       "This only happens when importing into Lookup relationships, never Master-Detail"
     ],
@@ -607,7 +607,7 @@
     "question": "A company wants a full, downloadable backup of all Salesforce data (not just metadata) on a recurring basis, without any coding or third-party tools, primarily for compliance/audit archival, not active integration. What native feature satisfies this?",
     "options": [
       "Change Sets, scheduled weekly",
-      "The Data Export Service in Setup, which can be scheduled (weekly or monthly depending on edition) to produce downloadable CSV/zip exports of org data",
+      "The Data Export Service in Setup, schedulable weekly or monthly",
       "Salesforce Connect External Objects",
       "Data Loader Extract configured as a one-time job only"
     ],
@@ -621,7 +621,7 @@
     "question": "An admin runs a Data Loader UPDATE (not upsert) on 50,000 existing Case records to bulk-change a Status field, expecting existing automation (validation rules, flows) to behave exactly as manual UI edits would. What common surprise should they anticipate?",
     "options": [
       "Data Loader always bypasses every validation rule and flow automatically",
-      "Depending on API version/settings and the specific automation type, some flows/rules behave the same as UI edits by default, but performance and governor-limit behavior differs at bulk scale (e.g., bulkification issues in poorly designed automation), and certain automations may need to be temporarily deactivated to avoid unintended cascading effects at volume",
+      "Depending on API version/settings and the specific automation type",
       "Data Loader updates are always silently rejected if any automation exists on the object",
       "Bulk updates via Data Loader can never trigger Flow automation under any circumstances"
     ],
@@ -635,7 +635,7 @@
     "question": "A report needs to show Accounts alongside a rolled-up count of related Custom Object 'Support Plan' records, but 'Support Plan' relates to Account via a Lookup (not Master-Detail), and the business does not want to change the relationship type due to independent sharing needs on Support Plan. How can the count still appear reliably in reports?",
     "options": [
       "It's impossible without converting to Master-Detail",
-      "Use a Custom Report Type joining Account and Support Plan (via the Lookup) for reporting purposes, and/or maintain a separate declarative rollup (Flow-calculated field) on Account if the count needs to be a queryable/reportable field outside of ad hoc reports",
+      "Use a Custom Report Type joining Account and Support Plan (via the Lookup) for reporting purposes",
       "Native roll-up summary fields work fine on Lookup relationships as long as a Custom Report Type also exists",
       "Enable 'Roll-Up Summary Compatibility Mode' in Setup for Lookup relationships"
     ],
@@ -649,7 +649,7 @@
     "question": "A 'Case' object has a Master-Detail relationship to a new custom object 'Escalation Log' (Case is master, Escalation Log is detail). Support agents complain they can no longer set a different OWNER for Escalation Log records than the related Case's owner. What is the correct explanation?",
     "options": [
       "This is a bug that should be reported to Salesforce support",
-      "This is expected Master-Detail behavior — detail records do not have an independently settable owner; the detail's effective owner/access is governed by the master record, which is precisely the tradeoff of choosing Master-Detail over Lookup",
+      "This is expected Master-Detail behavior, not a bug",
       "Escalation Log must have an OwnerId field manually added via a custom field",
       "Case must be converted to a Lookup relationship for this specific behavior to change, but this has no other implications"
     ],
@@ -663,7 +663,7 @@
     "question": "Which of the following would MOST likely indicate that a many-to-many relationship should use a junction object with Master-Detail relationships, rather than simply adding two separate Lookup fields on one of the two objects?",
     "options": [
       "The business needs each Student to relate to exactly one Course only",
-      "The business needs to capture additional data about EACH combination (e.g., a Grade or Enrollment Date per Student-Course pairing), and needs each pairing to cascade-delete and inherit sharing appropriately — a hallmark of true many-to-many modeling",
+      "The pairing needs extra data captured, like a Grade per combination",
       "The two objects will never have more than 10 records combined",
       "One of the objects is a standard object like Account"
     ],
@@ -677,7 +677,7 @@
     "question": "A formula field of return type 'Checkbox' evaluates cross-object references three relationships deep to determine eligibility. Six months later, an intermediate relationship in that chain is deleted (the Lookup field itself is deleted). What happens to the formula field?",
     "options": [
       "It continues to calculate correctly using cached historical values",
-      "The formula field will show an error or stop calculating correctly (often needing to be edited/fixed) since it depends on a relationship path that no longer exists — cross-object formulas are NOT resilient to structural relationship changes downstream",
+      "The formula field will show an error or stop calculating correctly (often needing to be edited/fixed)",
       "It automatically reroutes to the next closest relationship",
       "Formula fields cannot reference relationships three levels deep in the first place, so this scenario is impossible"
     ],
@@ -691,7 +691,7 @@
     "question": "An admin wants to prevent duplicate Account records during a large CSV import via Data Loader, using company legal name and country as the matching logic, but built-in Salesforce Duplicate Rules only run on UI-based saves in some configurations. What should the admin verify?",
     "options": [
       "Duplicate Rules never apply to Data Loader imports under any circumstances, full stop",
-      "Whether the relevant Matching Rule and Duplicate Rule are configured to also run for the API/bulk context (not just standard UI actions), since some duplicate management configurations can be scoped to specific contexts and may not automatically apply to bulk API-driven inserts",
+      "Whether the relevant Matching Rule and Duplicate Rule are configured to also run for the API/bulk context (not just standard UI actions)",
       "Data Loader has its own separate, unrelated duplicate detection system that always takes priority",
       "Duplicate Rules only work on Leads and Contacts, never Accounts"
     ],
@@ -705,7 +705,7 @@
     "question": "Which situation BEST justifies choosing an External Object (via Salesforce Connect) over simply importing a nightly CSV snapshot of the same external data into a custom object?",
     "options": [
       "When storage limits are not a concern and reporting speed is the only priority",
-      "When the business requires the Salesforce UI to always reflect the external system's CURRENT, live state (not up to 24 hours stale), and avoiding data duplication/storage costs matters more than the reduced feature support (e.g., limited automation/relationship capabilities) that comes with external objects",
+      "When the business requires the Salesforce UI to always reflect the external system's CURRENT",
       "When the external data will be edited primarily from within Salesforce",
       "When Apex Trigger support on the object is a hard requirement"
     ],
@@ -719,7 +719,7 @@
     "question": "An object 'Shipment' has two Master-Detail relationships: one to 'Order' and one to 'Warehouse.' A user asks why they can't add a third Master-Detail relationship to 'Carrier.' What is the correct explanation?",
     "options": [
       "There is a temporary bug and it should work after a metadata refresh",
-      "An object can have a maximum of 2 Master-Detail relationships as the detail side; a third relationship to Carrier would need to be a Lookup instead",
+      "An object can have a maximum of 2 Master-Detail relationships as the detail side",
       "Master-Detail relationships are limited to exactly 1 per object, so the second one to Warehouse was already invalid",
       "Adding a third Master-Detail relationship requires a special license add-on"
     ],
@@ -733,7 +733,7 @@
     "question": "A Date field 'Contract_Start__c' needs to become a Date/Time field to also capture the exact signing time going forward. What happens to existing records' data during this conversion?",
     "options": [
       "All existing values are permanently lost and fields reset to blank",
-      "Existing Date values are preserved and a default time component (typically midnight, adjusted for time zone display) is applied, since Date to Date/Time is a supported conversion path that keeps the date portion intact",
+      "Existing Date values are preserved and a default time component (typically midnight",
       "The field must be deleted and manually recreated with no data carryover",
       "This conversion is not permitted under any circumstances"
     ],
@@ -747,7 +747,7 @@
     "question": "A migration project needs to preserve original CreatedDate and CreatedById values from a legacy system when inserting historical records into Salesforce via Data Loader. What is required?",
     "options": [
       "This is always possible by default with any Data Loader insert",
-      "This requires the 'Set Audit Fields upon Record Creation' permission (and enabling that feature), since CreatedDate/CreatedById are normally system-controlled and not writable by ordinary inserts",
+      "This requires the 'Set Audit Fields upon Record Creation' permission (and enabling that feature)",
       "CreatedDate can be set via Data Loader by default, but CreatedById cannot ever be changed",
       "This is only possible via the Data Import Wizard, not Data Loader"
     ],
@@ -761,7 +761,7 @@
     "question": "A 'Case' object needs to track a many-to-many relationship with 'Product,' where each pairing also needs its own approval process and independent record-level sharing rules unrelated to either Case or Product's sharing. Why would a junction object using TWO Master-Detail relationships be the WRONG choice here?",
     "options": [
       "Because junction objects cannot have approval processes",
-      "Because Master-Detail children cannot have independent OwnerId/sharing settings — since independent sharing is explicitly required here, at least one (or both) relationships in the junction object would need to be Lookups instead, despite losing native roll-up summary support from that side",
+      "Because Master-Detail children cannot have independent OwnerId/sharing settings",
       "Because Case and Product cannot be related via a junction object under any configuration",
       "Because approval processes require Public Read/Write OWD"
     ],
@@ -774,7 +774,7 @@
     "subtopic": "Field Data Types",
     "question": "Which pair of field type changes is generally considered LOW RISK (supported cleanly, minimal data impact) versus HIGH RISK (potential data loss or breakage) in Salesforce?",
     "options": [
-      "Low risk: Text to Long Text Area (increasing capacity); High risk: Picklist to Text (loses controlled values, breaks dependent picklists/formulas)",
+      "Low risk: Text to Long Text Area (increasing capacity)",
       "Low risk: Picklist to Multi-Select Picklist with zero side effects; High risk: Number to Currency",
       "Low risk: Auto-Number to Text; High risk: Date to Date/Time",
       "Low risk: Checkbox to Picklist; High risk: Text to Long Text Area"
@@ -789,7 +789,7 @@
     "question": "A company needs bidirectional, scheduled synchronization (not just one-way import) between Salesforce and an external HR system for Employee data, with transformation logic and error handling beyond simple field mapping. Which combination is MOST appropriate?",
     "options": [
       "The Data Import Wizard scheduled to run nightly via a time-based workflow",
-      "A middleware/integration platform (e.g., MuleSoft or a similar iPaaS) orchestrating the sync with transformation and error-handling logic, rather than relying on Data Loader or the Data Import Wizard, which are designed for one-off or simple recurring batch jobs, not robust bidirectional sync with complex logic",
+      "A middleware/integration platform like MuleSoft",
       "Salesforce Connect External Objects configured for write-back with no additional tooling",
       "A single large Data Loader CSV export/import cron job with no additional tooling"
     ],
@@ -803,7 +803,7 @@
     "question": "A formula field calculates Days_Open__c as TODAY() - CreatedDate on the Case object, intended to show how long a case has been open. Users report the field shows an error. What is the MOST likely cause?",
     "options": [
       "TODAY() cannot be used in formula fields",
-      "CreatedDate is a Date/Time field, while TODAY() returns a Date — subtracting a Date/Time value directly requires converting CreatedDate to a Date first (e.g., DATEVALUE(CreatedDate)) since mismatched date/time types cause a formula error",
+      "CreatedDate is a Date/Time field, while TODAY() returns a Date",
       "Days_Open__c must be a Text field, not a Number field",
       "Case does not support formula fields referencing CreatedDate"
     ],
@@ -817,7 +817,7 @@
     "question": "A formula field on Opportunity must show a warning icon (via a Rich Text-like visual) when Probability is below 30%, but formula fields of type Text cannot render icons directly. What is the standard declarative approach?",
     "options": [
       "This requires a custom Lightning Web Component with no declarative option",
-      "Use an IMAGE() function within a Text formula field, referencing a static resource or a standard Salesforce icon URL, conditionally chosen with IF() based on Probability — a native declarative technique for visual indicators in list views/reports",
+      "Use the IMAGE() function inside a Text formula field",
       "Use a Roll-Up Summary field instead of a formula field",
       "This is only possible using Conditional Highlighting on reports, not on the record itself"
     ],
@@ -831,7 +831,7 @@
     "question": "A cross-object formula field on Contact displays the related Account's 'Annual_Revenue__c' custom field. For Contacts with no related Account (Account field blank), the formula throws an error instead of showing blank. What is the correct fix?",
     "options": [
       "Cross-object formulas cannot reference custom fields on Account, only standard fields",
-      "Wrap the cross-object reference with BLANKVALUE() (or an ISBLANK() check) to gracefully handle the case where the related Account doesn't exist, since referencing a field through a null relationship can cause an error without explicit null-handling",
+      "Wrap the cross-object reference with BLANKVALUE() (or an ISBLANK() check) to gracefully handle the case where the related Account doesn't exist",
       "Formula fields cannot be used on Contact at all",
       "Convert the Account lookup to Master-Detail to fix the null-handling automatically"
     ],
@@ -844,7 +844,7 @@
     "subtopic": "Formula Fields",
     "question": "An admin builds a formula field using the PRIORVALUE() function to compare a field's current value to its value before the most recent save, intending to use it inside a plain formula field for a text summary shown on the page layout. What is wrong with this plan?",
     "options": [
-      "PRIORVALUE() does not exist in Salesforce formulas — that trap function name doesn't apply",
+      "PRIORVALUE() does not exist in Salesforce formulas",
       "There is no issue and this works perfectly in any formula field context",
       "Formula fields cannot display text, so this is invalid regardless of function used",
       "This requires a Roll-Up Summary field, not a formula field"
@@ -873,7 +873,7 @@
     "question": "A roll-up summary field on 'Account' sums the Amount of related child 'Opportunity' records where Stage equals 'Closed Won,' using filter criteria on the roll-up field itself. A rep asks why an Opportunity that was Closed Won and then later had its Stage changed back to 'Negotiation' still seems to briefly reflect in historical reports as having counted. What is the correct explanation?",
     "options": [
       "Roll-up summary fields cache values permanently and never update",
-      "The roll-up summary field itself recalculates immediately and correctly excludes the Opportunity once its Stage no longer matches 'Closed Won' — but historical REPORTS run before that change are simply snapshots in time and won't retroactively reflect the field's later recalculation unless rerun",
+      "The roll-up summary field itself recalculates immediately and correctly excludes the Opportunity once its Stage no longer matches 'Closed Won'",
       "Filter criteria on roll-up summaries cannot reference Stage, a picklist field",
       "This behavior indicates a bug requiring a Salesforce support case"
     ],
@@ -887,7 +887,7 @@
     "question": "The business wants a roll-up summary field on 'Opportunity' that counts related 'Quote' child records, but ALSO wants this same numeric value available as an input to a validation rule that blocks Opportunity submission if the count is zero. An admin says this isn't possible since roll-up summaries can't be referenced by validation rules. Is this correct?",
     "options": [
       "Correct — roll-up summary fields are entirely invisible to validation rule formulas",
-      "Incorrect — validation rule formulas CAN reference roll-up summary field values directly, just like any other field on the record, making this entirely achievable declaratively",
+      "Incorrect — validation rule formulas CAN reference roll-up summary field values directly",
       "Correct, but only because Quote is a special protected object",
       "Incorrect, but only if the roll-up field is converted to a formula field first"
     ],
@@ -901,7 +901,7 @@
     "question": "An admin needs a roll-up summary field on 'Account' that shows the AVERAGE deal size of related Closed Won Opportunities. When building the roll-up, 'Average' isn't in the aggregate function dropdown. What is the correct declarative workaround?",
     "options": [
       "This is impossible declaratively and requires Apex",
-      "Create two roll-up summary fields (SUM of Amount and COUNT of Opportunities under the same filter), then a separate formula field that divides SUM by COUNT (handling divide-by-zero with an IF/ISBLANK check) to derive the average",
+      "Create two roll-up summary fields (SUM of Amount and COUNT of Opportunities under the same filter)",
       "Use MAX and MIN together to approximate an average",
       "Switch the roll-up field's data type to Percent, which unlocks the Average option"
     ],
@@ -915,7 +915,7 @@
     "question": "A roll-up summary COUNT field on 'Account' counts related 'Contact' records. The business now converts the Account-Contact relationship area to use 'Contacts to Multiple Accounts' (indirect relationships via the Account Contact Relationship object) for some Contacts. What happens to the original roll-up summary field?",
     "options": [
       "It automatically recalculates to include both direct and indirect relationships seamlessly",
-      "It continues to count only DIRECTLY related Contacts (via the standard AccountId lookup on Contact); indirectly related Contacts (via Account Contact Relationships) are NOT included in a standard roll-up summary field without additional configuration/automation",
+      "It continues to count only DIRECTLY related Contacts (via the standard AccountId lookup on Contact)",
       "It breaks entirely and must be deleted",
       "It automatically converts into an indirect lookup rollup summary field with no admin action"
     ],
@@ -929,7 +929,7 @@
     "question": "Why might a roll-up summary field configured with filter criteria 'Stage equals Closed Won' fail to update immediately when a related Opportunity's Stage changes via a Data Loader bulk update rather than the UI?",
     "options": [
       "Roll-up summaries only recalculate for changes made through the standard UI, never through the API",
-      "This is a trap/false premise — roll-up summary fields recalculate automatically regardless of whether the triggering DML came from the UI, Data Loader/API, or Apex; any legitimate concern here would be about eventual consistency or governor-limit-related delays at extreme bulk volumes, not a fundamental API-vs-UI distinction",
+      "This is a trap: the rule already fires correctly with OR() logic",
       "Data Loader always bypasses roll-up summary recalculation by design",
       "Filter criteria on roll-up summaries only evaluate during UI-based saves"
     ],
@@ -943,7 +943,7 @@
     "question": "A validation rule on Opportunity is: AND(ISPICKVAL(StageName, \"Closed Won\"), ISBLANK(Contract_Number__c)). The business wants this to ALSO allow existing Closed Won Opportunities (created before this rule existed) to be edited for unrelated fields without being forced to backfill Contract_Number__c. What change is needed?",
     "options": [
       "Nothing — the rule already behaves this way by default",
-      "Add a condition that scopes the rule to only fire on the FIRST transition into Closed Won (e.g., combined with ISCHANGED(StageName) or a similar 'only when newly closing' condition), so records already sitting in Closed Won without a contract number aren't blocked on every future edit",
+      "Add a condition that scopes the rule to only fire on the FIRST transition into Closed Won (e.g.",
       "Delete the validation rule entirely since it can never work as intended",
       "Add NOT(ISNEW()) to the rule, which will fix the issue"
     ],
@@ -957,7 +957,7 @@
     "question": "A validation rule references a Roll-Up Summary field to block saving an Opportunity if the roll-up (SUM of related Quote line amounts) doesn't match the Opportunity's own Amount field, within a tolerance. Users complain the validation rule sometimes fires unexpectedly for records where no related Quote exists at all. What is the likely issue?",
     "options": [
       "Validation rules cannot reference roll-up summary fields, so this scenario is impossible",
-      "When there are no related child records, the roll-up summary field often defaults to 0 (not blank) for SUM-type roll-ups — the validation formula likely needs explicit handling for this zero/blank case rather than assuming a populated roll-up in all cases",
+      "A SUM roll-up defaults to 0, not blank, with no related records",
       "Roll-up summary fields must always be blank when no child records exist",
       "This is expected correct behavior and no fix is needed"
     ],
@@ -971,7 +971,7 @@
     "question": "A company needs a validation rule enforced ONLY for users in the 'Sales' profile, allowing 'Sales Ops' users to bypass it entirely when editing the same field. Which approach is correct?",
     "options": [
       "Validation rules cannot be scoped by profile at all, so this requires Apex",
-      "Incorporate $Profile.Name (or a check against $Permission/custom permission, which is the more maintainable approach) into the validation rule's formula logic so it only evaluates the restrictive condition for the targeted profile(s), while others bypass it",
+      "Reference $Profile.Name or a custom permission inside the formula",
       "Create two identical validation rules, one active and one inactive, and manually toggle them",
       "Assign a Permission Set that disables validation rules for Sales Ops"
     ],
@@ -985,7 +985,7 @@
     "question": "A Flow performs an update to a Contact record's Email field as part of an automated data cleanup process. A validation rule on Contact requires a properly formatted email whenever Email is changed by an end user, but the Flow's cleanup logic sometimes intentionally sets a placeholder value that wouldn't pass that format check. What is the BEST approach?",
     "options": [
       "Deactivate the validation rule permanently so the Flow can run",
-      "Have the Flow bypass validation via a specific 'bypass' mechanism (e.g., a custom permission check embedded in the validation rule formula that exempts records updated by an automation context, or restructure the Flow to avoid triggering the problematic condition), rather than disabling the rule for everyone",
+      "Have the Flow bypass validation via a specific 'bypass' mechanism (e.g.",
       "Convert the validation rule into a Roll-Up Summary field",
       "Grant the Flow's running user 'Modify All Data' so validation rules no longer apply"
     ],
@@ -999,7 +999,7 @@
     "question": "A record-triggered Flow on Opportunity is configured to run 'Before Save' and includes an element that creates a related Task record. The Flow fails to activate with an error. What is the most likely cause?",
     "options": [
       "Before-Save flows have a lower element limit than After-Save flows",
-      "Before-Save (fast field update) record-triggered flows can only update fields on the SAME record that triggered them — creating a separate related record (like a Task) requires DML beyond the triggering record, which is only supported in an After-Save context",
+      "Before-Save (fast field update) record-triggered flows can only update fields on the SAME record",
       "Task cannot be created by any Flow, only by Apex",
       "Before-Save flows cannot reference the Opportunity object at all"
     ],
@@ -1013,7 +1013,7 @@
     "question": "A Screen Flow is embedded on a Lightning Record Page for Case. It includes a 'Get Records' element followed by a Decision element checking if the returned collection has more than one record, then a Loop. Users report the Decision always evaluates as if the collection is empty, even when multiple matching records clearly exist. What is the MOST likely root cause?",
     "options": [
       "Loops cannot be used after Decision elements",
-      "The Get Records element is likely configured to return only the 'first record' (single record output) rather than a collection of multiple records — a common configuration trap where the resource type doesn't match what's needed downstream",
+      "The Get Records element is likely configured to return only the 'first record' (single record output) rather than a collection of multiple records",
       "Decision elements cannot evaluate collection variables under any configuration",
       "Screen Flows cannot use Get Records elements at all"
     ],
@@ -1027,7 +1027,7 @@
     "question": "An Autolaunched Flow is invoked as a Subflow from a parent Record-Triggered Flow. The subflow contains a Screen element. What happens when this configuration is activated?",
     "options": [
       "It works fine; the screen simply displays inline within the record-triggered flow's execution",
-      "This configuration is invalid — Autolaunched flows invoked from a record-triggered context run entirely in the background with no active user interface, so a Subflow containing a Screen element cannot be used this way and will cause an error/be blocked from activation",
+      "This configuration is invalid in a record-triggered (background) context",
       "The screen displays the next time the triggering user manually opens the record",
       "Only the first Screen element in a Subflow is ignored while the rest of the subflow executes normally"
     ],
@@ -1041,7 +1041,7 @@
     "question": "A Flow uses a Loop over a collection of 200 Opportunity records, and inside the loop, a 'Create Records' element inserts one Task per iteration (200 separate DML operations inside the loop). What is the correct best-practice concern here?",
     "options": [
       "This is optimal and recommended Flow design for any volume",
-      "Performing DML (Create/Update/Delete Records elements) INSIDE a loop is a well-known anti-pattern that can quickly hit governor limits (e.g., DML statement limits) at scale — the correct pattern is to collect records into a collection variable inside the loop, then perform a single bulk 'Create Records' element AFTER the loop ends",
+      "Performing DML (Create/Update/Delete Records elements) INSIDE a loop is a well-known anti-pattern",
       "Loops in Flow are limited to 10 iterations maximum, so this scenario cannot occur",
       "DML elements automatically bulkify themselves even when placed inside a loop, so there's no actual concern"
     ],
@@ -1055,7 +1055,7 @@
     "question": "An Opportunity Approval Process locks the record upon submission. A Flow later needs to update the SAME Opportunity's 'Last_Reviewed_Date__c' field while it's still pending approval, using an After-Save record-triggered Flow with elevated context. What should the admin expect?",
     "options": [
       "Flows can never update locked records under any circumstances, even with elevated permissions",
-      "A locked record blocks edits from users without the 'Modify All Data' permission (or an approval-process-specific bypass) in the standard UI, but automated processes like Flow (especially when configured to run in system context without sharing, or specific field update mechanisms tied to the approval process itself) can be configured to update specific fields on locked records depending on setup — this needs to be tested/verified rather than assumed impossible",
+      "A locked record blocks edits from users without the 'Modify All Data' permission (or an approval-process-specific bypass) in the standard UI",
       "Locked records can only be updated by the original submitter",
       "Unlocking must always happen manually through Setup before any update succeeds"
     ],
@@ -1069,7 +1069,7 @@
     "question": "A multi-step Approval Process routes first to the submitter's manager, then to a 'Finance Approver' determined by a lookup field on the record. The Finance Approver field is blank on some records. What happens when those records are submitted and reach that step?",
     "options": [
       "The approval automatically skips to the final approval action",
-      "The approval process would typically fail to route correctly at that step since no valid approver can be determined — a common design practice is to require the field before submission (via validation rule) or use a queue-based fallback approver to avoid this exact scenario",
+      "The approval process would typically fail to route correctly at that step",
       "The CEO automatically becomes the default approver on any org",
       "The record becomes permanently locked with no way to resolve it"
     ],
@@ -1083,7 +1083,7 @@
     "question": "An Approval Process's Final Rejection Action is configured to send an Email Alert and change Status to 'Rejected.' The business also wants an automatic Task created for the original submitter to revise and resubmit. The admin says Final Rejection Actions can only include Email Alerts and Field Updates, so a Task can't be created this way. Is this accurate?",
     "options": [
       "Accurate — Approval Process actions are strictly limited to Email Alerts and Field Updates only",
-      "Not fully accurate — Approval Process actions can include Task creation (along with Field Updates, Email Alerts, and Outbound Messages) as standard action types; additionally, a Flow can be invoked as part of the broader automation strategy for even more flexibility",
+      "Not fully accurate — Approval Process actions can include Task creation (along with Field",
       "Accurate, but only because Task creation requires Apex regardless of approval processes",
       "Not accurate, but only because Outbound Messages can create Tasks indirectly"
     ],
@@ -1097,7 +1097,7 @@
     "question": "A company needs Opportunities that haven't moved stage in 45 days to trigger a reminder, checked once per day, without any user interaction. A junior admin proposes a Record-Triggered Flow set to run 'every time a record is updated,' reasoning that this will re-check the 45-day condition continuously. What is wrong with this approach?",
     "options": [
       "Record-triggered flows cannot check date-based conditions at all",
-      "A record-triggered flow only fires when the record is actually created/updated/deleted — it will NOT proactively notice that 45 days have silently passed on an untouched record; a Scheduled-Triggered Flow (or a Scheduled Path) that runs periodically and queries for stale records is the correct tool for detecting time elapsing on records with no new edits",
+      "A record-triggered flow only fires when the record is actually created/updated/deleted",
       "Record-triggered flows automatically run daily in the background on all records regardless of edits",
       "This requires Apex Scheduled classes since no declarative option monitors elapsed time"
     ],
@@ -1111,7 +1111,7 @@
     "question": "A Platform Event is published whenever an external warehouse system marks an order as 'Shipped.' The business wants a Salesforce Flow to react and update the related Order's status within seconds. Which Flow type is correct, and what is a key constraint to flag?",
     "options": [
       "A Scheduled-Triggered Flow running every minute, which is 'near real time' enough",
-      "A Platform Event-Triggered Flow, which is autolaunched and reacts to the event nearly immediately — but it does not have a triggering Salesforce record context in the same way a record-triggered flow does, so it must use Get Records/lookup logic to find and update the correct Order based on data in the event payload",
+      "A Platform Event-Triggered Flow, which is autolaunched and reacts to the event nearly immediately",
       "A Screen Flow, since it can be manually triggered by a user upon seeing the event",
       "A Before-Save Record-Triggered Flow on the Order object, since Platform Events are treated as Order record updates"
     ],
@@ -1125,7 +1125,7 @@
     "question": "An admin builds a Before-Save record-triggered Flow on Lead intended to also send a follow-up email to the Lead's owner whenever the Lead Score exceeds 90. The flow fails to include the desired Send Email action in the available element list within that context. What is the explanation?",
     "options": [
       "Send Email actions require a paid add-on license not enabled in this org",
-      "Before-Save flows are restricted to fast field updates on the triggering record only; actions like sending emails require DML/side-effects beyond simple field updates, and are only available in an After-Save flow context",
+      "Before-Save flows are restricted to fast field updates on the triggering record only",
       "Send Email actions can only be used in Screen Flows, never any autolaunched flow",
       "The Lead object doesn't support email actions in any flow context"
     ],
@@ -1139,7 +1139,7 @@
     "question": "A business wants a fully declarative, multi-user, multi-stage business process (e.g., a loan approval spanning several departments each completing their own step over days), with visibility into where each case currently sits in the overall process. Which capability is BEST suited, especially considering it is now included at no additional cost as of Summer '26?",
     "options": [
       "A single large Screen Flow with dozens of screens chained together",
-      "Flow Orchestration, which is purpose-built for coordinating multi-step, multi-user business processes with stage tracking — and became a standard (non-usage-based) capability in the Summer '26 release, making it a more attractive default choice than building an oversized single Flow",
+      "Flow Orchestration, which is purpose-built for coordinating multi-step",
       "A single Approval Process with 25 sequential steps",
       "A Scheduled-Triggered Flow polling for status changes every hour"
     ],
@@ -1153,7 +1153,7 @@
     "question": "Two record-triggered Flows exist on the same object, both set to run on record update, both 'Before Save.' One flow sets Field A based on Field B, and the other sets Field B based on Field A, creating a circular dependency. What tool should an admin use FIRST to diagnose and resolve the execution order and potential conflict?",
     "options": [
       "Data Loader's dependency viewer",
-      "Flow Trigger Explorer, which shows all record-triggered flows on an object/event together and lets admins view and adjust their relative execution order to identify and resolve conflicts like this",
+      "Flow Trigger Explorer",
       "The standard Recycle Bin's audit trail",
       "Schema Builder's relationship map"
     ],
@@ -1167,7 +1167,7 @@
     "question": "A Flow that previously worked correctly begins silently failing after a related picklist field had one of its values deactivated (not deleted) in Setup. The Flow's Decision element checks for that exact picklist value using ISPICKVAL-equivalent logic. What is the most likely explanation?",
     "options": [
       "Deactivating a picklist value has no effect on existing automation referencing it",
-      "Deactivating a picklist value doesn't delete existing records' stored values, but it does prevent NEW records from being assigned that value going forward — if the Flow's logic depended on new records continuing to receive that value, the Decision branch tied to it will simply stop being reached, which can look like a 'silent failure' even though the Flow itself isn't erroring",
+      "It only stops new records from getting that value going forward",
       "Deactivating a picklist value automatically deletes the Decision element referencing it",
       "This will cause the Flow to throw a runtime error every time it executes"
     ],
@@ -1181,7 +1181,7 @@
     "question": "An admin needs to understand exactly what changed between Flow Version 4 and Version 6 of a complex record-triggered Flow, including changes to a Transform element's field mappings, before deciding whether to roll back. Which Summer '26 capability directly addresses this?",
     "options": [
       "Manually re-opening each version side by side with no dedicated comparison tooling, since none exists",
-      "The Flow version-comparison tool introduced in Summer '26, which shows differences between flow versions including changes to transform element mappings, letting the admin make an informed rollback decision",
+      "The Flow version-comparison tool introduced in Summer '26",
       "Deleting Version 5 to force Salesforce to auto-generate a diff report",
       "Only Setup Audit Trail can show this level of detail"
     ],
@@ -1195,7 +1195,7 @@
     "question": "An Agentforce agent is configured with an Action that invokes an Autolaunched Flow to process refund requests. A customer's request fails partway through the Flow due to a validation rule blocking a status update. What should the App Builder expect regarding the agent's behavior?",
     "options": [
       "The agent will always crash and become permanently unusable for that user",
-      "The agent's action will reflect the Flow's actual outcome (including failure due to the validation rule) — the agent doesn't bypass the org's existing declarative business rules just because it invoked the flow; proper error handling in the Flow (e.g., fault paths) determines how gracefully that failure is communicated back through the agent",
+      "The agent's action will reflect the Flow's actual outcome (including failure due to the validation rule)",
       "Agentforce automatically disables all validation rules for any action it invokes",
       "The Flow will silently ignore the validation rule failure and report success regardless"
     ],
@@ -1209,7 +1209,7 @@
     "question": "As of Summer '26, an admin wants to create a new Agentforce agent while actively building automation in Flow Builder, without switching to a separate tool. What capability supports this, and what related platform change should the admin be aware of?",
     "options": [
       "Agents can only ever be created in the standalone Agentforce Builder; Flow Builder has no such integration",
-      "Flow Builder now allows selecting an Agent action to create an agent inline without tool-switching; separately, the New Agent button in Setup was changed (starting mid-July 2026) to open only the new Agentforce Builder rather than the legacy builder, which is relevant context for where agents get created/managed going forward",
+      "Flow Builder now allows selecting an Agent action to create an agent inline without tool-switching",
       "This requires a separate paid Agentforce Studio license not related to Flow at all",
       "Agent creation from Flow Builder was deprecated in Summer '26 in favor of Apex-only agent definitions"
     ],
@@ -1223,7 +1223,7 @@
     "question": "A formula field on Opportunity concatenates the Owner's name with the Account's Billing City using cross-object references: Owner.Name & \", \" & Account.BillingCity. The field works for most records but errors for Opportunities where the Owner is a Queue rather than a User. What is the correct explanation?",
     "options": [
       "Formula fields cannot reference the Owner field under any circumstances",
-      "When Owner is a Queue (polymorphic OwnerId), certain User-specific fields like Owner.Name may not resolve the same way, since Queues don't have all the same fields as a User record — the formula needs to account for this polymorphic relationship possibility (e.g., checking $ObjectType or using a different approach) rather than assuming Owner always resolves to a User",
+      "Owner.Name may not resolve the same way when Owner is a Queue",
       "Queues cannot own Opportunities in Salesforce",
       "This is unrelated to Owner type and is actually caused by the Account reference"
     ],
@@ -1237,7 +1237,7 @@
     "question": "Which of the following correctly describes a limitation of formula fields that is commonly tested as a 'trap' answer choice?",
     "options": [
       "Formula fields can trigger Time-Based Workflow actions directly, just like a date field change",
-      "Formula fields are recalculated in real time whenever displayed/queried and are NOT stored values in the database — meaning they cannot be directly used as the target of a time-based workflow action's offset (since there's no discrete 'change event' stored to count from) the way a genuine Date/Date-Time field can",
+      "Formula fields are recalculated in real time whenever displayed/queried and are NOT stored values in the database",
       "Formula fields count against an object's field history tracking allocation identically to editable fields",
       "Formula fields can be edited via Data Loader like any Text field"
     ],
@@ -1251,7 +1251,7 @@
     "question": "An Opportunity has a Master-Detail relationship to a child object 'Opportunity Milestone.' A roll-up summary field 'MAX(Milestone_Date__c)' is created on Opportunity. A user asks whether this roll-up will automatically exclude Milestones where Milestone_Date__c is blank. What is correct?",
     "options": [
       "Blank date values are always treated as the lowest possible date and will never be selected by MAX",
-      "Roll-up summary fields (MIN/MAX) simply ignore records where the target field is blank when determining the min/max value — blank values don't count as 0 or any sentinel value; they're excluded from consideration entirely",
+      "Roll-up summary fields (MIN/MAX) simply ignore records where the target field is blank when determining the min/max value",
       "Blank values will cause the entire roll-up field to show an error",
       "MAX roll-ups require the target field to be marked as Required, or the roll-up will not save"
     ],
@@ -1264,7 +1264,7 @@
     "subtopic": "Validation Rules",
     "question": "A validation rule uses the formula: OR(ISBLANK(Phone), ISBLANK(Email)), intended to require BOTH Phone and Email to be populated before saving a Contact. QA reports the rule sometimes doesn't fire when only Email is missing. What is the actual issue with this scenario as described?",
     "options": [
-      "This is a trap/false premise — the formula as written IS correct or OR() logic: it will fire (block the save) whenever EITHER field is blank, including when only Email is missing; if QA observed otherwise, the more likely explanation is the rule being inactive, scoped by profile criteria, or a record type exclusion, not a flaw in the OR() logic itself",
+      "This is a trap: validation rules only fire on save, never on delete",
       "The formula needs to use AND() instead of OR() to work as intended",
       "ISBLANK() cannot be used twice in the same formula",
       "OR() only evaluates the first condition and ignores the second"
@@ -1279,7 +1279,7 @@
     "question": "A validation rule needs to block deletion of any Opportunity in 'Closed Won' stage. An admin builds the validation rule formula ISPICKVAL(StageName, \"Closed Won\") and is confused why users can still delete Closed Won Opportunities. What is the correct explanation?",
     "options": [
       "The formula syntax is wrong and should use StageName = \"Closed Won\" instead",
-      "Validation rules ONLY fire on record insert/update (save) operations — they do NOT evaluate on record DELETE operations at all, so this requirement cannot be enforced via a validation rule; a different mechanism (e.g., Flow with a before-delete context, or record-level permission restrictions) is needed to block deletion",
+      "Validation rules ONLY fire on record insert/update (save) operations",
       "This works correctly and the reported issue must be a caching problem",
       "Validation rules block deletion by default and this one is unnecessary"
     ],
@@ -1293,7 +1293,7 @@
     "question": "A Flow variable is defined as a 'Record Variable' of type Opportunity (not a collection). Later in the Flow, an element attempts to assign a list of five Opportunities (from a Get Records element configured to return multiple records) into this single record variable. What happens?",
     "options": [
       "This works fine; the variable automatically becomes a collection to hold all five records",
-      "This causes a Flow error/build-time validation issue, since a single (non-collection) Record Variable can only hold ONE record — assigning a multi-record result into it is a type mismatch that Flow Builder will flag",
+      "This causes a Flow error/build-time validation issue",
       "Only the first of the five records is silently kept with no warning",
       "The Flow will randomly select one of the five records at runtime with no error"
     ],
@@ -1307,7 +1307,7 @@
     "question": "A record-triggered Flow's entry condition is set to fire 'only when a record is updated to meet the condition criteria,' checking Status__c = \"Approved\". A record is inserted directly with Status__c already set to \"Approved\" (never going through an update transition). Does the Flow fire?",
     "options": [
       "Yes, because the condition matches regardless of whether it's a create or update",
-      "This depends on how entry criteria evaluation is scoped: if the Flow is configured to trigger on 'Create' as well as 'Update,' with entry conditions evaluated against the new record's values, it can fire on insert too — but if scoped ONLY to 'record is updated,' a Flow triggered strictly on update transitions typically requires an actual field value change to compare old vs. new, so a straight insert already matching the condition may not satisfy an update-scoped entry condition depending on configuration nuances",
+      "This depends on how entry criteria evaluation is scoped: if the Flow is configured to trigger on 'Create' as well as 'Update",
       "Flows can never fire on record insert under any configuration",
       "This always fires exactly once regardless of trigger type configured"
     ],
@@ -1321,7 +1321,7 @@
     "question": "An After-Save record-triggered Flow on Contact updates a related Account field using an Update Records element, without any entry condition restricting re-entry. The Account has its own After-Save Flow that also updates a field on that same Contact whenever the Account changes. What risk does this configuration create?",
     "options": [
       "No risk; Salesforce automatically prevents any circular automation between related objects",
-      "A recursive automation loop risk: the Contact Flow updates the Account, which triggers the Account Flow, which updates the Contact again, potentially re-triggering the Contact Flow — without proper entry conditions or recursion guards, this can spiral until a governor limit (like too many DML statements or CPU time) is hit",
+      "A recursive automation loop between the Contact and Account flows",
       "This can only happen with Before-Save flows, never After-Save flows",
       "This risk only applies to Apex triggers, not Flow-to-Flow interactions"
     ],
@@ -1335,7 +1335,7 @@
     "question": "A Flow needs to send different email templates depending on the customer's Language field (5 possible values), and a developer suggests writing an Apex trigger since 'Flow can't handle multi-branch logic well.' Is this justified?",
     "options": [
       "Yes, multi-branch conditional logic like this always requires Apex",
-      "No — a Decision element with multiple outcome paths (or a single Email Alert setup referencing a formula-selected template merge field) handles multi-branch conditional logic natively and declaratively; this is precisely the kind of use case Flow Builder is designed for, making the 'needs Apex' claim in this scenario incorrect",
+      "No — a Decision element with multiple outcome paths (or a single Email Alert setup referencing a formula-selected template merge field) handles multi-branch conditional logic natively and declaratively",
       "Yes, but only because email templates cannot be dynamically selected declaratively at all",
       "No, but only if there are fewer than 3 possible values"
     ],
@@ -1349,7 +1349,7 @@
     "question": "An approval process is configured with 'Allow submitters to recall approval requests' UNCHECKED. A submitter realizes they made an error immediately after submitting and wants to recall and resubmit at the correct data. What is the outcome?",
     "options": [
       "They can always recall regardless of this setting, since recall is a universal user right",
-      "They CANNOT recall the request because that specific setting was left unchecked — they'd need an admin to manually intervene (e.g., reject and allow resubmission, or enable the setting) rather than self-service recall it, which is the direct consequence of that configuration choice",
+      "They cannot recall the request, since that setting was left unchecked",
       "The approval process automatically allows recall after 24 hours regardless of the setting",
       "This setting only affects reporting visibility, not actual recall functionality"
     ],
@@ -1363,7 +1363,7 @@
     "question": "A company wants an Approval Process where the SAME approval request can be simultaneously reviewed by three different department heads, requiring UNANIMOUS approval before proceeding, rather than a strict sequential chain. Is this achievable declaratively?",
     "options": [
       "No, Approval Processes only support strictly sequential, single-approver-at-a-time steps",
-      "Yes — Approval Processes support parallel approval steps (assigning multiple approvers on one step) with a configurable rule of 'Approve if ALL approvers approve' (unanimous) or 'Approve if ANY ONE approver approves,' making this fully achievable declaratively without Apex",
+      "Yes — Approval Processes support parallel approval steps (assigning multiple approvers on one step) with a configurable rule of 'Approve if ALL approvers approve' (unanimous)",
       "No, unanimous multi-approver logic always requires a custom Apex approval framework",
       "Yes, but only by creating three entirely separate, redundant Approval Processes run in sequence"
     ],
@@ -1377,7 +1377,7 @@
     "question": "A Flow interview is shown as 'Paused' indefinitely in Setup's Paused and Failed Flow Interviews list, tied to a Wait element with no configured time-based resume condition ever being met. What is the most appropriate admin action?",
     "options": [
       "Ignore it; paused flow interviews automatically resolve themselves after 30 days with no admin action needed",
-      "Investigate the Wait element's configured resume conditions — if the condition can genuinely never be met given real data (e.g., waiting for a date that will never arrive due to a logic error), the interview needs to be manually resolved/deleted and the Flow's Wait logic corrected to avoid future recurrences",
+      "Investigate the Wait element's configured resume conditions",
       "Delete the entire Flow definition immediately to clear the paused interview",
       "Paused interviews cannot be viewed or managed by admins under any circumstances"
     ],
@@ -1391,7 +1391,7 @@
     "question": "An admin wants to temporarily test a bug fix in a new Flow version without affecting users still actively relying on the currently active version, and without losing the ability to roll back instantly if the fix doesn't work. What is the correct practice?",
     "options": [
       "Directly edit and save changes into the currently active version, since Flow doesn't support multiple versions",
-      "Create and activate a NEW version with the fix, keeping the previous version intact and inactive but available — if issues arise, the admin can simply reactivate the prior version rather than reconstructing it from scratch",
+      "Create and activate a NEW version with the fix, keeping the previous version intact and inactive but available",
       "Delete the current version entirely before creating the replacement",
       "Clone the Flow into an entirely separate Flow with a different API name and manually redirect all triggering logic"
     ],
@@ -1405,7 +1405,7 @@
     "question": "A company wants an Agentforce agent that can both answer general product questions (using retrieval-augmented generation over a knowledge base) AND execute a deterministic refund process via an existing Flow, choosing the right approach per customer request. What best describes how Topics and Actions relate to this scenario?",
     "options": [
       "A single Action must handle both generative Q&A and the deterministic refund process together as one indivisible unit",
-      "Topics scope the agent's areas of expertise (e.g., 'Product Questions' vs. 'Refunds'), while Actions are the specific executable capabilities within a topic (e.g., a knowledge-retrieval action for Q&A, and a Flow-invoking action for the refund process) — the agent uses its reasoning to select the appropriate Topic/Action combination per request",
+      "Topics scope the agent's areas of expertise (e.g., 'Product Questions' vs. 'Refunds')",
       "Topics and Actions are interchangeable terms for the same configuration concept",
       "Deterministic processes like Flow-based refunds cannot be exposed as Agentforce Actions under any configuration"
     ],
@@ -1419,7 +1419,7 @@
     "question": "The business wants a roll-up summary field on Account that counts related Opportunities, but explicitly EXCLUDES Opportunities in a specific Record Type ('Internal Test'), while including all other record types. Is this achievable using roll-up summary filter criteria?",
     "options": [
       "No, roll-up summary filter criteria cannot reference Record Type at all",
-      "Yes — roll-up summary field filter criteria can reference the Record Type field (e.g., 'Record Type does not equal Internal Test') just like most other fields, making this fully achievable declaratively without Apex",
+      "Yes — roll-up summary field filter criteria can reference the Record Type field (e.g.",
       "No, this requires a Flow-based rollup instead since Record Type is a protected system field",
       "Yes, but only if the Record Type field is first converted to a custom picklist field"
     ],
@@ -1433,7 +1433,7 @@
     "question": "A validation rule combines two conditions with AND() intending to require a Reason field ONLY when a checkbox 'Is_Exception__c' is TRUE, written as: AND(Is_Exception__c, ISBLANK(Reason__c)). A tester unchecks the checkbox and successfully saves with a blank Reason, then re-checks it later and is properly blocked until Reason is filled in. Is this validation rule working as intended?",
     "options": [
       "No, this is a bug; the rule should always require Reason regardless of the checkbox",
-      "Yes, this is EXACTLY the correct behavior — the AND() ensures the blank-Reason restriction only applies when Is_Exception__c is TRUE, and the tester's observations confirm the conditional requirement is working precisely as designed",
+      "Yes, this is exactly the correct, intended behavior",
       "No, ISBLANK() must be replaced with NOT(ISBLANK()) for correct behavior",
       "Yes, but only by coincidence, since AND() with a checkbox never works reliably in production"
     ],
@@ -1447,7 +1447,7 @@
     "question": "A Screen Flow embedded on a Case record page needs to pre-populate a field with the current record's Case Number without the user typing it. What must be configured for this to work correctly?",
     "options": [
       "Nothing; all Screen Flows automatically have full access to every field of the host record with no setup",
-      "The Flow needs a Record Id input variable available (automatically passed when embedded on a record page, if the variable is named/configured correctly, typically 'recordId'), then a Get Records element (or similar) using that Id to retrieve the Case Number for use in the screen — simply embedding the flow does not automatically expose arbitrary record fields without this explicit setup",
+      "The Flow needs a Record Id input variable available (automatically passed when embedded on a record page",
       "This requires a custom Lightning Web Component wrapper around the Screen Flow",
       "Case Number specifically cannot be referenced inside any Flow since it's an auto-number field"
     ],
@@ -1461,7 +1461,7 @@
     "question": "An admin builds a Lightning Record Page with Dynamic Forms, placing the 'Discount_Approved__c' field with a visibility rule: show only when Amount__c > 50000. A user with 'Read Only' Field-Level Security on Discount_Approved__c meets that condition. What do they see?",
     "options": [
       "The field is fully editable since Dynamic Forms visibility rules override Field-Level Security",
-      "The field, if shown per the visibility rule, still respects the underlying Field-Level Security — the user will see it as READ-ONLY, since Dynamic Forms visibility rules control WHETHER a field appears, not WHETHER FLS restrictions on it are bypassed",
+      "The field, if shown per the visibility rule, still respects the underlying Field-Level Security",
       "The field is completely hidden regardless of the visibility rule, because Read-Only FLS suppresses Dynamic Forms fields entirely",
       "The user sees an error because Read-Only fields cannot be placed in Dynamic Forms at all"
     ],
@@ -1475,7 +1475,7 @@
     "question": "A company has two Page Layouts for Case ('Standard Case Layout' and 'Escalated Case Layout') assigned by profile. They migrate to Dynamic Forms, converting the Lightning Record Page to use individual field components instead of the layout-driven Details component. What happens to the original two Page Layouts?",
     "options": [
       "They are automatically deleted once Dynamic Forms is enabled",
-      "The Page Layouts still exist and continue to control certain layout-dependent elements (like Related Lists placement in Classic, mobile card layout defaults, or compact layout independent settings) even though the main field/section arrangement is now driven by the Lightning page's Dynamic Forms components instead of the layout's field arrangement",
+      "The Page Layouts still exist and continue to control certain layout-dependent elements (like Related Lists placement in Classic",
       "They become read-only historical records with no functional purpose whatsoever",
       "They automatically merge into a single unified layout"
     ],
@@ -1489,7 +1489,7 @@
     "question": "An admin wants a component visibility rule on a Lightning App Builder page to hide a 'Renewal Alert' component unless the current user has a specific Permission Set assigned, regardless of what field values the record has. Is this achievable via standard Component Visibility filters?",
     "options": [
       "No, Component Visibility filters can only reference record field values, never user attributes like Permission Sets or Profile",
-      "Yes — Component Visibility filters can reference User fields, including permission-related checks (e.g., via a custom permission tied to that Permission Set, referenced as a User-context condition), not just record field values, making this achievable declaratively",
+      "Yes — Component Visibility filters can reference User fields",
       "No, this always requires an Apex-based visibility check inside a custom Lightning Web Component",
       "Yes, but only for Global Actions, never for standard page components"
     ],
@@ -1503,7 +1503,7 @@
     "question": "A Compact Layout is assigned per Record Type on Opportunity. A user creates an Opportunity with Record Type 'Standard,' then later changes the Record Type to 'Partner.' What happens to the Highlights Panel display?",
     "options": [
       "It permanently retains the 'Standard' Compact Layout since Compact Layout is fixed at record creation",
-      "The Highlights Panel updates to reflect the Compact Layout assigned to the NEW Record Type ('Partner'), since Compact Layout assignment is evaluated based on the record's current Record Type, not a fixed snapshot from creation time",
+      "The Highlights Panel updates to reflect the Compact Layout assigned to the NEW Record Type ('Partner')",
       "Compact Layouts cannot be assigned per Record Type, only per Profile",
       "The Highlights Panel disappears entirely whenever Record Type changes"
     ],
@@ -1517,7 +1517,7 @@
     "question": "A Global Value Set 'Priority Levels' is used by picklist fields on three different objects: Case, Task, and a custom object 'Ticket.' The admin needs the Case-specific picklist to have one additional value not applicable to Task or Ticket. What is the correct approach?",
     "options": [
       "Add the new value directly to the Global Value Set, since it will automatically apply everywhere with no side effects",
-      "Restrict the new value's availability to Case only by using picklist value restrictions at the FIELD level (available values / active values) on the Case field specifically, rather than adding it to the shared Global Value Set which would make it available to Task and Ticket's fields too",
+      "Restrict the new value's availability to Case only by using picklist value restrictions at the FIELD level (available values / active values) on the Case field specifically",
       "Create a brand new, entirely separate Global Value Set just for this one extra value",
       "This isn't possible; each object using a Global Value Set must have IDENTICAL available values with no per-object variation"
     ],
@@ -1531,7 +1531,7 @@
     "question": "A 'Log a Call' Global Quick Action is added to the Salesforce mobile app's navigation menu. A rep taps it while viewing an Account record detail page. What should the App Builder expect regarding the WhatId/relationship of the resulting Task?",
     "options": [
       "It will always automatically relate the resulting Task to the Account being viewed, with no configuration required, because Global Actions are context-aware by default in every scenario",
-      "Global Actions are NOT automatically context-aware; unless the Global Action is specifically configured to detect and use the current record context (a nuance not guaranteed by default), the resulting Task might NOT automatically populate the Related To field with the Account being viewed — this is a common point of confusion versus Object-Specific Actions, which ARE inherently tied to a record's context",
+      "Global Actions are NOT automatically context-aware",
       "It will fail entirely since Global Actions cannot be used from a record's detail page",
       "It will relate the Task to the rep's own User record instead of the Account"
     ],
@@ -1545,7 +1545,7 @@
     "question": "A custom button on Opportunity uses a URL formula referencing {!Opportunity.Id} to open an external system's page for that record. Users on the Salesforce mobile app report the button doesn't appear at all, even though it's included on the mobile-compatible Page Layout's action list. What is a likely cause?",
     "options": [
       "Custom buttons using URL as the content source, especially those relying on certain window/JavaScript-related behaviors, have historically had limited or no support in the Salesforce mobile app compared to Lightning Experience desktop — mobile action support should be verified/tested specifically, not assumed identical to desktop",
-      "Mobile apps never support any custom buttons under any configuration",
+      "Certain custom button configurations have limited mobile support",
       "The formula syntax {!Opportunity.Id} is invalid and must be rewritten entirely",
       "This only happens if the button is placed above the fold on the layout"
     ],
@@ -1559,7 +1559,7 @@
     "question": "An Object-Specific Quick Action of type 'Update a Record' is configured with predefined field values setting Status__c = \"Reviewed\" with no screen shown to the user. A validation rule requires a Reason field whenever Status changes to \"Reviewed.\" What happens when a user clicks this Quick Action?",
     "options": [
       "The Quick Action always succeeds regardless of validation rules, since predefined-value actions bypass all validation",
-      "The Quick Action's update is still subject to the object's validation rules just like any other save — if Reason is blank, the save will be BLOCKED and the user will see the validation error, meaning a screenless predefined-value action isn't exempt from standard save-time validation",
+      "The Quick Action's update is still subject to the object's validation rules just like any other save",
       "Quick Actions with predefined values are exempt from validation rules by design, specifically to allow one-click actions",
       "This scenario is impossible to configure since predefined values cannot trigger validation rules"
     ],
@@ -1573,7 +1573,7 @@
     "question": "A custom Lightning Web Component's .js-meta.xml declares only the target lightning__RecordPage. The admin later tries to add this component to a Lightning Home Page. What happens?",
     "options": [
       "It works fine since all Lightning components support all page types by default",
-      "The component will NOT be selectable/available when building a Home Page, since it wasn't configured with the lightning__HomePage (or lightning__AppPage/other relevant) target — the developer must explicitly add that target to the meta.xml configuration for it to appear as an option there",
+      "The component will NOT be selectable/available when building a Home Page",
       "The admin can force it onto the Home Page using a special Setup override, bypassing the meta.xml restriction",
       "This causes the entire Lightning App Builder to crash when opening the Home Page"
     ],
@@ -1587,7 +1587,7 @@
     "question": "A developer builds a custom LWC exposing an @api property 'recordId' intended to auto-receive the current record's Id when placed on a Record Page. The admin adds the component to an App Page (not a Record Page) and the property comes back empty at runtime. What is the correct explanation?",
     "options": [
       "This is a bug in the component that must be fixed by the developer regardless of context",
-      "App Pages have no inherent single record context the way Record Pages do — a property expecting an automatically-populated recordId will correctly receive no value on an App Page, since there's no specific record being viewed; this is expected platform behavior, not a component defect",
+      "App Pages have no inherent single record context the way Record Pages do",
       "The recordId property name is reserved and cannot be used in any custom component",
       "App Pages automatically substitute the current user's Id instead of a record Id"
     ],
@@ -1601,7 +1601,7 @@
     "question": "A business wants a highly custom, interactive data visualization embedded directly inside a Screen Flow step, with real-time re-rendering as the user interacts with it, beyond what native Flow screen components support. What is the correct approach, and what must be configured for it to actually work inside the Flow?",
     "options": [
       "Use a Visualforce page directly, since Flow screens can natively embed any Visualforce page with zero configuration",
-      "Build a custom Lightning Web Component that declares the lightning__FlowScreen target in its configuration file and properly exposes input/output @api properties for Flow data binding — without that specific target and proper attribute exposure, the component won't function correctly as a Flow screen element",
+      "Build a custom LWC with the lightning__FlowScreen target and exposed attributes",
       "This is not possible; Screen Flows can only use the fixed set of standard Flow screen components",
       "Use an Aura component, since only Aura (not LWC) can be embedded in Flow screens"
     ],
@@ -1615,7 +1615,7 @@
     "question": "Which statement correctly identifies WHY a legacy Visualforce page might still need to remain in a modern Lightning Experience-only org, rather than assuming everything should be rebuilt in LWC immediately?",
     "options": [
       "Visualforce is required for all record detail pages by platform default",
-      "Visualforce still has specific niches, such as generating certain PDF/print-formatted output or supporting complex existing business logic not yet re-platformed, where a full LWC rebuild may not (yet) be justified by cost/benefit — recognizing WHEN legacy tech still has a valid place (rather than reflexively 'always migrate') is part of sound App Builder judgment",
+      "Visualforce still has specific niches, such as generating certain PDF/print-formatted output",
       "LWC cannot render any tabular data, so Visualforce must be used for all reports-like displays",
       "Visualforce pages automatically convert to LWC without any developer effort, so there's no real decision to make"
     ],
@@ -1629,7 +1629,7 @@
     "question": "A Page Layout's 'Salesforce Mobile and Lightning Experience Actions' section includes 10 actions. The admin assumes the mobile app will show all 10 in the exact same order and grouping as desktop Lightning Experience. Is this assumption safe?",
     "options": [
       "Yes, mobile and desktop are always pixel-identical in action rendering with zero differences",
-      "Not necessarily — while the underlying action configuration is largely shared, the Salesforce mobile app can render actions differently based on available screen space, action prioritization, and specific mobile UI conventions (e.g., a condensed action bar or 'more actions' overflow), so testing on the actual mobile app is recommended rather than assuming desktop parity",
+      "Not necessarily — while the underlying action configuration is largely shared",
       "Mobile apps never show Quick Actions under any configuration",
       "Actions must be configured entirely separately for mobile using a completely different Setup area"
     ],
@@ -1643,7 +1643,7 @@
     "question": "A Compact Layout for Opportunity lists 6 fields, prioritized for the mobile Highlights Panel. The business wants a 7th critical field (a roll-up summary) always visible on mobile without pushing off an existing field. What is the correct approach and its real constraint?",
     "options": [
       "Simply add the 7th field; Compact Layouts have no field count limit",
-      "Compact Layouts DO have a maximum field count (a defined limit, historically up to 10 fields, though only a handful display prominently depending on device/context) — the admin can add the roll-up summary field as long as the layout is under that cap, but should also consider which fields display most prominently across different device form factors, since not all fields in a Compact Layout are equally emphasized on every device",
+      "Compact Layouts DO have a maximum field count (a defined limit, historically up to 10 fields",
       "Roll-up summary fields cannot be included in Compact Layouts under any circumstances",
       "This requires deleting one of the existing 6 fields first since Compact Layouts are hard-capped at exactly 6 fields"
     ],
@@ -1657,7 +1657,7 @@
     "question": "An admin wants different users to see entirely different sets of Lightning tabs/apps in their navigation, based on their role, without creating duplicate objects or fields. What is the correct mechanism?",
     "options": [
       "Create a separate custom object per role",
-      "Configure multiple Lightning Apps (each with its own Navigation Items) and control which apps each Profile/Permission Set can access, so different user populations see different tab/app groupings without touching the underlying data model",
+      "Configure multiple Lightning Apps with distinct Navigation Items per profile",
       "Modify Organization-Wide Defaults per role",
       "Use Compact Layouts assigned per role"
     ],
@@ -1671,7 +1671,7 @@
     "question": "A 'Send for Signature' custom action needs to call a third-party e-signature REST API synchronously and immediately show the result to the user, with retry logic on transient network failures. A junior admin proposes a JavaScript custom button as the modern Lightning Experience solution. What is wrong with this recommendation?",
     "options": [
       "JavaScript buttons are the officially recommended modern approach for exactly this use case",
-      "JavaScript buttons are a legacy Classic-era feature with limited/no reliable support in Lightning Experience; the modern recommended approach is a Quick Action or Flow invoking an Apex-based invocable action (or a custom Lightning Web Component) to perform the synchronous callout with proper retry handling",
+      "JavaScript buttons are a legacy Classic-era feature with limited/no reliable support in Lightning Experience",
       "This action is impossible to build in Salesforce under any architecture",
       "JavaScript buttons work fine in Lightning Experience but only for Contact and Lead objects"
     ],
@@ -1685,7 +1685,7 @@
     "question": "A Lightning Record Page uses Component Visibility to hide a 'Competitor Analysis' component unless the Opportunity's StageName is 'Negotiation' or later. A user opens an Opportunity in 'Negotiation,' sees the component, then a Flow in the background automatically moves the Stage back to 'Qualification' due to a business rule. Without the user refreshing the page, what do they see?",
     "options": [
       "The component visibility rule immediately updates the display, hiding the component the instant the background Flow changes the Stage",
-      "Component Visibility rules are evaluated at page load/render time based on the record data available then; a background change made by an automated process after the page has already loaded will typically NOT immediately re-hide the component without the user refreshing or otherwise triggering a re-render of the page",
+      "Component Visibility rules are evaluated at page load/render time based on the record data available then",
       "This scenario is impossible since Flows cannot change Stage while a user is viewing the record",
       "The component becomes permanently visible regardless of future Stage changes once shown once"
     ],
@@ -1699,7 +1699,7 @@
     "question": "An admin needs a picklist field's available values to differ depending on the value of ANOTHER picklist field on the same record (e.g., 'City' options depend on the selected 'State'). Which native feature is designed for this?",
     "options": [
       "Global Value Sets alone, with no additional configuration",
-      "Field Dependencies (controlling field / dependent field relationship), which is specifically designed to filter a dependent picklist's available values based on the selected value of a controlling picklist field",
+      "Field Dependencies between the controlling and dependent picklists",
       "Component Visibility Rules on the Lightning page",
       "Dynamic Forms conditional visibility on the field component"
     ],
@@ -1713,7 +1713,7 @@
     "question": "A Quick Action of type 'Create a Record' for a related Contact is added to the Opportunity page layout's actions. After creating the Contact via this action, the admin expected it to be automatically related to the Opportunity, but the Contact ends up with no relationship back to that Opportunity. What is the likely misconfiguration?",
     "options": [
       "Quick Actions of type Create a Record can never pre-populate any relationship field regardless of configuration",
-      "Contact does not have a direct lookup/master-detail relationship to Opportunity in standard Salesforce data model — this action likely needs a junction object (like OpportunityContactRole) or a custom relationship field, and the predefined field values on the Quick Action must be explicitly configured to populate whatever relationship field actually exists, since it won't happen automatically without a real underlying relationship field to populate",
+      "Contact does not have a direct lookup/master-detail relationship to Opportunity in standard Salesforce data model",
       "This is a bug that requires a Salesforce support case",
       "Quick Actions require the related object to be a child in a Master-Detail relationship, and Contact/Opportunity doesn't qualify, so no fix is possible"
     ],
@@ -1727,7 +1727,7 @@
     "question": "An admin wants to reuse the exact same arrangement of 5 components across 40 different Record Pages for various objects, and be able to update all 40 at once if the arrangement needs to change later. Placing the same 5 components manually on each of the 40 pages was the initial approach. What is the drawback, and what alternative better serves the 'update once, apply everywhere' goal?",
     "options": [
       "There is no drawback; manually replicating components across 40 pages is the standard, recommended practice",
-      "Manually duplicating the arrangement means any future change requires editing all 40 pages individually — a more maintainable pattern is to encapsulate that arrangement inside a single custom Lightning Web Component (which internally composes the needed sub-elements) and place THAT one component on each page, so updating the custom component's internal logic/layout propagates everywhere it's used",
+      "Manually duplicating the arrangement means any future change requires editing all 40 pages individually",
       "Lightning App Builder pages automatically sync with each other if they contain identical components, with no extra work needed",
       "This is only possible using Experience Cloud sites, not internal Record Pages"
     ],
@@ -1741,7 +1741,7 @@
     "question": "A field is marked 'Required' at the field-level (in Setup, not via a page layout), and is also included on the mobile Compact Layout. A user attempts to save a new record via the Salesforce mobile app without populating that field. What happens?",
     "options": [
       "Mobile app saves are exempt from field-level required enforcement",
-      "The save is blocked with a required-field error, exactly as it would be in the desktop UI or via the API — a field's platform-level 'Required' attribute (set in Setup, distinct from a page-layout-specific 'required' checkbox) is enforced universally, including on mobile, since it's not a mobile-vs-desktop distinction but a fundamental field definition",
+      "The save is blocked with a required-field error, same as desktop or API",
       "The record saves successfully but is flagged for later correction",
       "This only applies if the field is also marked required on the Compact Layout itself, which has its own independent required enforcement"
     ],
@@ -1755,7 +1755,7 @@
     "question": "A developer wants their custom LWC's design attributes (exposed via meta.xml) to show a dropdown of the org's Record Types for the object the component is placed against, letting admins pick one declaratively in Lightning App Builder. Is a simple text-type design attribute sufficient for this?",
     "options": [
       "Yes, a plain text design attribute lets admins type any value freely with equivalent usability to a dropdown",
-      "Not ideally — while a plain text attribute technically works (admin manually types a Record Type name/Id), a genuinely dropdown-like experience typically requires a design attribute of a more specific type, or leveraging a Combobox-style design-time picker if supported, so the admin should be aware that plain text attributes give less guided/validated input than a true picklist-style selector",
+      "Not ideally — while a plain text attribute technically works (admin manually types a Record Type name/Id)",
       "This is entirely impossible; design attributes cannot ever expose object-specific metadata as options",
       "Design attributes automatically become dropdowns of Record Types whenever the component is placed on a Record Page, regardless of the attribute's declared type"
     ],
@@ -1769,7 +1769,7 @@
     "question": "A Lightning page uses Dynamic Forms with a field's visibility condition referencing a Roll-Up Summary field's value (e.g., show 'Escalation Notes' only if Related_Case_Count__c > 5). Is this a valid configuration?",
     "options": [
       "No, Dynamic Forms visibility conditions can only reference simple editable fields, never calculated fields like roll-up summaries or formulas",
-      "Yes — Dynamic Forms visibility conditions can reference roll-up summary and formula field values just like any other field on the record, making conditional display based on calculated values fully achievable declaratively",
+      "Yes — Dynamic Forms visibility conditions can reference roll-up summary and formula field values just like any other field on the record",
       "No, this requires a custom Lightning Web Component with Apex support",
       "Yes, but only if the roll-up summary field is first converted into an editable Number field"
     ],
@@ -1783,7 +1783,7 @@
     "question": "An Object-Specific Action of type 'Log a Call' is customized with a modified layout removing the 'Related To' field, since the business feels it's redundant when launched from a record's own action bar. Six months later, users complain related Tasks created via this action from the Account's related list panel of a Contact show up unassociated with the correct Account context in some edge cases. What is the likely root cause?",
     "options": [
       "Removing a field from an action's layout has no bearing on what data gets populated when the action executes",
-      "Removing the 'Related To' field from the layout only hides it from the USER-facing screen — it does not necessarily guarantee the system still correctly auto-populates the intended relationship in every context it's launched from (e.g., a global list view vs. a specific record's related list); the admin needs to verify predefined value/context behavior explicitly rather than assume hiding a field guarantees correct automatic population everywhere",
+      "Removing the 'Related To' field from the layout only hides it from the USER-facing screen",
       "This is a mandatory Salesforce bug requiring a support case",
       "Log a Call actions cannot be customized at the layout level under any circumstances"
     ],
@@ -1797,7 +1797,7 @@
     "question": "A company wants admins (not developers) to be able to adjust a custom LWC's display text (e.g., a banner message) without needing a code deployment every time the message changes. What is the BEST design approach for the developer to enable this?",
     "options": [
       "Hardcode the message directly in the component's JavaScript and require a redeploy for every text change, since that's the only way to guarantee consistency",
-      "Expose the message as an @api property with a design attribute in the meta.xml (of type String), so admins can edit the displayed text directly within Lightning App Builder's property panel per placement, with no code deployment needed for routine text changes",
+      "Expose the message as an @api property with a design attribute in the meta.xml (of type String)",
       "Store the message in a Custom Label only, which cannot be exposed to LWC design attributes at all",
       "This always requires a completely separate custom object and a Flow to update the component's text"
     ],
@@ -1811,7 +1811,7 @@
     "question": "A field's Help Text is configured in Setup to display guidance when hovering over the field label. On the Salesforce mobile app, a user reports they can't get the same hover-based help text to appear no matter what they tap. What is the correct explanation?",
     "options": [
       "Help Text never displays on any mobile device under any configuration, so this is expected and by design with no alternative",
-      "Mobile touch interfaces don't have a direct equivalent of desktop 'hover,' so Help Text is typically surfaced differently (e.g., via a tap-and-hold or an info icon depending on the mobile app version/component), meaning the exact interaction pattern differs by platform even though the same underlying Help Text configuration is used — this is a UX nuance to account for when designing for mobile users",
+      "Mobile touch interfaces don't have a direct equivalent of desktop 'hover",
       "Help Text must be manually re-entered separately for the mobile app in a dedicated mobile-specific field",
       "This indicates the field itself is misconfigured and Help Text needs to be disabled entirely"
     ],
@@ -1825,7 +1825,7 @@
     "question": "A team plans to do 6 months of feature development in a Developer Sandbox before merging into a shared integration environment. Halfway through, they realize they need updated production data to properly test a data-dependent feature, but refreshing a Developer Sandbox would wipe all their in-progress custom metadata changes made only in that sandbox. What is the correct consideration?",
     "options": [
       "Refreshing a sandbox never affects metadata, only data, so this is a non-issue",
-      "Refreshing ANY sandbox (including Developer) overwrites BOTH data and metadata with a fresh copy from production as of the refresh point — any changes made only within that sandbox since its last refresh/creation that haven't been deployed elsewhere will be lost, meaning the team needs to migrate/back up their in-progress metadata changes (e.g., via version control or a change set to another org) before refreshing",
+      "Refreshing ANY sandbox (including Developer) overwrites BOTH data and metadata with a fresh copy from production as of the refresh point",
       "Developer Sandboxes cannot be refreshed under any circumstances, only Full Sandboxes can",
       "This only affects Partial Copy Sandboxes, not Developer Sandboxes"
     ],
@@ -1839,7 +1839,7 @@
     "question": "A Partial Copy Sandbox was created using a sandbox template that includes only Accounts and Opportunities from the last 90 days. Three months later, the team wants to test a new feature involving historical Cases from 2 years ago, which aren't in this sandbox. What is the correct explanation and fix?",
     "options": [
       "Partial Copy Sandboxes always include ALL production data regardless of the template, so this shouldn't be an issue",
-      "The Partial Copy Sandbox only contains the specific subset of data defined by its sandbox template at the time it was created/last refreshed — testing against older Case data not covered by that template requires either updating the sandbox template to include Cases (and refreshing), or using a Full Sandbox instead, which includes complete production data",
+      "The Partial Copy Sandbox only contains the specific subset of data defined by its sandbox template at the time it was created/last refreshed",
       "This requires deleting the sandbox and manually re-entering the missing historical Cases one by one",
       "Partial Copy Sandboxes automatically sync new data from production in real time regardless of the original template scope"
     ],
@@ -1853,7 +1853,7 @@
     "question": "A Full Sandbox was refreshed exactly 20 days ago. The team now urgently needs a fresh refresh to pull in a critical new production configuration for testing. Is this possible immediately?",
     "options": [
       "Yes, Full Sandboxes can be refreshed at any time with no minimum interval",
-      "No — Full Sandboxes can only be refreshed once every 29 days; since only 20 days have passed, the team must either wait for the interval to elapse or consider an alternative (e.g., manually migrating just the needed configuration via change set/metadata deployment) rather than a full refresh",
+      "No — Full Sandboxes can only be refreshed once every 29 days",
       "No, Full Sandboxes can never be refreshed after initial creation under any circumstances",
       "Yes, but only if a Salesforce support case is filed to override the interval every time"
     ],
@@ -1867,7 +1867,7 @@
     "question": "An Outbound Change Set is created in a Sandbox and uploaded to Production, containing a custom object, three fields, and a Flow that references those fields. The deployment fails validation with an error about a missing Record Type referenced by the Flow that wasn't included in the change set. What is the correct next step?",
     "options": [
       "Abandon the change set and manually recreate every component directly in Production instead",
-      "Use the 'View/Add Dependencies' feature on the change set to identify the missing Record Type (and any other related dependencies) and add it to the change set, then re-upload and redeploy",
+      "Use the 'View/Add Dependencies' feature on the change set to identify the missing Record Type (and any other related dependencies) and add it to the change set",
       "Deactivate the Flow permanently since it's clearly incompatible with change sets",
       "Change the change set's type from Outbound to Inbound to bypass the dependency check"
     ],
@@ -1881,7 +1881,7 @@
     "question": "A company's Sandbox and Production orgs show different behavior for the same Flow after an Outbound Change Set deployment: the Flow works in the Sandbox but throws an error in Production. Investigation reveals a Custom Setting record that the Flow depends on exists in the Sandbox but not in Production. What does this reveal about Change Sets?",
     "options": [
       "Change Sets always deploy configuration AND any records/data referenced by that configuration automatically",
-      "Change Sets migrate METADATA/configuration only — they do NOT move actual data or configuration records (like Custom Setting VALUES, as opposed to the Custom Setting's field definitions), so any data-like dependencies (reference/setup data, Custom Metadata Type records in some cases, or Custom Setting values) must be manually created/migrated separately in the target org",
+      "Change Sets migrate METADATA/configuration only",
       "This indicates the change set was corrupted during upload and must be regenerated",
       "Custom Settings are automatically excluded from any Flow's dependencies, so this scenario couldn't actually occur"
     ],
@@ -1895,7 +1895,7 @@
     "question": "A developer created a new custom field directly in the Production org (bypassing sandbox development) to quickly fix an urgent issue. The next day, an Outbound Change Set from the Sandbox — which does NOT include that emergency field since the sandbox was never refreshed — is deployed to Production for an unrelated feature. What risk does this introduce?",
     "options": [
       "No risk; change sets always detect and merge any production-only changes automatically",
-      "The emergency field created directly in Production now represents configuration drift not reflected in the Sandbox; future change sets or a sandbox refresh could overwrite or conflict with it unless it's manually replicated into the Sandbox (or the Sandbox is refreshed) to bring both environments back into alignment",
+      "The emergency field created directly in Production now represents configuration drift not reflected in the Sandbox",
       "This will cause the Production org to become permanently locked from further deployments",
       "The change set deployment will automatically fail and be rejected due to the mismatch"
     ],
@@ -1909,7 +1909,7 @@
     "question": "A change set deployment to Production requires 75% overall Apex code coverage. The org currently sits at 78% overall coverage, but the specific Apex class being modified in this change set has only 40% coverage on its own. Will the deployment succeed?",
     "options": [
       "No, every individual class must independently have at least 75% coverage or the deployment is blocked entirely",
-      "Potentially yes — Salesforce's coverage requirement for deployment is generally evaluated as an ORG-WIDE aggregate (at least 75% overall, with each trigger having some coverage), not a strict per-class minimum of 75% for every single class; a lower-covered individual class doesn't automatically block deployment as long as the overall org aggregate and specific trigger requirements are met",
+      "Potentially yes — Salesforce's coverage requirement for deployment is generally evaluated as an ORG-WIDE aggregate (at least 75% overall",
       "Yes, because code coverage requirements only apply to brand-new classes, not modified existing ones",
       "No, because change sets always require 100% code coverage regardless of the org-wide percentage"
     ],
@@ -1923,7 +1923,7 @@
     "question": "An ISV distributes a Managed Package containing an Apex class marked 'global' that other customers' custom code is expected to call. In a new package version, the ISV wants to change that global method's signature (add a required parameter). What is the correct consideration?",
     "options": [
       "Global Apex signatures in a released managed package version can be freely changed at any time with no backward compatibility concern",
-      "Once a global Apex class/method is part of a released (non-beta) managed package version, its signature generally CANNOT be changed in a backward-incompatible way in future versions — global identifiers are effectively permanent commitments, so the ISV would need to introduce a NEW overloaded method/version rather than modifying the existing global signature, to avoid breaking subscriber orgs",
+      "A released global Apex signature cannot be changed without breaking subscribers",
       "This restriction only applies to Unmanaged Packages, not Managed Packages",
       "Global Apex methods can always be freely deleted in any subsequent package version without consequence"
     ],
@@ -1937,7 +1937,7 @@
     "question": "A customer installs a Managed Package that includes a custom object 'Warranty__c' with several fields. The customer then wants to add THEIR OWN custom field to that packaged object for internal tracking purposes not related to the package's core function. Is this possible?",
     "options": [
       "No, Managed Package objects are entirely locked and no additional customization is possible by the installing org",
-      "Yes — while certain package-defined components (like Apex classes or specific 'locked' fields) may be restricted from modification by the installing org, customers can generally still add their OWN custom fields, validation rules, and other extensions to a packaged object, since managed packages are designed to allow this kind of customer-side extensibility around the vendor's core locked components",
+      "Yes, customers can add their own fields and rules to packaged objects",
       "Yes, but only by first uninstalling and reinstalling the package with a special extensibility flag enabled",
       "No, extending a packaged object always requires purchasing a separate developer license from the ISV"
     ],
@@ -1951,7 +1951,7 @@
     "question": "A company builds an internal (not customer-facing) modular application split into 4 logical modules, each deployed as a separate Unlocked Package, with proper version control (Salesforce DX source format) driving CI/CD. A stakeholder suggests these should instead be Managed Packages 'for better protection.' Is this suggestion appropriate here?",
     "options": [
       "Yes, Managed Packages are always strictly superior regardless of use case",
-      "Not particularly — Managed Packages are primarily valuable for protecting intellectual property when distributing to EXTERNAL customers/subscribers; for INTERNAL modular development within the same organization, Unlocked Packages (which support full visibility/editability and are well-suited to source-driven, version-controlled internal architecture) are generally the more appropriate and commonly recommended choice, since IP protection from your own internal teams isn't the goal",
+      "Not particularly — Managed Packages are primarily valuable for protecting intellectual property when distributing to EXTERNAL customers/subscribers",
       "No, because Unlocked Packages cannot be used with Salesforce DX or version control at all",
       "Yes, but only because Unlocked Packages are being deprecated by Salesforce"
     ],
@@ -1965,7 +1965,7 @@
     "question": "A deployment plan includes a new Validation Rule requiring 'Industry' to be populated on Account going forward, deploying directly to Production with no other steps. Immediately after deployment, thousands of existing Account records without an Industry value become impossible for any user to edit (even unrelated fields) without first fixing Industry. What planning step was missed?",
     "options": [
       "Nothing was missed; this is expected and desirable behavior with no real downside",
-      "The deployment plan should have included a pre-deployment data remediation step (bulk-populating Industry on legacy records) and/or scoped the validation rule to exclude legacy records (e.g., using a CreatedDate cutoff or an ISNEW()-based condition) so existing incomplete records aren't unexpectedly blocked from ANY future edit until remediated",
+      "The deployment plan should have included a pre-deployment data remediation step (bulk-populating Industry on legacy records) and/or scoped the validation rule to exclude legacy records (e.g.",
       "Validation rules never affect existing records regardless of configuration, so this scenario couldn't actually happen",
       "The fix is to immediately roll back Salesforce to a previous release version"
     ],
@@ -1979,7 +1979,7 @@
     "question": "A release includes changes across Apex, Flow, and Custom Metadata Types, developed by three separate teams over 6 weeks using individual Developer Sandboxes with no shared version control. Integration testing reveals the Flow deployed by Team B overwrote unrelated changes Team A had made to the same Flow, because both teams edited copies independently without merging. What underlying process gap caused this?",
     "options": [
       "Flow inherently cannot be worked on by more than one developer ever, so this was unavoidable",
-      "The lack of a shared, version-controlled source of truth (e.g., Salesforce DX with Git-based branching/merging) meant there was no mechanism to detect or reconcile concurrent, conflicting changes to the same component made by different teams before deployment — a foundational reason larger projects adopt source-driven development with proper branching strategies",
+      "The lack of a shared, version-controlled source of truth (e.g.",
       "This is a Salesforce platform limitation with no available fix, tooling, or workaround",
       "Change Sets would have automatically merged the two teams' conflicting changes correctly"
     ],
@@ -1993,7 +1993,7 @@
     "question": "A company deploying Apex changes to Production via an automated CI/CD pipeline (Salesforce DX) wants to skip running Apex tests during deployment 'to save time,' since the tests already passed in a prior sandbox validation. Is this a sound practice for a Production deployment specifically?",
     "options": [
       "Yes, since the tests already passed once, re-running them in Production deployment is always redundant and safe to skip",
-      "Generally no — Salesforce enforces mandatory Apex test execution (meeting coverage thresholds) for deployments to Production specifically (this requirement doesn't apply the same way to sandboxes), so 'skipping' isn't simply a matter of preference; and even where certain test-level options exist, deliberately bypassing full validation before a Production deployment undermines the very safety net that testing is meant to provide",
+      "Generally no — Salesforce enforces mandatory Apex test execution (meeting coverage thresholds) for deployments to Production specifically (this requirement doesn't apply the same way to sandboxes)",
       "Yes, and this is exactly why 'RunSpecifiedTests' exists — to always skip all testing",
       "No, but only because CI/CD pipelines are incompatible with Salesforce DX in general"
     ],
@@ -2007,7 +2007,7 @@
     "question": "A company is planning a major UI overhaul (Dynamic Forms migration, new Lightning pages) and wants a UAT environment that gives testers a realistic, full-scale experience matching current production record volumes and configuration, ahead of a go-live in 6 weeks. Budget and storage aren't primary constraints; realism is the top priority. Which sandbox type best fits, and what scheduling constraint must be planned around?",
     "options": [
       "A Developer Sandbox, refreshed the night before UAT begins, since 'realistic enough' data isn't actually a priority stated here",
-      "A Full Sandbox, which most closely mirrors production data and metadata volume for realistic UAT — but its 29-day minimum refresh interval must be factored into the project timeline (e.g., scheduling the refresh early enough that it's reasonably current by the time UAT starts, without needing an impossible same-day refresh)",
+      "A Full Sandbox, which most closely mirrors production data and metadata volume for realistic UAT",
       "A Partial Copy Sandbox, since it always contains 100% of production data by default with more frequent refresh flexibility",
       "Any sandbox type works equally well since 'realism' is not actually a meaningful factor in sandbox selection"
     ],
@@ -2021,7 +2021,7 @@
     "question": "A company built a Managed Package version and wants to release it to AppExchange, but their Apex classes only have 60% test coverage overall, concentrated heavily in a few classes while others have 0%. What blocks them from uploading a releasable (non-beta) package version?",
     "options": [
       "Nothing blocks them; test coverage is only a recommendation, never enforced for package uploads",
-      "Salesforce enforces a minimum test coverage requirement (75% overall, similar to production deployments, with specific per-class considerations) before a package version can be uploaded as releasable (non-Beta); with 60% overall and some classes at 0%, they would need to improve coverage before a standard release, though a Beta version may have different constraints",
+      "Salesforce enforces a minimum test coverage requirement (75% overall",
       "This can be bypassed entirely by marking the package 'Unlocked' instead of 'Managed'",
       "This only applies to Second-Generation (2GP) packages, not First-Generation (1GP) packages"
     ],
@@ -2035,7 +2035,7 @@
     "question": "A deployment plan for a complex release recommends deploying Custom Metadata Type records via Change Set alongside the Apex/Flow changes that depend on them, reasoning that 'Change Sets move all configuration uniformly.' Is this reasoning fully correct?",
     "options": [
       "Yes, Custom Metadata Type records behave exactly like Custom Setting values and are never included in change sets",
-      "Partially correct with an important nuance — Custom Metadata Type RECORDS (the actual data/configuration values, as opposed to the type's field definition) generally CAN be included in Change Sets (unlike Custom Setting values, which cannot), but this is a frequently mixed-up distinction, so the deployment plan should explicitly verify which specific configuration values are and aren't includable rather than assuming all 'setup-like' data behaves identically",
+      "Custom Metadata Type records can be included, unlike Custom Setting values",
       "No, Custom Metadata Types cannot be deployed via Change Sets under any circumstances and always require Apex data loading scripts",
       "Yes, and this reasoning applies equally to actual sObject records like Accounts or Contacts too, which are also included in change sets"
     ],
@@ -2049,7 +2049,7 @@
     "question": "A large Outbound Change Set containing 150 components is created, but the admin wants to verify it will deploy cleanly to Production BEFORE the scheduled release window, without actually finalizing the deployment yet. What Salesforce capability supports this specific need?",
     "options": [
       "There is no way to test a deployment without fully committing it immediately",
-      "Change sets (and more generally, Salesforce DX / Metadata API deployments) support a 'Validate Only' / check-only deployment mode, which runs all deployment validation (including Apex tests) WITHOUT actually committing the changes, letting the admin confirm a clean deploy ahead of the real release window",
+      "A middleware/integration platform, not Data Loader or the Import Wizard",
       "The admin must deploy to Production for real, then immediately roll back if there are issues",
       "This can only be tested by manually recreating all 150 components by hand in a separate sandbox first"
     ],
@@ -2063,7 +2063,7 @@
     "question": "A company uses a Developer Pro Sandbox for shared QA testing among 8 QA engineers, refreshing it every 5 days to stay reasonably current with production. A tester argues this should instead be a Full Sandbox 'because QA needs production-like data.' Is a Full Sandbox strictly necessary here?",
     "options": [
       "Yes, QA can only ever be performed properly in a Full Sandbox, with no valid alternative",
-      "Not necessarily — Developer Pro Sandboxes offer more storage than standard Developer Sandboxes and support more frequent refreshes (every 5 days) than a Full Sandbox (29 days); whether Full Sandbox's complete production data copy is truly NEEDED depends on whether QA scenarios specifically require full-scale/complete data, or whether Developer Pro's larger (but still limited) capacity and more frequent refresh cadence sufficiently serve the QA team's actual needs",
+      "Not necessarily — Developer Pro Sandboxes offer more storage than standard Developer Sandboxes and support more frequent refreshes (every 5 days) than a Full Sandbox (29 days)",
       "No, because Developer Pro Sandboxes cannot be used for QA testing under any circumstances by definition",
       "Yes, but only because more than 5 people are using the sandbox simultaneously"
     ],
@@ -2077,7 +2077,7 @@
     "question": "An admin wants to deploy a single custom field from a Sandbox to Production using a Change Set, but that field is referenced by a validation rule, a Flow, AND a Report Type already active in the target Production org (created independently there, not via change set). Will including just the new field (with no other components) in the Outbound Change Set succeed?",
     "options": [
       "No, this will always fail because the field is referenced by so many existing components in Production",
-      "This can succeed — components ALREADY existing in the target org (validation rule, Flow, Report Type) don't need to be RE-included in the change set just because they reference the new field; the change set only needs to bring over what's actually missing (the new field itself), assuming nothing about the field's own definition conflicts with those existing references",
+      "This can succeed — components ALREADY existing in the target org (validation rule, Flow",
       "This requires including the validation rule, Flow, and Report Type in the change set as well, since they all reference the field",
       "This can only work if the field is deployed as part of a Managed Package instead"
     ],
@@ -2091,7 +2091,7 @@
     "question": "A company wants to allow a specific set of trusted 'Power Users' to deploy their own vetted Flow changes directly via Change Set into Production, without going through the central admin team, to speed up minor iterations. What must be true for this delegation to work safely?",
     "options": [
       "Change Sets have no permission model, so anyone with a Salesforce login can already do this by default",
-      "The Power Users need the 'Deploy Change Sets' permission (and the org needs deployment connections properly configured between the relevant sandbox and Production), and ideally this should be paired with governance guardrails (like requiring validation-only runs first, or peer review) since granting deployment permission alone doesn't guarantee quality control over WHAT gets deployed",
+      "The Power Users need the 'Deploy Change Sets' permission (and the org needs deployment connections properly configured between the relevant sandbox and Production)",
       "This requires giving Power Users full System Administrator profiles, since deployment always requires that specific profile",
       "This is not possible; only a single designated 'Release Manager' user can ever deploy change sets in any org"
     ],
