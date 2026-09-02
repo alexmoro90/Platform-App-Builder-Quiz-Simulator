@@ -1,10 +1,9 @@
 
-// ---------- State ----------
 let state = {
-  mode: null,           // 'study' | 'exam'
-  questions: [],        // sanitized questions from server
+  mode: null,
+  questions: [],
   currentIndex: 0,
-  answers: [],           // {id, selected}
+  answers: [],
   currentSelected: null,
   answered: false,
   startedAt: null
@@ -12,7 +11,6 @@ let state = {
 
 const EXAM_QUESTION_COUNT = 60;
 
-// ---------- Utility ----------
 function $(sel) { return document.querySelector(sel); }
 function $all(sel) { return document.querySelectorAll(sel); }
 
@@ -25,7 +23,6 @@ function getUsername() {
   return ($('#username').value || 'guest').trim() || 'guest';
 }
 
-// ---------- Home screen: count picker ----------
 let selectedStudyCount = 20;
 
 $all('.count-btn').forEach(btn => {
@@ -36,7 +33,6 @@ $all('.count-btn').forEach(btn => {
     $('#study-custom-count').value = '';
   });
 });
-// default select 20
 document.addEventListener('DOMContentLoaded', () => {
   const defaultBtn = document.querySelector('.count-btn[data-count="20"]');
   if (defaultBtn) defaultBtn.classList.add('selected');
@@ -70,7 +66,6 @@ function resetState() {
   state = { mode: null, questions: [], currentIndex: 0, answers: [], currentSelected: null, answered: false, startedAt: null };
 }
 
-// ---------- Start a session ----------
 async function startSession(mode, count) {
   try {
     const res = await fetch(`/api/questions?count=${count}`);
@@ -90,7 +85,6 @@ async function startSession(mode, count) {
   }
 }
 
-// ---------- Render current question ----------
 function renderQuestion() {
   const q = state.questions[state.currentIndex];
   state.currentSelected = null;
@@ -153,9 +147,6 @@ function answerCurrentQuestion() {
 
   $all('.option-item').forEach(el => el.classList.add('disabled'));
 
-  // In Study Mode, show immediate feedback (needs correct answer -> fetch it locally is not possible
-  // since client doesn't have correct answers; we ask server via a lightweight check endpoint reuse of submit
-  // For simplicity and per requirement #7 (explanation every question), we fetch single-item validation.
   if (state.mode === 'study') {
     fetchSingleFeedback(q.id, state.currentSelected);
   }
@@ -193,7 +184,6 @@ function showFeedback(isCorrect, explanation) {
   $('#feedback-explanation').textContent = explanation;
 }
 
-// ---------- Finish session: submit all answers ----------
 async function finishSession() {
   const username = getUsername();
   try {
@@ -221,7 +211,7 @@ function renderResults(data) {
   const deg = (data.scorePct / 100) * 360;
   $('#score-circle').style.background = `conic-gradient(var(--sf-blue) ${deg}deg, #eee ${deg}deg)`;
   $('#results-text').textContent = `You answered ${data.correctCount} out of ${data.total} questions correctly.`;
-  const passThreshold = 63; // approximate real exam passing score reference
+  const passThreshold = 63;
   $('#results-pass').textContent = data.scorePct >= passThreshold
     ? `Great job — that's above the typical ~${passThreshold}% passing bar for the real exam.`
     : `The real exam's passing bar is roughly ~${passThreshold}%. Keep practicing the weaker domains below.`;
@@ -257,7 +247,6 @@ function renderResults(data) {
   });
 }
 
-// ---------- History ----------
 async function loadHistory() {
   const username = getUsername();
   try {
