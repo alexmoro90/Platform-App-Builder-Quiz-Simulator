@@ -46,7 +46,9 @@ function shuffle(arr) {
   return a;
 }
 
-// Get a random batch of questions (without revealing correct answer / explanation)
+// Get a random batch of questions (without revealing correct answer / explanation).
+// Each question's ANSWER OPTIONS are also independently shuffled on every request,
+// so option order/position never leaks which answer is correct.
 app.get('/api/questions', (req, res) => {
   const count = Math.min(parseInt(req.query.count, 10) || 60, questions.length);
   const picked = shuffle(questions).slice(0, count);
@@ -55,12 +57,15 @@ app.get('/api/questions', (req, res) => {
     domain: q.domain,
     subtopic: q.subtopic,
     question: q.question,
-    options: q.options
+    options: shuffle(q.options)
   }));
   res.json(sanitized);
 });
 
-// Validate answers at submission time (client sends {id, selected} pairs)
+// Validate answers at submission time.
+// The client sends {id, selectedText} where selectedText is the exact text of the option
+// the user picked (not an index), since option order is re-shuffled per request and an
+// index alone can't be reliably matched back to the master question record.
 app.post('/api/submit', (req, res) => {
   const { username, mode, answers, startedAt } = req.body;
   if (!Array.isArray(answers)) return res.status(400).json({ error: 'answers must be an array' });
@@ -73,7 +78,9 @@ app.post('/api/submit', (req, res) => {
   const results = answers.map(a => {
     const q = byId[a.id];
     if (!q) return null;
-    const isCorrect = a.selected === q.correct;
+    const correctText = q.options[q.correct];
+    const selectedText = a.selectedText != null ? a.selectedText : (typeof a.selected === 'number' ? q.options[a.selected] : null);
+    const isCorrect = selectedText === correctText;
     if (isCorrect) correctCount++;
     if (!domainStats[q.domain]) domainStats[q.domain] = { correct: 0, total: 0 };
     domainStats[q.domain].total++;
@@ -84,8 +91,8 @@ app.post('/api/submit', (req, res) => {
       subtopic: q.subtopic,
       question: q.question,
       options: q.options,
-      correct: q.correct,
-      selected: a.selected,
+      correctText,
+      selectedText,
       isCorrect,
       explanation: q.explanation
     };
